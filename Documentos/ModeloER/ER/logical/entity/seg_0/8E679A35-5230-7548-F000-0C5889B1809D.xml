@@ -1,0 +1,58 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="8E679A35-5230-7548-F000-0C5889B1809D" name="FamiliaProducto">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-03-20 01:34:00 UTC</createdTime>
+<ownerDesignName>ER</ownerDesignName>
+<engineerTo>
+<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="Id" id="D15AF253-8830-BD99-79D1-0C8109EB5C49">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-03-20 01:34:18 UTC</createdTime>
+<ownerDesignName>ER</ownerDesignName>
+<engineerTo>
+<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Descripcion" id="192CE516-FD90-C2E8-CB01-7C69D9671AB3">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-03-20 01:34:33 UTC</createdTime>
+<ownerDesignName>ER</ownerDesignName>
+<engineerTo>
+<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40 CHAR</dataTypeSize>
+<ownDataTypeParameters>40 CHAR,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="9844751A-EC31-EDFB-C23D-304D55BB4211" name="FamiliaProducto PK">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-03-20 01:34:50 UTC</createdTime>
+<ownerDesignName>ER</ownerDesignName>
+<engineerTo>
+<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>D15AF253-8830-BD99-79D1-0C8109EB5C49</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

@@ -1,0 +1,122 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="2D789E9B-F5D7-D1CB-A907-857D52764779" name="Venta">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-03-18 00:15:03 UTC</createdTime>
+<ownerDesignName>ER</ownerDesignName>
+<engineerTo>
+<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="Id" id="15132F56-7BE4-EB7D-A7DC-B203D63B5978">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-03-18 00:15:10 UTC</createdTime>
+<ownerDesignName>ER</ownerDesignName>
+<engineerTo>
+<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Cantidad" id="02231976-B9B4-4C49-8ECC-B9BA19F0CA49">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-03-18 00:16:29 UTC</createdTime>
+<ownerDesignName>ER</ownerDesignName>
+<engineerTo>
+<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Subtotal" id="AA571266-80E0-E6F7-3CA7-59DB1E9FA7D1">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-03-19 02:28:55 UTC</createdTime>
+<ownerDesignName>ER</ownerDesignName>
+<engineerTo>
+<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Descuento" id="17D6F077-AC0C-BF66-084A-EE6686D88A1D">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-03-19 02:29:09 UTC</createdTime>
+<ownerDesignName>ER</ownerDesignName>
+<engineerTo>
+<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Total" id="96902AE8-DC86-E280-AFC4-270BDFCB1C1A">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-03-19 02:29:19 UTC</createdTime>
+<ownerDesignName>ER</ownerDesignName>
+<engineerTo>
+<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="IdCliente" id="02F81AEA-4EBA-D060-BFEC-16A79C260BF6">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-03-20 04:23:33 UTC</createdTime>
+<generatorID>BED6F819-8ACB-39E7-B3C4-16442CAB51FA</generatorID>
+<ownerDesignName>ER</ownerDesignName>
+<engineerTo>
+<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+</engineerTo>
+<referedAttribute>4CBC3D6E-6C4F-5961-F326-55A877C31FF9</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Id1" id="4B049D62-3016-60C5-2945-8A58D5F5A418">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-03-20 05:01:44 UTC</createdTime>
+<generatorID>DA0F9F8D-E646-9454-AA91-76D8CC8B47DF</generatorID>
+<ownerDesignName>ER</ownerDesignName>
+<engineerTo>
+<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+</engineerTo>
+<referedAttribute>8532C1F5-5E9D-9A8E-7653-CF93AC129CA7</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypeScale>17</dataTypeScale>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="1D73D1C2-95FB-5313-CC69-0ECAC5278446" name="Venta PK">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-03-18 00:15:55 UTC</createdTime>
+<ownerDesignName>ER</ownerDesignName>
+<engineerTo>
+<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>15132F56-7BE4-EB7D-A7DC-B203D63B5978</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

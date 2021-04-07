@@ -1,0 +1,150 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="7A092AEF-F0FA-B6DC-7615-5C2418DACFAA" name="Cliente">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-03-17 20:12:03 UTC</createdTime>
+<ownerDesignName>ER</ownerDesignName>
+<engineerTo>
+<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="Id" id="4CBC3D6E-6C4F-5961-F326-55A877C31FF9">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-03-20 04:22:57 UTC</createdTime>
+<ownerDesignName>ER</ownerDesignName>
+<engineerTo>
+<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Rut" id="4C66D1FE-949D-7FB7-AA9C-81E9A1A8DCCC">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-03-17 20:28:57 UTC</createdTime>
+<ownerDesignName>ER</ownerDesignName>
+<engineerTo>
+<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>10 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Nombres" id="F77DA0A1-5597-DE86-8464-FCB0BD42E6A1">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-03-17 20:28:24 UTC</createdTime>
+<ownerDesignName>ER</ownerDesignName>
+<engineerTo>
+<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 CHAR</dataTypeSize>
+<ownDataTypeParameters>30 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ApellidoPaterno" id="A9F1332A-58C6-EB45-29F6-F81A0A079A8F">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-03-17 20:29:47 UTC</createdTime>
+<ownerDesignName>ER</ownerDesignName>
+<engineerTo>
+<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ApellidoMaterno" id="FDE853BE-E4C3-E40B-AAB8-0AACBA849105">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-03-17 20:30:08 UTC</createdTime>
+<ownerDesignName>ER</ownerDesignName>
+<engineerTo>
+<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Dirección" id="B6F2460F-EC12-F27A-8578-86842FCE63C4">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-03-17 20:30:30 UTC</createdTime>
+<ownerDesignName>ER</ownerDesignName>
+<engineerTo>
+<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40 CHAR</dataTypeSize>
+<ownDataTypeParameters>40 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Ciudad" id="B4746029-655B-B234-AFC5-639A400F92B0">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-03-17 20:40:19 UTC</createdTime>
+<ownerDesignName>ER</ownerDesignName>
+<engineerTo>
+<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Telefono" id="DCD6C854-8C64-695B-F706-C6C1C1BB7DEC">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-03-17 20:43:01 UTC</createdTime>
+<ownerDesignName>ER</ownerDesignName>
+<engineerTo>
+<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypeScale>10</dataTypeScale>
+<ownDataTypeParameters>,,10</ownDataTypeParameters>
+</Attribute>
+<Attribute name="IdComuna" id="E76DA551-FC38-FA06-ACC2-B3465F0483AE">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-03-20 04:47:06 UTC</createdTime>
+<generatorID>C0DB9AFB-CB9E-242A-E120-777BEEAFC691</generatorID>
+<ownerDesignName>ER</ownerDesignName>
+<engineerTo>
+<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+</engineerTo>
+<referedAttribute>3CC60DF8-6A29-BCD4-21A2-8FA0193F700B</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="B889B0CB-8528-7116-BF54-1AAC1AEE8970" name="Cliente PK">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-03-17 20:29:44 UTC</createdTime>
+<ownerDesignName>ER</ownerDesignName>
+<engineerTo>
+<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>4CBC3D6E-6C4F-5961-F326-55A877C31FF9</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

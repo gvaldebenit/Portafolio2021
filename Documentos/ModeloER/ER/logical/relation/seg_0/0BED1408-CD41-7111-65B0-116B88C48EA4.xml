@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="ProveOrden" directorySegmentName="seg_0" id="0BED1408-CD41-7111-65B0-116B88C48EA4">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-03-20 05:38:49 UTC</createdTime>
+<ownerDesignName>ER</ownerDesignName>
+<engineerTo>
+<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+</engineerTo>
+<sourcePk>9696A567-FAF3-49D1-BEA2-641061273444</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>2618F425-DFCB-130A-F456-3095A8E9C430</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>5B7E225F-1372-FAA9-53D4-B946E11C6D79</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="VentaCliente" directorySegmentName="seg_0" id="BED6F819-8ACB-39E7-B3C4-16442CAB51FA">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-03-20 04:23:33 UTC</createdTime>
+<ownerDesignName>ER</ownerDesignName>
+<engineerTo>
+<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+</engineerTo>
+<sourcePk>B889B0CB-8528-7116-BF54-1AAC1AEE8970</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>7A092AEF-F0FA-B6DC-7615-5C2418DACFAA</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>2D789E9B-F5D7-D1CB-A907-857D52764779</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="TipoProd" directorySegmentName="seg_0" id="C057D931-5609-D978-0388-2FB430E0D50B">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-03-20 04:06:12 UTC</createdTime>
+<ownerDesignName>ER</ownerDesignName>
+<engineerTo>
+<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+</engineerTo>
+<sourcePk>D124B8AD-7498-5FBB-2D33-31AB284D2746</sourcePk>
+<identifying>false</identifying>
+<optionalSource>false</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>F35F6F40-ABD2-7331-1564-799B8A433A76</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>7BE74B4E-B629-B172-6727-A0537E63F52F</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

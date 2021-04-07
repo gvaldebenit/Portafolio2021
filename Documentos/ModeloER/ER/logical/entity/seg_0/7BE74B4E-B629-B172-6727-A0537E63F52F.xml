@@ -1,0 +1,141 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="7BE74B4E-B629-B172-6727-A0537E63F52F" name="Producto">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-03-17 21:20:13 UTC</createdTime>
+<ownerDesignName>ER</ownerDesignName>
+<engineerTo>
+<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="Id" id="8532C1F5-5E9D-9A8E-7653-CF93AC129CA7">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-03-17 21:20:20 UTC</createdTime>
+<ownerDesignName>ER</ownerDesignName>
+<engineerTo>
+<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypeScale>17</dataTypeScale>
+<ownDataTypeParameters>,,17</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Nombre" id="B57DCA94-1DB3-C30F-7193-68BA3BF16452">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-03-17 21:20:51 UTC</createdTime>
+<comment><![CDATA[3 primeros -> ID proveedor
+3 sgtes -> familia del Producto
+8sgtes-> Fecha venc. 00000000 sino posee
+3 sgtes -> Tipo Producto (Subfamilia)
+]]></comment>
+<ownerDesignName>ER</ownerDesignName>
+<engineerTo>
+<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 CHAR</dataTypeSize>
+<ownDataTypeParameters>30 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Descripcion" id="8AF8391F-8639-B904-9B25-4FA008AD3155">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-03-17 22:41:50 UTC</createdTime>
+<ownerDesignName>ER</ownerDesignName>
+<engineerTo>
+<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200 CHAR</dataTypeSize>
+<ownDataTypeParameters>200 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Precio" id="F745F151-6AA4-4540-58FF-5CBA2A98343E">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-03-17 22:42:04 UTC</createdTime>
+<ownerDesignName>ER</ownerDesignName>
+<engineerTo>
+<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Stock" id="2EF837BF-512E-1903-40B6-E5935F8FCE22">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-03-17 22:54:11 UTC</createdTime>
+<ownerDesignName>ER</ownerDesignName>
+<engineerTo>
+<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="StockCrit" id="F8BD1A0F-C33E-C6BE-6C3C-31943F13699A">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-03-17 22:54:39 UTC</createdTime>
+<ownerDesignName>ER</ownerDesignName>
+<engineerTo>
+<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="IdFamProd" id="D5EE596B-9A04-DFEE-21B6-F8F27EF6ADA9">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-03-20 03:59:22 UTC</createdTime>
+<generatorID>07633B6F-4DC6-95CB-E2F9-7716C8C0E054</generatorID>
+<ownerDesignName>ER</ownerDesignName>
+<engineerTo>
+<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+</engineerTo>
+<referedAttribute>D15AF253-8830-BD99-79D1-0C8109EB5C49</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="IdTipoProd" id="6BC246F5-66F8-3241-325D-6FF9D11DB508">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-03-20 04:06:12 UTC</createdTime>
+<generatorID>C057D931-5609-D978-0388-2FB430E0D50B</generatorID>
+<ownerDesignName>ER</ownerDesignName>
+<engineerTo>
+<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+</engineerTo>
+<referedAttribute>A38D08DE-CC9E-761A-3D4C-C22515E0B5E1</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="DA49920E-53D6-0525-FF27-E52F0B85CA96" name="Producto PK">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-03-17 22:41:46 UTC</createdTime>
+<ownerDesignName>ER</ownerDesignName>
+<engineerTo>
+<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>8532C1F5-5E9D-9A8E-7653-CF93AC129CA7</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>
