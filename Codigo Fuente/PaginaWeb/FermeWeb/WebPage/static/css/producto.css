@@ -1,0 +1,349 @@
+*{
+    margin: 0;
+    list-style:none;
+    box-sizing: border-box;
+}
+   
+@media screen and (min-width:1025px) and (max-width:2000px){
+    header {
+        
+        background:#1b5583;
+        width: 100%;
+        height: 60px;
+        z-index: 100;
+        position: fixed;
+        top: 0;
+             
+}
+#btnMenu{
+    display: none;
+}
+
+header label{
+    display: none;   
+
+    width: 80px;
+    height: 20px;
+    
+
+}
+header label:hover{
+    cursor: pointer;
+}
+
+
+.menu ul {
+    margin-top: 1.2%;
+    margin-left: 5%;
+    display: flex;
+    font-family: 'Barlow', sans-serif;
+}
+.menu li a {
+    font-size:14px;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+  
+    font-family: "Poppins";
+
+}
+
+.menu li:hover{
+    
+    text-decoration: underline;
+   
+}
+/****************************** FORMULARIO***********************************************/
+
+.foto_cont{
+     
+    width: 100%;
+    height:910px;
+    background-image:  url('../fotos/lavados/lav4.jpg');
+    background-size: 100%  100% ;
+
+}
+
+
+.form1{
+    padding-top: 200px;
+}
+.contenedor{
+    font-family: 'Poppins';
+   background-color: rgb(235, 235, 235);
+    font-size: 13PX;
+    color:#999;
+    margin:0 auto ;
+    width: 300px;
+    padding: 5px;
+    text-align: center;
+    border: 15px  ;
+ 
+}
+
+.input{
+    border: 0;
+}
+
+.field{
+    border: solid 1px #999;
+    padding: 5px 10px;
+    width: 280px;
+}
+
+
+.btn{
+    margin: 10px;
+    padding: 10px 25px; 
+    width: 100px;  
+}
+
+.btn-green{
+    text-align: center;
+    color: white;
+    background-color: #3CC93F;
+}
+
+.btn-green:hover{
+    background-color: #37B839;	
+}
+/*ultima parte de la pagina*/
+.footer{
+    height: 99px;
+    background-color: rgb(100, 91, 91);
+    color: rgba(0, 0, 0, 0.555);
+    text-align: center;
+    padding: 40px;
+}
+
+}
+@media screen and (min-width:400px) and (max-width:1024px) {
+    #btnMenu{
+        display: none;
+    }
+  
+    header label{
+        
+        position: fixed;
+        top: 0;
+        width: 100%;
+        height: 3em;
+        padding:20px;
+        padding-left: 50%;
+        display: block;
+        background:#1b5583;
+        
+    }
+    .menu{
+        
+       position:fixed;
+       left:12%;
+       background: rgb(255, 255, 255);
+       top: 4.7%;
+       width: 80%;
+      margin-top: -100%;
+      transition: 0.5s ease-in-out;
+      
+    }
+    .menu ul{
+        list-style-type: none;
+            background:#1b5f83;
+    
+    }
+    .menu ul{
+        border-top: solid 1px rgb(10, 9, 9);
+    }
+    .menu li a{
+        
+        display:block;
+        text-align: center;
+        padding: 8px;
+        color: aliceblue;
+        text-decoration: none;
+        list-style: none;
+        
+    }
+    
+    #btnMenu:checked ~.menu{
+        margin:0;
+
+    }
+    /******CUERPO*****/
+   
+    .foto_cont{
+     
+        width: 100%;
+        height:1280px;
+        background-image:  url('../fotos/lavados/lav4.jpg');
+        background-size: 100%  100% ;
+    
+    }
+    
+    
+    .form1{
+        padding-top: 80px;
+    }
+    .contenedor{
+        font-family: 'Poppins';
+       background-color: rgb(235, 235, 235);
+        font-size: 13PX;
+        color:#999;
+        margin:0 auto ;
+        width: 300px;
+        padding: 5px;
+        text-align: center;
+        border: 15px  ;
+     
+    }
+    
+    .input{
+        border: 0;
+    }
+    
+    .field{
+        border: solid 1px #999;
+        padding: 5px 10px;
+        width: 280px;
+    }
+    
+    
+    .btn{
+        margin: 10px;
+        padding: 10px 25px; 
+        width: 100px;  
+    }
+    
+    .btn-green{
+        text-align: center;
+        color: white;
+        background-color: #3CC93F;
+    }
+    
+    .btn-green:hover{
+        background-color: #37B839;	
+    }
+    /*ultima parte de la pagina*/
+    .footer{
+        height: 99px;
+        background-color: rgb(100, 91, 91);
+        color: rgba(0, 0, 0, 0.555);
+        text-align: center;
+        padding: 40px;
+}
+}
+@media screen and (max-width:400px){
+    #btnMenu{
+        display: none;
+    }
+  
+    header label{
+        
+        position: fixed;
+        top: 0;
+        width: 100%;
+        height: 3em;
+        padding:20px;
+        padding-left: 50%;
+        display: block;
+        background:#1b5583;
+        
+    }
+    .menu{
+        
+        position:fixed;
+        left:12%;
+        background: rgb(255, 255, 255);
+        top: 7.3%;
+        width: 80%;
+       margin-top: -70%;
+       transition: 0.5s ease-in-out;
+       
+      
+    }
+    .menu ul{
+        list-style-type: none;
+            background:#1b5f83;
+    
+    }
+    .menu ul{
+        border-top: solid 1px rgb(10, 9, 9);
+    }
+    .menu li a{
+       
+        display:block;
+        text-align: center;
+        padding: 8px;
+        color: white;
+        text-decoration: none;
+        list-style: none;
+        
+    }
+    
+    #btnMenu:checked ~.menu{
+        margin:0;
+
+    }
+    /*****************************CUERPO***************************/
+    .foto_cont{
+     
+        width: 100%;
+        height:865px;
+        background-image:  url('../fotos/lavados/lav4.jpg');
+        background-size: 100%  100% ;
+    
+    }
+    
+    
+    .form1{
+        padding-top: 80px;
+    }
+    .contenedor{
+        font-family: 'Poppins';
+       background-color: rgb(235, 235, 235);
+        font-size: 13PX;
+        color:#999;
+        margin:0 auto ;
+        width: 300px;
+        padding: 5px;
+        text-align: center;
+        border: 15px  ;
+     
+    }
+    
+    .input{
+        border: 0;
+    }
+    
+    .field{
+        border: solid 1px #999;
+        padding: 5px 10px;
+        width: 280px;
+    }
+    
+    
+    .btn{
+        margin: 10px;
+        padding: 10px 25px; 
+        width: 100px;  
+    }
+    
+    .btn-green{
+        text-align: center;
+        color: white;
+        background-color: #3CC93F;
+    }
+    
+    .btn-green:hover{
+        background-color: #37B839;	
+    }
+    /*ultima parte de la pagina*/
+    .footer{
+        height: 99px;
+        background-color: rgb(100, 91, 91);
+        color: rgba(0, 0, 0, 0.555);
+        text-align: center;
+        padding: 40px;
+    }
+
+
+}

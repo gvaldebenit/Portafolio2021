@@ -1,0 +1,207 @@
+/* Hoja de Estilo CSS para dispositivos medios (1025-2000px) */
+
+@media screen and (min-width:1025px) and (max-width:2000px){
+  
+  @import url(https://fonts.googleapis.com/css?family=Open+Sans:100,300,400,700);
+  @import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
+  /* Titulo Formulario */
+  .title h2 {
+    color:rgba(255, 255, 255, 0.63);
+    font-family: 'Poppins'; 
+    text-align: center;
+    margin: 20px 0px;
+  }
+  /* Formulario */
+  #Formulario {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    width: 40%;
+    box-shadow: 0 0 1rem rgb(0, 0, 0);
+    padding: .5rem;
+  }
+  /* Labels del Formulario */
+  .container label {
+    color: white;
+  }
+  /* Cajas de Input */
+  .container [id^="txt"]{
+    background: transparent;
+    border: 1px solid rgba(rgba(255, 255, 255, 0.349), .5) ;
+    border-bottom: 5px solid rgba(white, .5);
+    color: white;
+    display: block;
+    transition: 250ms ;
+    background: ease-in;
+  }
+  /* Boton Login */
+  .login-submit {
+    border: 2px solid white;
+    background: transparent;
+    color: white;
+    display: block;
+    margin: 1rem auto;
+    padding:10px 30px;
+    transition: 25ms;
+    background: ease-in;
+  }
+  [class*=underlay] {
+    left: 0;
+    min-height: 100%;
+    min-width: 100%;
+    position: fixed;
+    top: 0;
+  }
+  .underlay-photo {
+    background-image:  url('../fotos/lavados/lav4.jpg');
+    background-size: cover;
+    z-index: -1;
+  }
+  .underlay-black {
+    background: rgba(0, 0, 0, 0.521);
+    z-index: -1;
+  }
+  @keyframes hue-rotate {
+    from {
+      -webkit-filter: grayscale(30%) hue-rotate(0deg);
+    }
+    to {
+      -webkit-filter: grayscale(30%) hue-rotate(360deg);
+    }
+  }
+}
+@media screen and (min-width:400px) and (max-width:1024px) {
+  @import url(https://fonts.googleapis.com/css?family=Open+Sans:100,300,400,700);
+  @import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
+  /* Titulo Formulario */
+  .title h2 {
+    color:rgba(255, 255, 255, 0.63);
+    font-family: 'Poppins'; 
+    text-align: center;
+    margin: 20px 0px;
+  }
+  /* Formulario */
+  #Formulario {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    width: 40%;
+    box-shadow: 0 0 1rem rgb(0, 0, 0);
+    padding: .5rem;
+  }
+  /* Labels del Formulario */
+  .container label {
+    color: white;
+  }
+  /* Cajas de Input */
+  .container [id^="txt"] {
+    background: transparent;
+    border: 1px solid rgba(rgba(255, 255, 255, 0.349), .5) ;
+    border-bottom: 5px solid rgba(white, .5);
+    color: white;
+    display: block;
+    transition: 250ms ;
+    background: ease-in;
+  }
+  /* Boton Login */
+  .login-submit {
+    border: 2px solid white;
+    background: transparent;
+    color: white;
+    display: block;
+    margin: 1rem auto;
+    padding:10px 30px;
+    transition: 25ms;
+    background: ease-in;
+  }
+  [class*=underlay] {
+    left: 0;
+    min-height: 100%;
+    min-width: 100%;
+    position: fixed;
+    top: 0;
+  }
+  .underlay-photo {
+    background-image:  url('../fotos/lavados/lav4.jpg');
+    background-size: cover;
+    z-index: -1;
+  }
+  .underlay-black {
+    background: rgba(0, 0, 0, 0.521);
+    z-index: -1;
+  }
+  @keyframes hue-rotate {
+    from {
+      -webkit-filter: grayscale(30%) hue-rotate(0deg);
+    }
+    to {
+      -webkit-filter: grayscale(30%) hue-rotate(360deg);
+    }
+  }
+}
+@media screen and (max-width:400px){
+  @import url(https://fonts.googleapis.com/css?family=Open+Sans:100,300,400,700);
+  @import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
+  /* Titulo Formulario */
+  .title h2 {
+    color:rgba(255, 255, 255, 0.63);
+    font-family: 'Poppins'; 
+    text-align: center;
+    margin: 20px 0px;
+  }
+  /* Formulario */
+  #Formulario {
+    margin-top: 40px;
+    margin-bottom: 120px;
+    width: 60%;
+    box-shadow: 0 0 1rem rgb(0, 0, 0);
+    padding: .5rem;
+  }
+  /* Labels del Formulario */
+  .container label {
+    color: white;
+  }
+  /* Cajas de Input */
+  .container [id^="txt"] {
+    background: transparent;
+    border: 1px solid rgba(rgba(255, 255, 255, 0.349), .5) ;
+    border-bottom: 5px solid rgba(white, .5);
+    color: white;
+    display: block;
+    transition: 250ms ;
+    background: ease-in;
+  }
+  /* Boton Login */
+  .login-submit {
+    border: 2px solid white;
+    background: transparent;
+    color: white;
+    display: block;
+    margin: 1rem auto;
+    padding:10px 30px;
+    transition: 25ms;
+    background: ease-in;
+  }
+  [class*=underlay] {
+    left: 0;
+    min-height: 100%;
+    min-width: 100%;
+    position: fixed;
+    top: 0;
+  }
+  .underlay-photo {
+    background-image:  url('../fotos/lavados/lav4.jpg');
+    background-size: cover;
+    z-index: -1;
+  }
+  .underlay-black {
+    background: rgba(0, 0, 0, 0.521);
+    z-index: -1;
+  }
+  @keyframes hue-rotate {
+    from {
+      -webkit-filter: grayscale(30%) hue-rotate(0deg);
+    }
+    to {
+      -webkit-filter: grayscale(30%) hue-rotate(360deg);
+    }
+  }
+}

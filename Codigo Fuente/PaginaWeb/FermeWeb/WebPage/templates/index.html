@@ -1,0 +1,115 @@
+{% extends "Template.html" %}
+{% load static %}
+
+{% block estilos %}
+    <link rel="stylesheet" href="{% static 'css/index_xs.css' %}">
+    <link rel="stylesheet" href="{% static 'css/index_sm.css' %}">
+    <link rel="stylesheet" href="{% static 'css/index_md.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+    <script src="{% static 'js/slider.js' %}"></script>
+{% endblock estilos %}
+
+{% block contenido %}
+{% csrf_token %}
+
+<!-- Iniciar Slider -->
+<script>
+    $(document).ready(function () {$('.slider').bxSlider();});    
+</script>
+
+<!-- Banner Página -->
+<div class="foto_cont">
+    <div id="main">
+        <div class="titulo1">
+            <h1>¿Quieres que tu auto</h1>
+        </div>
+        <div class="titulo2">
+            <h1>se vea reluciente?</h1>
+        </div>
+        <div class="titulo3">
+            <a href="{%url 'FORC' %}">
+            <h1>Reserva aqui</h1>
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Sección de Precios -->
+<div style="text-align: center; margin-top:40px">
+    <h1>Servicios</h1>
+</div>
+<div class="container">
+     
+    <div class="col-xs-4 col-sm-4 col-md-4" id="col">
+        <img src="{%static 'fotos/019-car service.png' %}"  width="120px" height="80px" alt="">
+        <h2>Paquete 1</h2>
+        <p>Lavado</p>
+        <p>Secado</p>
+        <p>Aspirado</p>
+        <p>Brillo llantas</p>
+        <h1>$10.000</h1>
+    </div>
+
+    <div class="col-xs-4 col-sm-4 col-md-4" id="col">
+        <img src="{%static 'fotos/027-car wash.png' %}" width="120px" height="80px" alt="">
+        <h2> Paquete 2</h2>
+        <p>Lavado</p>
+        <p>Secado</p>
+        <p>Aspirado</p>
+        <p>Limpieza de tapetes</p>
+        <p>Armorall interior</p>
+        <p>Brillo en llantas</p>
+        <h1>$15.000</h1>
+    </div>
+
+    <div class="col-xs-4 col-sm-4 col-md-4" id="col">
+        <img src="{%static 'fotos/013-polish.png' %}" width="120px" height="80px" alt="">
+        <h2>Paquete 3</h2>
+        <p>Lavado</p>
+        <p>Secado</p>
+        <p>Aspirado</p>
+        <p>Limpieza de tapetes</p>
+        <p>Armorall interior</p>
+        <p>Brillo en llantas y hules</p>
+        <p>Proceso de pinturas</p>
+        <p>Lavado de chasis</p>
+        <p>Aroma a gusto</p>
+        <h1>$20.000</h1>
+    </div>
+  
+</div>
+
+<!-- Carrusel Imagenes -->
+<div class="containerSlider" >
+    <div class="slider">
+        {% for item in autos %}
+            <li style="float: center;"><img src="{{item.imagen.url}}" style="width: 100%; max-width: 800px"></li>
+        {% endfor %}        
+    </div>          
+</div>
+
+<!-- Sección Clientes -->
+<div class="title">
+    <h1>Nuestros clientes</h1>
+</div>
+
+<!-- Slider -->
+<div class="containerSlider2">
+    <div class="slider">
+        <li><img style="width: 100%; max-width:300px"  height="300px" src="{% static 'fotos/cliente/antonio'%}.jpg" alt="">
+            <h5>"La mejor atencion de todas"</h5>
+        </li>
+        <li><img style="width: 100%; max-width:300px" height="300px" src="{% static 'fotos/cliente/jonas'%}.jpg" alt="">
+            <h5>"Nunca habia visto mi auto asi"</h5>
+        </li>
+        <li><img style="width: 100%; max-width:300px" height="300px" src="{% static 'fotos/cliente/pabloski'%}.jpg" alt="">
+            <h5>"Muy buen servicio y una grata atencion"</h5>
+        </li>
+        <li><img style="width: 100% max-width:300px" height="300px" src="{% static 'fotos/cliente/sergio'%}.jpg" alt="">
+            <h5>"Tengo un nuevo auto ahora"</h5>
+        </li>
+    </div>
+</div>
+{% endblock contenido %}        
+        

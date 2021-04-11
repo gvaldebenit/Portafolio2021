@@ -1,0 +1,92 @@
+/* Hoja de Estilo CSS para dispositivos moviles (<420px) */
+
+@media screen and (max-width:420px) {
+    /* Banner */
+    .foto_cont {
+        text-align: center;
+        width: 100%;
+        height: 450px;
+        background-image: url('../fotos/azul.jpg');
+        background-size: 100% 100%;
+    }
+    .titulo1 h1 {
+        padding-top: 70px;
+        line-height: 1.1;
+        color: white;
+        font-size: 310%;
+    }
+    .titulo2 h1 {
+        font-family: 'Anton';
+        color: white;
+        font-size: 200%;
+    }
+    .titulo3 {
+        padding-top: 20px;
+    }
+    .titulo3 a {
+        text-decoration: none;
+    }
+    .titulo3 h1 {
+        font-family: 'Poppins';
+        display: inline;
+        line-height: 7.5;
+        color: rgb(255, 253, 253);
+        font-size: 150%;
+        background-color: rgb(177, 9, 9);
+        cursor: pointer;
+        border-radius: 12px;
+        padding: 20px;
+    }
+    .titulo3 h1:hover {
+        font-family: 'Poppins';
+        color: black;
+        background-color: beige;
+    }
+    /* Precios */
+    .container #col {
+        outline: 5px auto black;
+        margin: 10px 0px;
+    }
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        text-align: center;
+        height: auto;
+        font-family: 'Poppins';
+        margin: 40px 0px 40px 0px;
+    }
+    .container img {
+        border-radius: 50%;
+        width: 40%;
+    }
+    /* Primer Slider */
+    .containerSlider {
+        flex-wrap: wrap;
+        background-color: white;
+        display: flex;
+        margin: auto;
+        width: 100%;
+    }
+    /* Segundo Slider*/
+    .containerSlider2 {
+        flex-wrap: wrap;
+        display: flex;
+        height: auto;
+        margin: auto;
+    }
+    .title h1 {
+        text-align: center;
+        font-family: 'Poppins';
+    }
+    .containerSlider2 h5 {
+        text-align: center;
+        font-size: 30px;
+        font-family: 'Poppins';
+    }
+    .containerSlider2 img {
+        display: flex;
+        left: 7%;
+        position: relative;
+        border-radius: 15%;
+    }
+}

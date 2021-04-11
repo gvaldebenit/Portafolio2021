@@ -1,0 +1,31 @@
+/* Hoja de Estilo CSS para dispositivos medios (1025-2000px) */
+
+@media screen and (min-width:420px) and (max-width:1024px) {
+   /* Titulo */
+   .title h1 {
+    text-align: center;
+    font-family: 'Poppins';
+    margin: 20px 0px;
+    }
+    /* Contenedor */
+    .container-fluid {
+        display: flex;
+        flex-wrap: wrap;
+        background-color: blanchedalmond;
+        justify-content: space-evenly;
+    }
+    /* Columnas contenedoras */
+    .container-fluid #col {
+        margin: 30px 20px;
+    }
+    /* Imagen */
+    .container-fluid #img {
+        border: 2px solid black;  
+    }
+    .container-fluid #img:hover {
+        border: 2px solid #777;
+        filter: sepia(40%);  
+        transform:scale(0.8);
+        -ms-transform:scale(0.8);
+    }
+}

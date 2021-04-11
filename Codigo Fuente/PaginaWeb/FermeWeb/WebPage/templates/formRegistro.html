@@ -1,0 +1,70 @@
+{% extends "Template.html" %}
+{% load static %}
+
+{% block estilos %}
+    <link rel="stylesheet" href="{% static 'css/for_estilo.css' %}">
+    <script src="{% static 'js/script.js' %}"></script> 
+{% endblock estilos %}
+        
+{% block contenido %}
+    <div class="title">
+        <h2>Registro de Usuarios</h2>
+    </div>
+  <!-- Formulario -->
+    <div class="container mr-auto" id="Formulario">
+      <form action="{% url 'FORC' %}" method="POST" onsubmit="return validarForRegistro()">
+        {% csrf_token %}          
+          <div class="form-group">
+            <label for="txtnombre">Nombre</label>
+            <input type="text" class="form-control" autofocus="true" placeholder="Nombre" minlength="3" 
+               maxlength="80" name="txtNombre" id="txtnombre" required/>
+          </div>
+          <div class="form-group">
+            <label for="txtapellido">Apellido</label>
+            <input type="text" class="form-control" autofocus="true" placeholder="Apellido" minlength="3" 
+               maxlength="80" name="txtApellido" id="txtapellido" required/>
+          </div>
+          <div class="form-group">
+            <label for="txtcorreo">Correo</label>
+            <input type="mail" class="form-control" autofocus="true" placeholder="Correo" name="txtCorreo" 
+               id="txtcorreo" required />
+          </div>
+          <div class="form-group">
+            <label for="txtusuario">Nombre Usuario</label>
+            <input type="text" class="form-control" autofocus="true" placeholder="Nombre Usuario" 
+               name="txtUsuario" id="txtusuario" required/>
+          </div>
+          <div class="form-group">
+            <label for="txtclave1">Contraseña</label>
+            <input type="password" class="form-control" autofocus="true" placeholder="Contraseña" 
+               name="clave1"  id="txtclave1" required/>
+          </div>
+          <div class="form-group">
+            <label for="txtclave2">Repetir Contraseña</label>
+            <input type="password" class="form-control" autofocus="true" placeholder="Repetir Contraseña" 
+               name="clave2" id="txtclave2" required/>
+          </div>
+          <input type="submit" name="Login" value="Registrar" class="login-submit" />
+      </form>
+    </div>
+
+    <div class="underlay-photo"></div>
+    <div class="underlay-black"></div> 
+    {% if sw == 1%}
+        <script>
+            setTimeout(function(){ alert("Usuario ya Existe"); }, 500);
+        </script>
+    {% endif %}   
+    {% if sw == 2%}
+        <script>
+            setTimeout(function(){ alert("Las contraseñas no coinciden"); }, 500);
+        </script>
+    {% endif %}  
+    {% if sw == 3 %}
+        <script>
+            setTimeout(function(){alert("Email ya existente en la base de datos")}; 500);
+        </script>     
+    {% endif %}     
+{% endblock contenido %}
+
+    

@@ -1,0 +1,65 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> CarWash </title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+    <link rel="stylesheet" href="{% static 'css/template.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <!-- Bloque para colocar estilos -->
+
+    {% block estilos %} 
+    
+    {% endblock estilos %}
+	
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!-- Cabecera de la Página -->
+    <nav class="navbar navbar-expand-lg navbar-light" id="navbarPage">
+        <a class="navbar-brand href=#">
+            <img style=" margin-left:20px;  margin-top:10px; " src="{% static 'fotos/carwash.png'%}" alt="">
+            <a id="navbar-brand"> CarWashMiguel</a>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <ul class="navbar-nav mr-auto d-flex align-items-center">
+                <a class="nav-item nav-link" id="a-nav" href="{%url 'IND'%}">Inicio</a></li>
+                <a class="nav-item nav-link" id="a-nav" href="{%url 'NOS' %}">Nosotros</a></li>
+                <a class="nav-item nav-link" id="a-nav" href="{%url 'GALE' %}">Galeria</a></li>
+                <a class="nav-item nav-link" id="a-nav" href="{%url 'CON' %}">Contacto</a></li>
+                {%if user.is_authenticated %}
+                    <a class="nav-item nav-link" id="a-nav" href="{%url 'INSADM' %}">Administrar Insumos</a></li>
+                    <a class="nav-item nav-link" id="a-nav" href="">Bienvenido: {{user.first_name}}</a></li>
+                    <a class="nav-item nav-link" id="a-nav" href="{% url 'LOGOUT' %}"> Cerrar Sesion </a></li>
+                {% else %}
+                    <a class="nav-item nav-link" id="a-nav" href="{% url 'LOGIN' %}"> Iniciar Sesion </a></li>
+                    <a class="nav-item nav-link" id="a-nav" href="{%url 'FORC' %}">Nuevo Usuario</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Contenedor de las Páginas -->
+    {% block contenido %}
+    
+    {% endblock contenido %}
+
+    <!-- Footer de Página -->
+    <footer>
+        <div class="footer">
+            <h5>Copyright 2020 © Todos Los Derechos Reservados</h5>
+        </div>
+    </footer>
+</body>
+
+</html>

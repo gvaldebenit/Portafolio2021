@@ -1,0 +1,109 @@
+/* Estilos Generales */
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    list-style: none;
+}
+
+ /* Estilo para dispositivos grandes */
+ @media screen and (min-width:1025px) and (max-width:2000px){
+    /* navegador */
+    #navbarPage {
+        background: #1b5583;
+        top: 0;
+    }
+    #navbarNavAltMarkup {
+        justify-content: end;
+        align-self: flex-end;
+        text-decoration-color: white;
+        vertical-align: middle;
+    }
+    .navbar #navbar-brand{
+        color:white;
+    }
+    .navbar-collapse #a-nav{
+        color:white;
+        text-align: center;
+        padding: 10px 20px;
+        text-decoration: none;
+        list-style: none;
+        font-family: "Poppins";
+    }
+    .footer {
+        height: 99px;
+        background-color: rgb(100, 91, 91);
+        color: rgba(0, 0, 0, 0.555);
+        text-align: center;
+        padding: 40px;
+    }
+}
+
+/* Estilo para dispositivos medianos (Tablets) */
+
+@media screen and (min-width:420px) and (max-width:1024px) {
+    /* navegador */
+    #navbarPage {
+        background: #1b5583;
+        top: 0;
+    }
+    #navbarNavAltMarkup {
+        justify-content: end;
+        align-self: flex-end;
+        text-decoration-color: white;
+        vertical-align: middle;
+    }
+    .navbar #navbar-brand{
+        color:white;
+    }
+    .navbar-collapse #a-nav{
+        color:white;
+        text-align: center;
+        padding: 10px 20px;
+        text-decoration: none;
+        list-style: none;
+        font-family: "Poppins";
+    }
+    .footer {
+        height: 99px;
+        background-color: rgb(100, 91, 91);
+        color: rgba(0, 0, 0, 0.555);
+        text-align: center;
+        padding: 40px;
+    }
+}
+
+
+/* Estilo para dispositivos pequeños (Celulares) */
+
+@media screen and (max-width:420px) {
+    /* NAVEGADOR */
+    #navbarPage {
+        background: #1b5583;
+        top: 0;
+    }
+    #navbarNavAltMarkup {
+        justify-content: end;
+        align-self: flex-end;
+        text-decoration-color: white;
+        vertical-align: middle;
+    }
+    .navbar #navbar-brand{
+        color:white;
+    }
+    .navbar-collapse #a-nav{
+        color:white;
+        text-align: center;
+        padding: 10px 20px;
+        text-decoration: none;
+        list-style: none;
+        font-family: "Poppins";
+    }
+    .footer {
+        height: 99px;
+        background-color: rgb(100, 91, 91);
+        color: rgba(0, 0, 0, 0.555);
+        text-align: center;
+        padding: 40px;
+    }
+}
