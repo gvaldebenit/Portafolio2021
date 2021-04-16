@@ -14,7 +14,7 @@
   <div class="container">
     <div class="container mr-auto" id="Formulario">
       <form action="{% url 'LOGIN' %}" method="POST" onsubmit="">
-        {% csrf_token %}          
+        {% csrf_token %}              
           <div class="form-group">
             <label for="usuario">Usuario</label>
             <input type="text" class="form-control" autofocus="true" placeholder="Nombre Usuario" 
@@ -28,11 +28,8 @@
           <input type="submit" name="Login" value="Ingresar" class="login-submit" />
       </form>
     </div>
-
-    <div class="underlay-photo"></div>
-    <div class="underlay-black"></div> 
   </div>
-  {% if sw == 1%}
+  {% if ans == 1 %}
     <script>
         setTimeout(function(){ alert("Usuario y/o Contraseña Incorrecta. Intente Nuevamente"); }, 500);
     </script>

@@ -1,0 +1,64 @@
+/* Hoja de Estilo CSS para index */
+
+@media screen and (min-width:1024px) and (max-width:2000px) {
+    /* Container Ubicacion */
+    #ubicacionContainer{
+        outline: 5px auto black;
+        margin-inline: 20px;
+        align-items: center;
+    }
+    .carousel-item{
+        height: 350px;
+    }
+    .imgSlide1{
+        position:absolute;
+        top:0;
+        left:0;
+        min-height: 300px;
+    }
+    .container{
+        height:auto;
+    }
+}
+
+@media screen and (min-width:420px) and (max-width:1024px) {
+    /* Container Ubicacion */
+    #ubicacionContainer{
+        outline: 5px auto black;
+        margin-inline: 20px;
+        align-items: center;
+    }
+    .carousel-item{
+        height: 350px;
+    }
+    .imgSlide1{
+        position:absolute;
+        top:0;
+        left:0;
+        min-height: 300px;
+    }
+    .container{
+        height:auto;
+    }
+}
+
+@media screen and (max-width:420px) {
+    /* Container Ubicacion */
+    #ubicacionContainer{
+        outline: 5px auto black;
+        margin-inline: 20px;
+        align-items: center;
+    }
+    .carousel-item{
+        height: 350px;
+    }
+    .imgSlide1{
+        position:absolute;
+        top:0;
+        left:0;
+        min-height: 300px;
+    }
+    .container{
+        height:auto;
+    }
+}

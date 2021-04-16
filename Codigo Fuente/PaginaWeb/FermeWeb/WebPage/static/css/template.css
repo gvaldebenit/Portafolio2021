@@ -14,8 +14,6 @@
         top: 0;
     }
     #navbarNavAltMarkup {
-        justify-content: end;
-        align-self: flex-end;
         text-decoration-color: white;
         vertical-align: middle;
     }
@@ -30,12 +28,16 @@
         list-style: none;
         font-family: "Poppins";
     }
-    .footer {
-        height: 99px;
+    #navbarnavUp {
+        align-items: flex-end;
+    }
+    #footer {
+        height: auto;
         background-color: rgb(100, 91, 91);
         color: rgba(0, 0, 0, 0.555);
         text-align: center;
-        padding: 40px;
+        padding: 10px;
+        outline: 5px auto black;
     }
 }
 
@@ -65,7 +67,6 @@
         font-family: "Poppins";
     }
     .footer {
-        height: 99px;
         background-color: rgb(100, 91, 91);
         color: rgba(0, 0, 0, 0.555);
         text-align: center;
@@ -100,7 +101,6 @@
         font-family: "Poppins";
     }
     .footer {
-        height: 99px;
         background-color: rgb(100, 91, 91);
         color: rgba(0, 0, 0, 0.555);
         text-align: center;

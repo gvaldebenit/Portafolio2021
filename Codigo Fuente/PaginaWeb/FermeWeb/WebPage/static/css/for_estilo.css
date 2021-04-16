@@ -6,7 +6,7 @@
   @import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
   /* Titulo Formulario */
   .title h2 {
-    color:rgba(255, 255, 255, 0.63);
+    color:rgba(22, 35, 153, 0.63);
     font-family: 'Poppins'; 
     text-align: center;
     margin: 20px 0px;
@@ -21,12 +21,12 @@
   }
   /* Labels del Formulario */
   .container label {
-    color: white;
+    color: black;
   }
   /* Cajas de Input */
   .container [id^="txt"]{
-    background: transparent;
-    border: 1px solid rgba(rgba(255, 255, 255, 0.349), .5) ;
+    background: white;
+    border: 1px solid black;
     border-bottom: 5px solid rgba(white, .5);
     color: white;
     display: block;
@@ -35,14 +35,13 @@
   }
   /* Boton Login */
   .login-submit {
-    border: 2px solid white;
-    background: transparent;
-    color: white;
+    border: 2px solid black;
+    color: black;
     display: block;
     margin: 1rem auto;
     padding:10px 30px;
     transition: 25ms;
-    background: ease-in;
+    
   }
   [class*=underlay] {
     left: 0;
@@ -50,11 +49,6 @@
     min-width: 100%;
     position: fixed;
     top: 0;
-  }
-  .underlay-photo {
-    background-image:  url('../fotos/lavados/lav4.jpg');
-    background-size: cover;
-    z-index: -1;
   }
   .underlay-black {
     background: rgba(0, 0, 0, 0.521);
@@ -74,7 +68,7 @@
   @import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
   /* Titulo Formulario */
   .title h2 {
-    color:rgba(255, 255, 255, 0.63);
+    color:rgba(22, 35, 153, 0.63);
     font-family: 'Poppins'; 
     text-align: center;
     margin: 20px 0px;
@@ -89,12 +83,12 @@
   }
   /* Labels del Formulario */
   .container label {
-    color: white;
+    color: black;
   }
   /* Cajas de Input */
   .container [id^="txt"] {
-    background: transparent;
-    border: 1px solid rgba(rgba(255, 255, 255, 0.349), .5) ;
+    background: white;
+    border: 1px solid black;
     border-bottom: 5px solid rgba(white, .5);
     color: white;
     display: block;
@@ -103,9 +97,8 @@
   }
   /* Boton Login */
   .login-submit {
-    border: 2px solid white;
-    background: transparent;
-    color: white;
+    border: 2px solid black;
+    color: black;
     display: block;
     margin: 1rem auto;
     padding:10px 30px;
@@ -119,11 +112,7 @@
     position: fixed;
     top: 0;
   }
-  .underlay-photo {
-    background-image:  url('../fotos/lavados/lav4.jpg');
-    background-size: cover;
-    z-index: -1;
-  }
+  
   .underlay-black {
     background: rgba(0, 0, 0, 0.521);
     z-index: -1;
@@ -142,7 +131,7 @@
   @import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
   /* Titulo Formulario */
   .title h2 {
-    color:rgba(255, 255, 255, 0.63);
+    color:rgba(22, 35, 153, 0.63);
     font-family: 'Poppins'; 
     text-align: center;
     margin: 20px 0px;
@@ -157,12 +146,12 @@
   }
   /* Labels del Formulario */
   .container label {
-    color: white;
+    color: black;
   }
   /* Cajas de Input */
   .container [id^="txt"] {
-    background: transparent;
-    border: 1px solid rgba(rgba(255, 255, 255, 0.349), .5) ;
+    background: white;
+    border: 1px solid black;
     border-bottom: 5px solid rgba(white, .5);
     color: white;
     display: block;
@@ -171,9 +160,8 @@
   }
   /* Boton Login */
   .login-submit {
-    border: 2px solid white;
-    background: transparent;
-    color: white;
+    border: 2px solid black;
+    color: black;
     display: block;
     margin: 1rem auto;
     padding:10px 30px;
@@ -187,11 +175,7 @@
     position: fixed;
     top: 0;
   }
-  .underlay-photo {
-    background-image:  url('../fotos/lavados/lav4.jpg');
-    background-size: cover;
-    z-index: -1;
-  }
+ 
   .underlay-black {
     background: rgba(0, 0, 0, 0.521);
     z-index: -1;
