@@ -19,16 +19,17 @@ from django.contrib.auth.decorators import login_required, permission_required
 
 # Index
 def index(request):
-    herramienta = sliderHerramienta.objects.all()
-    pintura = sliderPintura.objects.all()
-    material = sliderMateriales.objects.all()
-    return render(request, 'index.html', {'herramienta': herramienta, 'pintura': pintura, 'material': material})
+    #herramienta = sliderHerramienta.objects.all()
+    #pintura = sliderPintura.objects.all()
+    #material = sliderMateriales.objects.all()
+    #return render(request, 'index.html', {'herramienta': herramienta, 'pintura': pintura, 'material': material})
+    return render(request, 'index.html')
 
 # Login
 def login(request):
-    herramienta = sliderHerramienta.objects.all()
-    pintura = sliderPintura.objects.all()
-    material = sliderMateriales.objects.all()
+    #herramienta = sliderHerramienta.objects.all()
+    #pintura = sliderPintura.objects.all()
+    #material = sliderMateriales.objects.all()
     # Recibe un POST
     if request.POST:
         # Obtiene Datos
@@ -39,7 +40,8 @@ def login(request):
         # Verifica el usuario
         if user is not None and user.is_active:
             login_autent(request, user)
-            return render(request,'index.html', {'user': user, 'herramienta': herramienta, 'pintura': pintura, 'material': material})
+            #return render(request,'index.html', {'user': user, 'herramienta': herramienta, 'pintura': pintura, 'material': material})
+            return render(request,'index.html')
         else:
             # Respuesta si no está
             ans = 1
@@ -49,10 +51,11 @@ def login(request):
 # Logout
 def logoutView(request):
     logout(request)
-    herramienta = sliderHerramienta.objects.all()
-    pintura = sliderPintura.objects.all()
-    material = sliderMateriales.objects.all()
-    return render(request, 'index.html', {'herramienta': herramienta, 'pintura': pintura, 'material': material})
+    #herramienta = sliderHerramienta.objects.all()
+    #pintura = sliderPintura.objects.all()
+    #material = sliderMateriales.objects.all()
+    #return render(request, 'index.html', {'herramienta': herramienta, 'pintura': pintura, 'material': material})
+    return render(request,'index.html')
 
 # SignUp
 def signup(request):
@@ -89,7 +92,7 @@ def signup(request):
             user.first_name = nombre
             user.last_name = apellido
             user.email = correo
-            uuser.username = usuario
+            user.username = usuario
             user.set_password(clave1)
             user.save()
             user = authenticate(request, username = usuario, password = clave1)
