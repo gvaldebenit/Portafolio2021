@@ -1,0 +1,49 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="B1F8F539-F397-5D0A-6A85-6098803C4947" name="Región">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-05-03 20:49:04 UTC</createdTime>
+<generatorID>65FBF3CD-0BF2-20BF-635A-CF4C3637FD8D</generatorID>
+<ownerDesignName>ER</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="idRegion" id="D4ACED82-B988-CB9B-64A7-6E52D5DBAA30">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-05-03 20:49:04 UTC</createdTime>
+<generatorID>51C3FD1B-2707-182A-225F-4666C8BF5DB2</generatorID>
+<ownerDesignName>ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Nombre" id="9F2911E7-787F-1AAA-0362-6D9BC1FC929A">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-05-03 20:49:04 UTC</createdTime>
+<generatorID>93B5B60D-0840-2EB9-0801-9F6EADFA540B</generatorID>
+<ownerDesignName>ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 CHAR</dataTypeSize>
+<ownDataTypeParameters>30 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="E3903044-979C-B3FF-2570-854356D3FB18" name="Región_PK">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-05-03 20:49:04 UTC</createdTime>
+<generatorID>0F9E2E51-B44D-A087-1C88-A3B6ACF67438</generatorID>
+<ownerDesignName>ER</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D4ACED82-B988-CB9B-64A7-6E52D5DBAA30"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

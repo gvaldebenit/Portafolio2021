@@ -15,29 +15,78 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="IdVenta" id="E1BE4438-4511-E090-907A-DD618C241B51">
-<createdBy>Yhodarks</createdBy>
-<createdTime>2021-03-20 05:03:11 UTC</createdTime>
-<generatorID>6A65304A-78B2-F539-2F20-B160A65BE007</generatorID>
+<Attribute name="idDetalle" id="BB1EBD6A-1C55-F034-45E8-5028A4D08259">
+<createdBy>Gibafenrir</createdBy>
+<createdTime>2021-03-29 23:32:55 UTC</createdTime>
 <ownerDesignName>ER</ownerDesignName>
 <engineerTo>
 <item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
 </engineerTo>
-<referedAttribute>15132F56-7BE4-EB7D-A7DC-B203D63B5978</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="IdBoleta" id="FB522E37-4A45-3757-8986-D2B313F9753E">
-<createdBy>Yhodarks</createdBy>
-<createdTime>2021-03-20 05:04:52 UTC</createdTime>
-<generatorID>AADE6A63-B82B-7FEA-1E39-90559DA093E7</generatorID>
+<Attribute name="cantidad" id="E5B66466-83B0-A3A0-CE03-BE674B0BC4CF">
+<createdBy>Gibafenrir</createdBy>
+<createdTime>2021-04-04 22:10:21 UTC</createdTime>
 <ownerDesignName>ER</ownerDesignName>
 <engineerTo>
 <item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
 </engineerTo>
-<referedAttribute>F54E52B6-2D84-9B8A-4EF4-3907936273E1</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="valorUnitario" id="39DE6987-A0A4-15EB-F57B-8147FDF6A298">
+<createdBy>Gibafenrir</createdBy>
+<createdTime>2021-04-04 22:10:31 UTC</createdTime>
+<ownerDesignName>ER</ownerDesignName>
+<engineerTo>
+<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="sub total" id="36D2111C-BEEE-01CF-8BBF-C6BAB4F176B1">
+<createdBy>Gibafenrir</createdBy>
+<createdTime>2021-04-04 22:11:10 UTC</createdTime>
+<ownerDesignName>ER</ownerDesignName>
+<engineerTo>
+<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="idProducto" id="6E2CD0DF-B6FD-8979-AD48-DB2995601C57">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-05-03 20:30:02 UTC</createdTime>
+<generatorID>DA0F9F8D-E646-9454-AA91-76D8CC8B47DF</generatorID>
+<ownerDesignName>ER</ownerDesignName>
+<engineerTo>
+<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+</engineerTo>
+<referedAttribute>8532C1F5-5E9D-9A8E-7653-CF93AC129CA7</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>17 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="idVent" id="B6E78A22-CC3B-E654-037C-BDE199FBDC17">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-05-03 20:34:42 UTC</createdTime>
+<generatorID>D50F0C41-3245-07BC-77BB-BE2BB1F1A400</generatorID>
+<ownerDesignName>ER</ownerDesignName>
+<engineerTo>
+<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+</engineerTo>
+<referedAttribute>15132F56-7BE4-EB7D-A7DC-B203D63B5978</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
@@ -54,8 +103,7 @@
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>
-<attributeRef>E1BE4438-4511-E090-907A-DD618C241B51</attributeRef>
-<attributeRef>FB522E37-4A45-3757-8986-D2B313F9753E</attributeRef>
+<attributeRef>BB1EBD6A-1C55-F034-45E8-5028A4D08259</attributeRef>
 </usedAttributes>
 </identifier>
 </identifiers>

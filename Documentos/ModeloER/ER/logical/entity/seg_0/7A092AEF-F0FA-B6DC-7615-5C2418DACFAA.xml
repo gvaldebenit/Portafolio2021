@@ -15,7 +15,7 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="Id" id="4CBC3D6E-6C4F-5961-F326-55A877C31FF9">
+<Attribute name="idCliente" id="4CBC3D6E-6C4F-5961-F326-55A877C31FF9">
 <createdBy>Yhodarks</createdBy>
 <createdTime>2021-03-20 04:22:57 UTC</createdTime>
 <ownerDesignName>ER</ownerDesignName>
@@ -27,7 +27,7 @@
 <logicalDatatype>LOGDT019</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="Rut" id="4C66D1FE-949D-7FB7-AA9C-81E9A1A8DCCC">
+<Attribute name="rut" id="4C66D1FE-949D-7FB7-AA9C-81E9A1A8DCCC">
 <createdBy>Yhodarks</createdBy>
 <createdTime>2021-03-17 20:28:57 UTC</createdTime>
 <ownerDesignName>ER</ownerDesignName>
@@ -40,7 +40,7 @@
 <dataTypeSize>10 CHAR</dataTypeSize>
 <ownDataTypeParameters>10 CHAR,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="Nombres" id="F77DA0A1-5597-DE86-8464-FCB0BD42E6A1">
+<Attribute name="nombres" id="F77DA0A1-5597-DE86-8464-FCB0BD42E6A1">
 <createdBy>Yhodarks</createdBy>
 <createdTime>2021-03-17 20:28:24 UTC</createdTime>
 <ownerDesignName>ER</ownerDesignName>
@@ -53,7 +53,7 @@
 <dataTypeSize>30 CHAR</dataTypeSize>
 <ownDataTypeParameters>30 CHAR,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="ApellidoPaterno" id="A9F1332A-58C6-EB45-29F6-F81A0A079A8F">
+<Attribute name="apellidoPaterno" id="A9F1332A-58C6-EB45-29F6-F81A0A079A8F">
 <createdBy>Yhodarks</createdBy>
 <createdTime>2021-03-17 20:29:47 UTC</createdTime>
 <ownerDesignName>ER</ownerDesignName>
@@ -66,7 +66,7 @@
 <dataTypeSize>20 CHAR</dataTypeSize>
 <ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="ApellidoMaterno" id="FDE853BE-E4C3-E40B-AAB8-0AACBA849105">
+<Attribute name="apellidoMaterno" id="FDE853BE-E4C3-E40B-AAB8-0AACBA849105">
 <createdBy>Yhodarks</createdBy>
 <createdTime>2021-03-17 20:30:08 UTC</createdTime>
 <ownerDesignName>ER</ownerDesignName>
@@ -79,7 +79,7 @@
 <dataTypeSize>20 CHAR</dataTypeSize>
 <ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="Dirección" id="B6F2460F-EC12-F27A-8578-86842FCE63C4">
+<Attribute name="dirección" id="B6F2460F-EC12-F27A-8578-86842FCE63C4">
 <createdBy>Yhodarks</createdBy>
 <createdTime>2021-03-17 20:30:30 UTC</createdTime>
 <ownerDesignName>ER</ownerDesignName>
@@ -92,20 +92,7 @@
 <dataTypeSize>40 CHAR</dataTypeSize>
 <ownDataTypeParameters>40 CHAR,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="Ciudad" id="B4746029-655B-B234-AFC5-639A400F92B0">
-<createdBy>Yhodarks</createdBy>
-<createdTime>2021-03-17 20:40:19 UTC</createdTime>
-<ownerDesignName>ER</ownerDesignName>
-<engineerTo>
-<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
-</engineerTo>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>20 CHAR</dataTypeSize>
-<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="Telefono" id="DCD6C854-8C64-695B-F706-C6C1C1BB7DEC">
+<Attribute name="telefono" id="DCD6C854-8C64-695B-F706-C6C1C1BB7DEC">
 <createdBy>Yhodarks</createdBy>
 <createdTime>2021-03-17 20:43:01 UTC</createdTime>
 <ownerDesignName>ER</ownerDesignName>
@@ -114,11 +101,25 @@
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT019</logicalDatatype>
-<dataTypeScale>10</dataTypeScale>
-<ownDataTypeParameters>,,10</ownDataTypeParameters>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>9 CHAR</dataTypeSize>
+<ownDataTypeParameters>9 CHAR,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="IdComuna" id="E76DA551-FC38-FA06-ACC2-B3465F0483AE">
+<Attribute name="email" id="25B17E15-9A05-B2A4-C916-1F25FC5ADC4B">
+<createdBy>Gibafenrir</createdBy>
+<createdTime>2021-04-16 00:23:06 UTC</createdTime>
+<generatorID>4AD5A4D9-8899-89D1-86C6-AEED4A2EBE12</generatorID>
+<ownerDesignName>ER</ownerDesignName>
+<engineerTo>
+<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40 CHAR</dataTypeSize>
+<ownDataTypeParameters>40 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="idComuna" id="E76DA551-FC38-FA06-ACC2-B3465F0483AE">
 <createdBy>Yhodarks</createdBy>
 <createdTime>2021-03-20 04:47:06 UTC</createdTime>
 <generatorID>C0DB9AFB-CB9E-242A-E120-777BEEAFC691</generatorID>
@@ -130,6 +131,34 @@
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="idTipoU" id="683E95F1-3221-D002-0A5D-AE95B33CC57D">
+<createdBy>Gibafenrir</createdBy>
+<createdTime>2021-04-16 00:23:06 UTC</createdTime>
+<generatorID>66229402-BC7E-D9B3-9BB4-BE23B1FF6629</generatorID>
+<ownerDesignName>ER</ownerDesignName>
+<engineerTo>
+<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+</engineerTo>
+<referedAttribute>188C4BC1-4EA8-28DF-A81B-2CC73AD2833C</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="idCuenta" id="706B5833-0F8E-53FB-1E5B-E0EC2E6AE30F">
+<createdBy>Gibafenrir</createdBy>
+<createdTime>2021-04-16 00:23:06 UTC</createdTime>
+<generatorID>D6B5BD55-5A25-4962-4765-722DBE2EAA14</generatorID>
+<ownerDesignName>ER</ownerDesignName>
+<engineerTo>
+<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+</engineerTo>
+<referedAttribute>AAB5A941-A86B-D169-436F-30524BDDC8F1</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
 </attributes>

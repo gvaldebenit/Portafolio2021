@@ -15,7 +15,7 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="Id" id="E41F230D-36F8-E878-7DA1-AA4956F0C275">
+<Attribute name="idCiudad" id="E41F230D-36F8-E878-7DA1-AA4956F0C275">
 <createdBy>Yhodarks</createdBy>
 <createdTime>2021-03-20 04:46:15 UTC</createdTime>
 <ownerDesignName>ER</ownerDesignName>
@@ -40,7 +40,7 @@
 <dataTypeSize>30 CHAR</dataTypeSize>
 <ownDataTypeParameters>30 CHAR,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="IdRegion" id="060C7561-2862-2734-703E-0B7AB40BE1D9">
+<Attribute name="idRegion" id="060C7561-2862-2734-703E-0B7AB40BE1D9">
 <createdBy>Yhodarks</createdBy>
 <createdTime>2021-03-20 04:48:41 UTC</createdTime>
 <generatorID>A3F6610A-B9FF-276C-A2EE-416AC30CC308</generatorID>

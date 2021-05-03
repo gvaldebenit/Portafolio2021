@@ -1,5 +1,5 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="5B7E225F-1372-FAA9-53D4-B946E11C6D79" name="OrdenVenta">
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="5B7E225F-1372-FAA9-53D4-B946E11C6D79" name="OrdenCompra">
 <createdBy>Yhodarks</createdBy>
 <createdTime>2021-03-19 23:34:32 UTC</createdTime>
 <ownerDesignName>ER</ownerDesignName>
@@ -15,7 +15,7 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="Id" id="C4871064-F7CA-2D95-D69C-E71A35ECF272">
+<Attribute name="idOrdCompra" id="C4871064-F7CA-2D95-D69C-E71A35ECF272">
 <createdBy>Yhodarks</createdBy>
 <createdTime>2021-03-20 05:33:00 UTC</createdTime>
 <ownerDesignName>ER</ownerDesignName>
@@ -27,22 +27,7 @@
 <logicalDatatype>LOGDT019</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="IdProducto" id="193FBF81-F960-E8DA-1B6E-93C54093D9C0">
-<createdBy>Yhodarks</createdBy>
-<createdTime>2021-03-20 05:37:27 UTC</createdTime>
-<generatorID>0C1FC2D0-E90C-23D0-7835-65EF0F8973E4</generatorID>
-<ownerDesignName>ER</ownerDesignName>
-<engineerTo>
-<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
-</engineerTo>
-<referedAttribute>8532C1F5-5E9D-9A8E-7653-CF93AC129CA7</referedAttribute>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT019</logicalDatatype>
-<dataTypeScale>17</dataTypeScale>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="Cantidad" id="39DA40ED-A6FB-9A35-C17D-27C809F3B2F2">
+<Attribute name="cantidad" id="39DA40ED-A6FB-9A35-C17D-27C809F3B2F2">
 <createdBy>Yhodarks</createdBy>
 <createdTime>2021-03-20 05:35:58 UTC</createdTime>
 <ownerDesignName>ER</ownerDesignName>
@@ -54,7 +39,19 @@
 <logicalDatatype>LOGDT019</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="Comentario" id="96EA2771-5C9A-8D70-51E4-8FC38D08E14B">
+<Attribute name="total" id="1B290A20-568F-445C-A56F-2E6C4767680B">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-05-03 20:19:38 UTC</createdTime>
+<ownerDesignName>ER</ownerDesignName>
+<engineerTo>
+<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="comentario" id="96EA2771-5C9A-8D70-51E4-8FC38D08E14B">
 <createdBy>Yhodarks</createdBy>
 <createdTime>2021-03-20 05:36:32 UTC</createdTime>
 <ownerDesignName>ER</ownerDesignName>
@@ -68,7 +65,7 @@
 <dataTypeSize>200 CHAR</dataTypeSize>
 <ownDataTypeParameters>200 CHAR,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="Id2" id="2AB36E9B-ECB3-C048-4FAF-E2797015E26E">
+<Attribute name="idEmpleado" id="2AB36E9B-ECB3-C048-4FAF-E2797015E26E">
 <createdBy>Yhodarks</createdBy>
 <createdTime>2021-03-20 05:38:12 UTC</createdTime>
 <generatorID>3D8A3017-BC57-390A-78ED-D818A6CAFD4B</generatorID>
@@ -82,24 +79,24 @@
 <logicalDatatype>LOGDT019</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="Id1" id="6A4FF960-96D4-BBAA-CA39-5609EC0B93A7">
+<Attribute name="idProducto" id="204BEC47-5908-3C32-9833-625224EFA253">
 <createdBy>Yhodarks</createdBy>
-<createdTime>2021-03-20 05:38:49 UTC</createdTime>
-<generatorID>0BED1408-CD41-7111-65B0-116B88C48EA4</generatorID>
+<createdTime>2021-05-03 20:30:02 UTC</createdTime>
+<generatorID>0C1FC2D0-E90C-23D0-7835-65EF0F8973E4</generatorID>
 <ownerDesignName>ER</ownerDesignName>
 <engineerTo>
 <item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
 </engineerTo>
-<referedAttribute>2C3F0186-2C12-D050-F8A1-DC5E5A12434B</referedAttribute>
+<referedAttribute>8532C1F5-5E9D-9A8E-7653-CF93AC129CA7</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT019</logicalDatatype>
-<dataTypeScale>3</dataTypeScale>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>17 CHAR</dataTypeSize>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
-<identifier id="F871BBD5-20D7-231E-8F41-49E3B0BA8542" name="OrdenVenta PK">
+<identifier id="F871BBD5-20D7-231E-8F41-49E3B0BA8542" name="OrdenCompra_PK">
 <createdBy>Yhodarks</createdBy>
 <createdTime>2021-03-20 05:33:11 UTC</createdTime>
 <ownerDesignName>ER</ownerDesignName>

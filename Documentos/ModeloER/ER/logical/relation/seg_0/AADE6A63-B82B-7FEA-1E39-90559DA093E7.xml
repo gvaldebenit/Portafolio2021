@@ -1,19 +1,20 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="DetalleBoleta" directorySegmentName="seg_0" id="AADE6A63-B82B-7FEA-1E39-90559DA093E7">
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Boleta Orden Venta FK" directorySegmentName="seg_0" id="AADE6A63-B82B-7FEA-1E39-90559DA093E7">
 <createdBy>Yhodarks</createdBy>
 <createdTime>2021-03-20 05:04:52 UTC</createdTime>
 <ownerDesignName>ER</ownerDesignName>
 <engineerTo>
 <item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
 </engineerTo>
-<sourcePk>F14EEBD4-A52D-D332-96DA-64A4E24D3648</sourcePk>
-<identifying>true</identifying>
+<sourcePk>1D73D1C2-95FB-5313-CC69-0ECAC5278446</sourcePk>
+<arc>7BB1FBE5-A459-2568-622E-DB1D478862F0</arc>
+<identifying>false</identifying>
 <optionalSource>false</optionalSource>
 <optionalTarget>false</optionalTarget>
 <sourceCardinality>1</sourceCardinality>
-<sourceEntity>20AB2730-EA89-36E4-CF58-DA95E9728890</sourceEntity>
+<sourceEntity>2D789E9B-F5D7-D1CB-A907-857D52764779</sourceEntity>
 <targetCardinalityString>*</targetCardinalityString>
-<targetEntity>EAEB20E4-2CB3-0426-97DA-D90CB8178109</targetEntity>
+<targetEntity>20AB2730-EA89-36E4-CF58-DA95E9728890</targetEntity>
 <transferable>true</transferable>
-<deleteRule>NO ACTION</deleteRule>
+<deleteRule>CASCADE</deleteRule>
 </Relation>

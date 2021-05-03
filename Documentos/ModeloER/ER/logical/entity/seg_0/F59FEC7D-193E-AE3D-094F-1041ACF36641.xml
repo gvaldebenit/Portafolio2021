@@ -4,7 +4,7 @@
 <createdTime>2021-03-20 03:28:34 UTC</createdTime>
 <ownerDesignName>ER</ownerDesignName>
 <engineerTo>
-<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+<item key="ABEF20F8-6821-34FF-4B0C-7CE212B62BF5" value="true"/>
 </engineerTo>
 <adequatelyNormalized>NO</adequatelyNormalized>
 <expectedVolumes>0</expectedVolumes>
@@ -15,12 +15,12 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="Id" id="3CC60DF8-6A29-BCD4-21A2-8FA0193F700B">
+<Attribute name="idComuna" id="3CC60DF8-6A29-BCD4-21A2-8FA0193F700B">
 <createdBy>Yhodarks</createdBy>
 <createdTime>2021-03-20 03:28:39 UTC</createdTime>
 <ownerDesignName>ER</ownerDesignName>
 <engineerTo>
-<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+<item key="ABEF20F8-6821-34FF-4B0C-7CE212B62BF5" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -32,21 +32,21 @@
 <createdTime>2021-03-20 03:28:47 UTC</createdTime>
 <ownerDesignName>ER</ownerDesignName>
 <engineerTo>
-<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+<item key="ABEF20F8-6821-34FF-4B0C-7CE212B62BF5" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>20 CHAR</dataTypeSize>
-<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<dataTypeSize>30 CHAR</dataTypeSize>
+<ownDataTypeParameters>30 CHAR,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="IdCiudad" id="D172E4CC-AF4A-D63C-FECE-A554E23309E7">
+<Attribute name="idCiudad" id="D172E4CC-AF4A-D63C-FECE-A554E23309E7">
 <createdBy>Yhodarks</createdBy>
 <createdTime>2021-03-20 04:48:16 UTC</createdTime>
 <generatorID>9DEB02B8-8DAE-8166-7469-2D30726CFAF0</generatorID>
 <ownerDesignName>ER</ownerDesignName>
 <engineerTo>
-<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+<item key="ABEF20F8-6821-34FF-4B0C-7CE212B62BF5" value="true"/>
 </engineerTo>
 <referedAttribute>E41F230D-36F8-E878-7DA1-AA4956F0C275</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
@@ -61,7 +61,7 @@
 <createdTime>2021-03-20 03:28:46 UTC</createdTime>
 <ownerDesignName>ER</ownerDesignName>
 <engineerTo>
-<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+<item key="ABEF20F8-6821-34FF-4B0C-7CE212B62BF5" value="true"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>

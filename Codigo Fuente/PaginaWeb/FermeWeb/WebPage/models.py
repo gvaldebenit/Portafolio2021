@@ -2,52 +2,29 @@ from django.db import models
 
 # Create your models here.
 
-# Slider Herramientas
-class SliderHerramienta(models.Model):
-
-    idSlider = models.CharField(max_length = 15, primary_key = True)
-    imagen = models.ImageField(upload_to = 'herramientas')
-
-    def __str__(self):
-        return self.idSlider  
-
-# Slider Pinturas
-class SliderPintura(models.Model):
-
-    idSlider = models.CharField(max_length = 15, primary_key = True)
-    imagen = models.ImageField(upload_to = 'pinturas')
-
-    def __str__(self):
-        return self.idSlider
-
-# Slider Materiales
-class SliderMateriales(models.Model):
-
-    idSlider = models.CharField(max_length = 15, primary_key = True)
-    imagen = models.ImageField(upload_to = 'materiales')
-
-    def __str__(self):
-        return self.idSlider
-
 # TipoProducto
 class TipoProducto(models.Model):
 
+    idTipoProducto = models.AutoField(primary_key = True)
     descripcion = models.CharField(max_length = 40)
 
 
 # FamiliaProducto
 class FamiliaProducto(models.Model):
 
+    idFamiliaProducto = models.AutoField(primary_key = True)
     descripcion = models.CharField(max_length = 40)
 
 # Rubro
 class Rubro(models.Model):
-
+    
+    idRubro = models.AutoField(primary_key = True)
     rubro = models.CharField(max_length = 30)
     
 # Cargo
 class Cargo(models.Model):
 
+    idCargo = models.AutoField(primary_key = True)
     cargo = models.CharField(max_length = 20)
     
 # Persona
@@ -63,10 +40,28 @@ class Persona(models.Model):
     class Meta:
         abstract = True
 
+# Cliente
+class Cliente(Persona):
+    idCliente = models.AutoField(primary_key = True)
+    email = models.CharField(max_length = 40)
+    
+# Proveedor
+class Proveedor(Persona):
+
+    idProveedor = models.AutoField(primary_key = True)
+    representante = models.CharField(max_length = 50)
+    idRubro = models.ForeignKey(Rubro, on_delete=models.CASCADE)
+
+# Empleado
+class Empleado(Persona):
+    
+    idEmpleado = models.AutoField(primary_key = True)
+    cargo = models.ForeignKey(Cargo, on_delete=models.CASCADE)
+
 # Producto
 class Producto(models.Model):
 
-    idProducto = models.CharField(primary_key = true)
+    idProducto = models.CharField(max_length = 17, primary_key = True)
     nombre = models.CharField(max_length = 30)
     descripcion = models.CharField(max_length = 200)
     precio = models.IntegerField()
@@ -77,36 +72,20 @@ class Producto(models.Model):
     idTipoProducto = models.ForeignKey(TipoProducto, on_delete=models.CASCADE)
     idProveedor = models.ForeignKey(Proveedor, on_delete=models.CASCADE)
 
-# Cliente
-class Cliente(Persona):
-
-    email = models.CharField(max_length = 40)
-    
-# Proveedor
-class Proveedor(Persona):
-
-    apellidoPaterno = models.CharField(null = true)
-    apellidoMaterno = models.CharField(null = true)
-    representante = models.CharField(max_length = 50)
-    idRubro = models.ForeignKey(Rubro, on_delete=models.CASCADE)
-
-# Empleado
-class Empleado(Persona):
-    
-    cargo = models.ForeignKey(Cargo, on_delete=models.CASCADE)
-    
 # Orden Compra
 class OrdenCompra(models.Model):
 
+    idOrdenCompra = models.AutoField(primary_key = True)
     idProducto = models.ForeignKey(Producto, on_delete=models.CASCADE)
     cantidad = models.IntegerField()
     total = models.IntegerField()
-    comentario = models.CharField(max_length = 200)
+    comentario = models.CharField(max_length = 200, blank= True)
     idEmpleado = models.ForeignKey(Empleado, on_delete=models.CASCADE)
 
 # OrdenVenta (Master)
 class Venta(models.Model):
 
+    idVenta = models.AutoField(primary_key = True)
     fechaVenta = models.DateTimeField(auto_now=False, auto_now_add=False)
     idCliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
     total = models.IntegerField()
@@ -114,7 +93,8 @@ class Venta(models.Model):
 
 # Detalle (Slave)
 class Detalle(models.Model):
-
+    
+    idDetalle = models.AutoField(primary_key = True)
     idVenta = models.ForeignKey(Venta, on_delete=models.CASCADE)
     idProducto = models.ForeignKey(Producto, on_delete=models.CASCADE)
     cantidad = models.IntegerField()
@@ -129,7 +109,6 @@ class Boleta(models.Model):
     totalBoleta = models.IntegerField()
     idVenta = models.ForeignKey(Venta, on_delete=models.CASCADE)
 
-
 # Factura
 class Factura(models.Model):
 
@@ -143,17 +122,20 @@ class Factura(models.Model):
 # Region
 class Region(models.Model):
 
+    idRegion = models.AutoField(primary_key = True)
     nombre = models.CharField(max_length = 30)
     
 # Ciudad
 class Ciudad(models.Model):
 
+    idCiudad = models.AutoField(primary_key = True)
     nombre = models.CharField(max_length = 30)
     idRegion = models.ForeignKey(Region, on_delete=models.CASCADE)
     
 # Comuna
 class Comuna(models.Model):
 
+    idComuna = models.AutoField(primary_key = True)
     nombre = models.CharField(max_length = 30)
     idCiudad = models.ForeignKey(Ciudad, on_delete=models.CASCADE)
     

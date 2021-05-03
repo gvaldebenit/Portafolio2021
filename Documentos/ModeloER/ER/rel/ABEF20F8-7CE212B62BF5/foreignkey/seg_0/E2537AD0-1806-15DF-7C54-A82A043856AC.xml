@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="E2537AD0-1806-15DF-7C54-A82A043856AC" containerWithKeyObject="B589E988-8982-0312-2DA6-D7D34D99A591" localFKIndex="E4E725B3-5CBA-2514-E9B4-A164E94E3BEB" name="Proveedor_Credenciales_FK">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-05-03 20:49:04 UTC</createdTime>
+<generatorID>C00FDC6E-5EB7-4439-204E-2826BFEDA58C</generatorID>
+<ownerDesignName>ER</ownerDesignName>
+<referredTableLongName>Credenciales</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>2868537A-CD19-1006-B292-4C7EB8C5438C</referredTableID>
+<keyObject>6BF92C9B-6A58-501B-9B1A-1E1F2C637552</keyObject>
+<referredKeyID>6BF92C9B-6A58-501B-9B1A-1E1F2C637552</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>idCuenta</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

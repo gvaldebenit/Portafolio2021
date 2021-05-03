@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Factura Orden Venta FK" directorySegmentName="seg_0" id="748D0DA1-1830-F18A-8452-22A0AD906DDA">
+<createdBy>Gibafenrir</createdBy>
+<createdTime>2021-04-04 22:00:23 UTC</createdTime>
+<ownerDesignName>ER</ownerDesignName>
+<engineerTo>
+<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+</engineerTo>
+<sourcePk>1D73D1C2-95FB-5313-CC69-0ECAC5278446</sourcePk>
+<arc>7BB1FBE5-A459-2568-622E-DB1D478862F0</arc>
+<identifying>false</identifying>
+<optionalSource>false</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>2D789E9B-F5D7-D1CB-A907-857D52764779</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>2C01841B-7F80-EDAC-06D1-C916DAC1D7A8</targetEntity>
+<transferable>true</transferable>
+<deleteRule>CASCADE</deleteRule>
+</Relation>

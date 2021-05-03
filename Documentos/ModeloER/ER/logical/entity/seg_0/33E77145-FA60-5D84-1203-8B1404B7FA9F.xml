@@ -15,7 +15,7 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="Id" id="97304F6B-2D35-38FE-1478-E3DF7E24A44C">
+<Attribute name="idEmpleado" id="97304F6B-2D35-38FE-1478-E3DF7E24A44C">
 <createdBy>Yhodarks</createdBy>
 <createdTime>2021-03-17 22:57:28 UTC</createdTime>
 <ownerDesignName>ER</ownerDesignName>
@@ -27,7 +27,7 @@
 <logicalDatatype>LOGDT019</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="Rut" id="C028D123-AE51-0AE8-A26A-74BA0E49FE99">
+<Attribute name="rut" id="C028D123-AE51-0AE8-A26A-74BA0E49FE99">
 <createdBy>Yhodarks</createdBy>
 <createdTime>2021-03-17 22:57:14 UTC</createdTime>
 <ownerDesignName>ER</ownerDesignName>
@@ -40,7 +40,7 @@
 <dataTypeSize>10 CHAR</dataTypeSize>
 <ownDataTypeParameters>10 CHAR,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="Nombres" id="97DA8E6C-BDA6-8283-1955-587068E09687">
+<Attribute name="nombres" id="97DA8E6C-BDA6-8283-1955-587068E09687">
 <createdBy>Yhodarks</createdBy>
 <createdTime>2021-03-17 22:57:14 UTC</createdTime>
 <ownerDesignName>ER</ownerDesignName>
@@ -53,7 +53,7 @@
 <dataTypeSize>30 CHAR</dataTypeSize>
 <ownDataTypeParameters>30 CHAR,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="ApellidoPaterno" id="96D0C1B5-2557-8332-9418-305382147318">
+<Attribute name="apellidoPaterno" id="96D0C1B5-2557-8332-9418-305382147318">
 <createdBy>Yhodarks</createdBy>
 <createdTime>2021-03-17 22:57:14 UTC</createdTime>
 <ownerDesignName>ER</ownerDesignName>
@@ -66,7 +66,7 @@
 <dataTypeSize>20 CHAR</dataTypeSize>
 <ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="ApellidoMaterno" id="F5DB7D01-ABE2-292D-287E-5A13549D278E">
+<Attribute name="apellidoMaterno" id="F5DB7D01-ABE2-292D-287E-5A13549D278E">
 <createdBy>Yhodarks</createdBy>
 <createdTime>2021-03-17 22:57:14 UTC</createdTime>
 <ownerDesignName>ER</ownerDesignName>
@@ -79,7 +79,7 @@
 <dataTypeSize>20 CHAR</dataTypeSize>
 <ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="Telefono" id="7BD40ECF-9629-6AC3-EE90-817A00265467">
+<Attribute name="telefono" id="7BD40ECF-9629-6AC3-EE90-817A00265467">
 <createdBy>Yhodarks</createdBy>
 <createdTime>2021-03-17 22:57:14 UTC</createdTime>
 <ownerDesignName>ER</ownerDesignName>
@@ -88,11 +88,24 @@
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT019</logicalDatatype>
-<dataTypeScale>10</dataTypeScale>
-<ownDataTypeParameters>,,10</ownDataTypeParameters>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>9 CHAR</dataTypeSize>
+<ownDataTypeParameters>9 CHAR,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="Cargo" id="2F21D864-B485-D6A7-7C8A-D7A3DF7D6C7E">
+<Attribute name="direccion" id="E58A65FE-089C-74FD-4F48-E06BEEB00CD1">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-05-03 20:24:00 UTC</createdTime>
+<ownerDesignName>ER</ownerDesignName>
+<engineerTo>
+<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40 CHAR</dataTypeSize>
+<ownDataTypeParameters>40 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="cargo" id="2F21D864-B485-D6A7-7C8A-D7A3DF7D6C7E">
 <createdBy>Yhodarks</createdBy>
 <createdTime>2021-03-17 22:57:57 UTC</createdTime>
 <ownerDesignName>ER</ownerDesignName>
@@ -104,9 +117,37 @@
 <logicalDatatype>LOGDT019</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
+<Attribute name="idTipoU" id="4CC6BB3F-1860-123E-5ACF-08B05DF99A1B">
+<createdBy>Gibafenrir</createdBy>
+<createdTime>2021-04-16 00:23:06 UTC</createdTime>
+<generatorID>0451C6CF-AA5A-29E5-BEE8-0F38F57013C1</generatorID>
+<ownerDesignName>ER</ownerDesignName>
+<engineerTo>
+<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+</engineerTo>
+<referedAttribute>188C4BC1-4EA8-28DF-A81B-2CC73AD2833C</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="idCuenta" id="A3D1CE18-05F7-53E5-4B62-7A4C8F41CE8F">
+<createdBy>Gibafenrir</createdBy>
+<createdTime>2021-04-16 00:23:06 UTC</createdTime>
+<generatorID>A46B1D3F-CF98-CB23-7DBF-258A9C371442</generatorID>
+<ownerDesignName>ER</ownerDesignName>
+<engineerTo>
+<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+</engineerTo>
+<referedAttribute>AAB5A941-A86B-D169-436F-30524BDDC8F1</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
-<identifier id="B525E1FF-FBA5-9BD5-3029-6B5A682472B0" name="Cliente PK">
+<identifier id="B525E1FF-FBA5-9BD5-3029-6B5A682472B0" name="Empleado_PK">
 <createdBy>Yhodarks</createdBy>
 <createdTime>2021-03-17 22:57:14 UTC</createdTime>
 <ownerDesignName>ER</ownerDesignName>

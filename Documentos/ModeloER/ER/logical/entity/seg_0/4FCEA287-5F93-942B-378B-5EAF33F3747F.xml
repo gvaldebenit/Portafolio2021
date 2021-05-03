@@ -15,7 +15,7 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="Id" id="1183CB2A-60A8-4449-8670-5FA2AA5E91E8">
+<Attribute name="idRubro" id="1183CB2A-60A8-4449-8670-5FA2AA5E91E8">
 <createdBy>Yhodarks</createdBy>
 <createdTime>2021-03-20 05:34:33 UTC</createdTime>
 <ownerDesignName>ER</ownerDesignName>
@@ -27,7 +27,7 @@
 <logicalDatatype>LOGDT019</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="Rubro" id="17533C1F-161F-FBA2-01B3-46F32267B472">
+<Attribute name="rubro" id="17533C1F-161F-FBA2-01B3-46F32267B472">
 <createdBy>Yhodarks</createdBy>
 <createdTime>2021-03-20 05:34:41 UTC</createdTime>
 <ownerDesignName>ER</ownerDesignName>
