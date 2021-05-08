@@ -1,0 +1,85 @@
+{% extends "Template.html" %}
+{% load static %}
+{% block estilos %}
+    <link rel="stylesheet" href="{% static 'css/for_estilo.css' %}">
+    <script src="{% static 'js/script.js' %}"></script> 
+{% endblock estilos %}
+        
+{% block contenido %}
+    <div class="title">
+        <h2>Registro de Productos</h2>
+    </div>
+  <!-- Formulario -->
+    <div class="container mr-auto" id="Formulario">
+      <form action="" method="POST" onsubmit="return validarForRegistro()">
+        {% csrf_token %}          
+          <div class="form-group">
+            <label for="txtnombre">Nombre</label>
+            <input type="text" class="form-control" autofocus="true" placeholder="Nombre Producto" minlength="3" 
+               maxlength="30" name="txtNombre" id="txtnombre" required/>
+          </div>
+
+          <div class="form-group">
+            <label for="txtprecio">Precio</label>
+            <input type="number" class="form-control" autofocus="true" placeholder="Precio" name="txtPrecio" 
+               id="txtprecio" required />
+          </div>
+
+          <div class="form-group">
+            <label for="stock">Stock</label>
+            <input type="number" class="form-control" autofocus="true" placeholder="Stock" name="txtStock" 
+               id="txtstock" required />
+          </div>
+
+          <div class="form-group">
+            <label for="txtstockcritico">Stock Critico</label>
+            <input type="number" class="form-control" autofocus="true" placeholder="Stock Critico" name="txtStockCritico" 
+               id="txtstockcritico" required />
+          </div>
+
+          <div class="form-group">
+            <label for="txtfvenn">Fecha Vencimiento</label>
+            <input type="date" class="form-control" autofocus="true" placeholder="txtFvenn" name="txtFvenn" 
+            id="txtfvenn" required />
+          </div>
+
+          <div class="form-group">
+            <label for="idfamproducto">Familia Producto</label>    
+            <br>
+            <select name="familiaProducto" class="input-100" >
+              {% for item in familia_producto %}
+              <option>{{item.descripcion}}</option>
+              {% endfor %}
+            </select>
+          </div>
+    
+         <div class="form-group">
+            <label for="idtipoproducto">Tipo Producto</label>
+           <br>
+            <select name="TipoProducto" class="input-100" >
+              {% for item in tipo_producto %}
+              <option>{{item.descripcion}}</option>
+              {% endfor %}
+            </select>
+         </div>
+
+
+          <div class="form-group">
+            <label for="txtproveedor">Proveedor</label>
+            <input type="text" class="form-control" autofocus="true" placeholder="Nombre Proveedor" minlength="3" 
+               maxlength="30" name="txtProveedor" id="txtProveedor" required/>
+          </div>
+
+          <div class="form-group">
+            <label for="txtproveedor">Descripcion</label>
+            <input type="text" class="form-control" autofocus="true" placeholder="Descripcion" minlength="3" 
+               maxlength="30" name="txtDescripcion" id="txtDescripcion" required/>
+          </div>          
+
+          <input type="submit" name="Login" value="Registrar" class="login-submit" />
+      </form>
+    </div>
+<div>
+  <h2>{{mensaje}}</h2>
+</div>    
+{% endblock contenido %}

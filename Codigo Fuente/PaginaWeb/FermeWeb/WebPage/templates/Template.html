@@ -41,6 +41,7 @@
                     <li><a class="nav-item nav-link me-auto" id="a-nav" href="">Bienvenido: {{user.first_name}}</a></li>
                     <li><a class="nav-item nav-link" id="a-nav" href="{% url 'LOGOUT' %}"> Cerrar Sesion </a></li>
                     <li><a class="nav-item nav-link" id="a-nav" href=""> Carro de Compra </a></li>
+                    <li><a class="nav-item nav-link" id="a-nav" href="{% url 'REGP' %}"> Registro Producto </a></li>
                 {% else %}
                     <li><a class="nav-item nav-link" id="a-nav" href="{% url 'LOGIN' %}"> Iniciar Sesion </a></li>
                     <li><a class="nav-item nav-link" id="a-nav" href="{% url 'SIGNUP' %}">Nuevo Usuario</a></li>

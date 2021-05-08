@@ -86,3 +86,36 @@ def signup(request):
             login_autent(request, user)
             return render(request,'index.html', {'user' : user, 'herramienta': herramienta, 'pintura': pintura, 'material': material}) 
     return render(request,'formRegistro.html')
+
+#Formulario Productos
+
+def registroProducto(request):
+    familiaPr = FamiliaProducto.objects.all()
+    tipoPr = TipoProducto.objects.all()
+    if request.POST:
+        nombre = request.POST.get("txtNombre")
+        precio = request.POST.get("txtPrecio")
+        stock = request.POST.get("txtStock")
+        stockCritico = request.POST.get("txtStockCritico")
+        fVenc = request.POST.get("txtFvenn")
+        proveedor = request.POST.get("txtProveedor")
+        desc = request.POST.get("txtDescripcion")
+        TipoProd = request.POST.get("TipoProducto")
+        FamProd = request.POST.get("familiaProducto")
+        obj_TipoProd = TipoProducto.objects.get(descripcion=TipoProd)
+        obj_TipoFam = FamiliaProducto.objects.get(descripcion=FamProd)
+
+        prod = Producto(
+            nombre=nombre,
+            precio=precio,
+            stock=stock,
+            stockCrit=stockCritico,
+            fVenc=fVenc,
+            idTipoProducto=obj_TipoProd,
+            idFamProducto=obj_TipoFam,
+            idProveedor= proveedor,
+            descripcion= desc
+        )
+        prod.save()
+        return render(request,'registroProducto.html',{'familia_producto':familiaPr,'tipo_producto':tipoPr,'mensaje':'Se grabo'})
+    return render(request,'registroProducto.html',{'familia_producto':familiaPr,'tipo_producto':tipoPr})

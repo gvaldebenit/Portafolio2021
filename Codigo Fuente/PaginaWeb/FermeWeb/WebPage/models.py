@@ -2,30 +2,45 @@ from django.db import models
 
 # Create your models here.
 
-# TipoProducto
-class TipoProducto(models.Model):
-
-    idTipoProducto = models.AutoField(primary_key = True)
-    descripcion = models.CharField(max_length = 40)
 
 
 # FamiliaProducto
 class FamiliaProducto(models.Model):
-
     idFamiliaProducto = models.AutoField(primary_key = True)
     descripcion = models.CharField(max_length = 40)
+    
+
+    def __str__(self):
+        return self.descripcion
+
+#Tipo Producto      
+class TipoProducto(models.Model):
+
+    idTipoProducto = models.AutoField(primary_key = True)
+    descripcion = models.CharField(max_length = 40)
+    idFamProducto = models.ForeignKey(FamiliaProducto, on_delete=models.CASCADE)
+    
+    def __str__(self):
+        return self.descripcion
+
 
 # Rubro
 class Rubro(models.Model):
     
     idRubro = models.AutoField(primary_key = True)
     rubro = models.CharField(max_length = 30)
+
+    def __str__(self):
+        return self.rubro
     
 # Cargo
 class Cargo(models.Model):
 
     idCargo = models.AutoField(primary_key = True)
     cargo = models.CharField(max_length = 20)
+
+    def __str__(self):
+        return self.cargo
     
 # Persona
 class Persona(models.Model):
@@ -39,6 +54,9 @@ class Persona(models.Model):
     
     class Meta:
         abstract = True
+        
+    def __str__(self):
+        return self.nombres
 
 # Cliente
 class Cliente(Persona):
@@ -52,11 +70,16 @@ class Proveedor(Persona):
     representante = models.CharField(max_length = 50)
     idRubro = models.ForeignKey(Rubro, on_delete=models.CASCADE)
 
+
+
 # Empleado
 class Empleado(Persona):
     
     idEmpleado = models.AutoField(primary_key = True)
     cargo = models.ForeignKey(Cargo, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.cargo
 
 # Producto
 class Producto(models.Model):
@@ -71,6 +94,11 @@ class Producto(models.Model):
     idFamProducto = models.ForeignKey(FamiliaProducto, on_delete=models.CASCADE)
     idTipoProducto = models.ForeignKey(TipoProducto, on_delete=models.CASCADE)
     idProveedor = models.ForeignKey(Proveedor, on_delete=models.CASCADE)
+    imagen=models.ImageField(upload_to='productos',null=True)
+
+    def __str__(self):
+        return self.nombre
+
 
 # Orden Compra
 class OrdenCompra(models.Model):
