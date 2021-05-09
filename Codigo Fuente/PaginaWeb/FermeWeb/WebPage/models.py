@@ -9,7 +9,6 @@ class FamiliaProducto(models.Model):
     idFamiliaProducto = models.AutoField(primary_key = True)
     descripcion = models.CharField(max_length = 40)
     
-
     def __str__(self):
         return self.descripcion
 
@@ -69,8 +68,6 @@ class Proveedor(Persona):
     idProveedor = models.AutoField(primary_key = True)
     representante = models.CharField(max_length = 50)
     idRubro = models.ForeignKey(Rubro, on_delete=models.CASCADE)
-
-
 
 # Empleado
 class Empleado(Persona):
@@ -167,7 +164,6 @@ class Comuna(models.Model):
     nombre = models.CharField(max_length = 30)
     idCiudad = models.ForeignKey(Ciudad, on_delete=models.CASCADE)
     
-# TipoUsuario?
  
 
     

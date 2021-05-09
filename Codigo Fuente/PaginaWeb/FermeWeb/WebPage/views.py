@@ -104,17 +104,19 @@ def registroProducto(request):
         FamProd = request.POST.get("familiaProducto")
         obj_TipoProd = TipoProducto.objects.get(descripcion=TipoProd)
         obj_TipoFam = FamiliaProducto.objects.get(descripcion=FamProd)
+        idProducto = f"{proveedor:03}" + f"{idFamProd:03}" + f"{fVenc:%d%m%Y}" + f"{FamProd:03}" 
 
         prod = Producto(
-            nombre=nombre,
-            precio=precio,
-            stock=stock,
-            stockCrit=stockCritico,
-            fVenc=fVenc,
-            idTipoProducto=obj_TipoProd,
-            idFamProducto=obj_TipoFam,
-            idProveedor= proveedor,
-            descripcion= desc
+            idProducto = idProducto
+            nombre = nombre,
+            precio = precio,
+            stock = stock,
+            stockCrit = stockCritico,
+            fVenc = fVenc,
+            idTipoProducto = obj_TipoProd,
+            idFamProducto = obj_TipoFam,
+            idProveedor = proveedor,
+            descripcion = desc
         )
         prod.save()
         return render(request,'registroProducto.html',{'familia_producto':familiaPr,'tipo_producto':tipoPr,'mensaje':'Se grabo'})
