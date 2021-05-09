@@ -3,10 +3,18 @@ from .models import *
 
 # Register your models here.
 
-#admin.site.register(sliderHerramienta)
-#admin.site.register(sliderPintura)
-#admin.site.register(sliderMateriales)
 admin.site.register(TipoProducto)
 admin.site.register(FamiliaProducto)
-admin.site.register(Proveedor)
 admin.site.register(Producto)
+admin.site.register(Rubro)
+admin.site.register(Proveedor)
+admin.site.register(OrdenCompra)
+admin.site.register(Cargo)
+admin.site.register(Empleado)
+admin.site.register(Region)
+admin.site.register(Ciudad)
+admin.site.register(Comuna)
+admin.site.register(Cliente)
+admin.site.register(Boleta)
+admin.site.register(Factura)
+

@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import Group, User
 
 # Create your models here.
 
@@ -22,7 +23,6 @@ class TipoProducto(models.Model):
     def __str__(self):
         return self.descripcion
 
-
 # Rubro
 class Rubro(models.Model):
     
@@ -40,7 +40,7 @@ class Cargo(models.Model):
 
     def __str__(self):
         return self.cargo
-    
+
 # Persona
 class Persona(models.Model):
     
@@ -50,6 +50,7 @@ class Persona(models.Model):
     apellidoMaterno = models.CharField(max_length = 20)
     telefono = models.CharField(max_length = 9)
     direccion = models.CharField(max_length = 40)
+    idGrupo = models.ForeignKey(Group)
     
     class Meta:
         abstract = True
@@ -95,7 +96,6 @@ class Producto(models.Model):
 
     def __str__(self):
         return self.nombre
-
 
 # Orden Compra
 class OrdenCompra(models.Model):

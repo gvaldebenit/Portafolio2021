@@ -9,13 +9,10 @@ from django.contrib.auth import authenticate, logout, login as login_autent
 # Add Decorators for Auth pages
 from django.contrib.auth.decorators import login_required, permission_required
 
+# Add Generics
+from django.views.generic import ListView
+
 # Create your views here.
-
-# Logout View
-
-
-# Login View
-
 
 # Index
 def index(request):
@@ -47,10 +44,7 @@ def logoutView(request):
 # SignUp
 def signup(request):
     if request.POST:
-        #Sliders
-        herramienta = sliderHerramienta.objects.all()
-        pintura = sliderPintura.objects.all()
-        material = sliderMateriales.objects.all()
+        # Obtener los datos
         rut = request.POST.get("txtRut")
         nombre = request.POST.get("txtNombre")
         apellidoPaterno = request.POST.get("txtApPaterno")
@@ -62,19 +56,23 @@ def signup(request):
         clave1 = request.POST.get("clave1")
         clave2 = request.POST.get("clave2")
         try:
+            # Verifica que no exista el correo ya registrado
             user = User.objects.get(email = correo)
             ans = 3
             return render(request, 'formRegistro.html', {'ans' : ans})
         except:
             pass
         try:
+            # Verifica que el username no exista
             user = User.objects.get(username = usuario)         
             ans = 1
             return render(request,'formRegistro.html', {'ans' : ans})
         except:
+            # Verifica que las claves coincidan
             if clave1 != clave2:               
                 ans = 2
                 return render(request,'formRegistro.html', {'ans' : ans})
+            # Crear un Usuario
             user = User()
             user.first_name = nombre
             user.last_name = apellido
@@ -82,13 +80,21 @@ def signup(request):
             user.username = usuario
             user.set_password(clave1)
             user.save()
+            # Crear un Cliente
+            cliente = Cliente()
+            cliente.rut = rut
+            cliente.nombres = nombre
+            cliente.apellidoPaterno = apellidoPaterno
+            cliente.apellidoMaterno = apellidoMaterno
+            cliente.email = correo
+            cliente.telefono = telefono
+
             user = authenticate(request, username = usuario, password = clave1)
             login_autent(request, user)
-            return render(request,'index.html', {'user' : user, 'herramienta': herramienta, 'pintura': pintura, 'material': material}) 
+            return render(request,'index.html', {'user' : user}) 
     return render(request,'formRegistro.html')
 
 #Formulario Productos
-
 def registroProducto(request):
     familiaPr = FamiliaProducto.objects.all()
     tipoPr = TipoProducto.objects.all()
@@ -107,7 +113,7 @@ def registroProducto(request):
         idProducto = f"{proveedor:03}" + f"{idFamProd:03}" + f"{fVenc:%d%m%Y}" + f"{FamProd:03}" 
 
         prod = Producto(
-            idProducto = idProducto
+            idProducto = idProducto,
             nombre = nombre,
             precio = precio,
             stock = stock,
@@ -121,3 +127,19 @@ def registroProducto(request):
         prod.save()
         return render(request,'registroProducto.html',{'familia_producto':familiaPr,'tipo_producto':tipoPr,'mensaje':'Se grabo'})
     return render(request,'registroProducto.html',{'familia_producto':familiaPr,'tipo_producto':tipoPr})
+
+# Busqueda
+class ResultadosBusqueda(ListView):
+    # Uso de Modelo
+    model = Producto
+    template_name = 'resultados.html'
+
+    def get_queryset(self): # Busqueda
+        query = self.request.GET.get('q')
+        try: 
+            lista = Producto.objects.filter(
+                Q(nombre__icontains=query) | Q(descripcion__icontains=query)
+            )
+        except:
+            lista = Producto.objects.all()
+        return lista

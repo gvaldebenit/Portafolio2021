@@ -32,8 +32,8 @@
         </button>
         <div class="collapse navbar-collapse flex-lg-column " id="navbarSupportedContent">
             <ul class="nav navbar-nav d-flex">
-                <form class="d-flex">
-                    <input class="form-control mx-2" type="search" placeholder="Buscar" aria-label="Buscar">
+                <form class="d-flex" method="GET" action="{% url 'BUSCAR' %}">
+                    <input class="form-control mx-2" name="q" type="search" placeholder="Buscar" aria-label="Buscar">
                     <button class="btn btn-outline-success" type="submit">Buscar</button>
                 </form>
 

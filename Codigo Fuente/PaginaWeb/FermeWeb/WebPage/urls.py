@@ -24,5 +24,5 @@ urlpatterns = [
     path('signup', signup, name = "SIGNUP"),
     path('',include('api.urls')),
     path('registro_producto', registroProducto, name = "REGP"),
-    
+    path('buscar/', ResultadosBusqueda.as_view(), name='BUSCAR'),
 ]
