@@ -21,5 +21,6 @@ urlpatterns = [
     path('', index, name = "INDEX"),
     path('login', login, name = "LOGIN"),
     path('logout', logoutView, name = "LOGOUT"),
-    path('signup', signup, name = "SIGNUP")
+    path('signup', signup, name = "SIGNUP"),
+    path('ayuda', ayuda, name = "AYUDA")
 ]

@@ -99,3 +99,6 @@ def signup(request):
             login_autent(request, user)
             return render(request,'index.html', {'user' : user, 'herramienta': herramienta, 'pintura': pintura, 'material': material}) 
     return render(request,'formRegistro.html')
+
+def ayuda(request):
+    return render(request,'ayuda.html')
