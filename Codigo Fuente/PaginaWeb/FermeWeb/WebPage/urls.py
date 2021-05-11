@@ -22,5 +22,7 @@ urlpatterns = [
     path('login', login, name = "LOGIN"),
     path('logout', logoutView, name = "LOGOUT"),
     path('signup', signup, name = "SIGNUP"),
-    path('ayuda', ayuda, name = "AYUDA")
+    path('ayuda', ayuda, name = "AYUDA"),
+    path('misionyvision', misionyvision, name = "MISIONYVISION")
+
 ]
