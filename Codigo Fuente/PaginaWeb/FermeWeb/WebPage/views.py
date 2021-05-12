@@ -105,3 +105,4 @@ def ayuda(request):
 
 def misionyvision(request):
     return render(request,'misionyvision.html')
+
