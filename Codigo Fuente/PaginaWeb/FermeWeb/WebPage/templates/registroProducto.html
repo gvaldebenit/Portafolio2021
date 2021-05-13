@@ -6,9 +6,22 @@
 {% endblock estilos %}
         
 {% block contenido %}
-    <div class="title">
-        <h2>Registro de Productos</h2>
-    </div>
+  <div class="title">
+    <h2>Registro de Productos</h2>
+  </div>
+
+  <!-- Jquery para Selector -->
+  <script>
+    function changeSelector(){
+      var elems = $('#selectorTipo option[data-fam="'+$("#selectorFamilia").val()+'"]');
+      $('#selectorTipo option').not(elems).hide();
+      elems.show();
+      $('#selectorTipo').children().prop('selected', false);
+      //$("#selectorTipo").filter('data("fam")="' + idFamilia + '"]').show();
+    }
+    
+  </script>
+
   <!-- Formulario -->
     <div class="container mr-auto" id="Formulario">
       <form action="" method="POST" onsubmit="return validarForRegistro()">
@@ -46,9 +59,10 @@
           <div class="form-group">
             <label for="idfamproducto">Familia Producto</label>    
             <br>
-            <select name="familiaProducto" class="input-100" >
-              {% for item in familia_producto %}
-              <option>{{item.descripcion}}</option>
+            <select name="familiaProducto" class="input-100" id="selectorFamilia" onchange="changeSelector()" required>
+              <option value ="" selected >Seleccionar</option>
+              {% for familia in familia_producto %}
+              <option value = "{{familia.idFamiliaProducto}}">{{familia.descripcion}}</option>
               {% endfor %}
             </select>
           </div>
@@ -56,24 +70,36 @@
          <div class="form-group">
             <label for="idtipoproducto">Tipo Producto</label>
            <br>
-            <select name="TipoProducto" class="input-100" >
-              {% for item in tipo_producto %}
-              <option>{{item.descripcion}}</option>
+            <select name="TipoProducto" class="input-100" id="selectorTipo" required>
+              <option value="" data-fam="">Seleccionar</option>
+              {% for tipo in tipo_producto %}
+              <option value = "{{tipo.idTipoProducto}}" data-fam="{{tipo.idFamProducto_id}}">{{tipo.descripcion}}</option>
               {% endfor %}
             </select>
          </div>
-
-
+          <!--
           <div class="form-group">
             <label for="txtproveedor">Proveedor</label>
-            <input type="text" class="form-control" autofocus="true" placeholder="Nombre Proveedor" minlength="3" 
-               maxlength="30" name="txtProveedor" id="txtProveedor" required/>
+            <br>
+            <select name="txtProveedor" class="input-100">
+            {% for prov in proveedor %}
+              <option value = "{{prov.idProveedor}}">{{prov.nombres}}</option>
+              {% endfor %}
+            </select>
+          </div>
+          -->
+          <div class="form-group">
+            <div class ="flex-row">
+              <input type="file" class="form-control" id="txtimagen">
+              <label class="input-group-text" for="txtimagen">Subir</label>
+            </div>
           </div>
 
           <div class="form-group">
-            <label for="txtproveedor">Descripcion</label>
-            <input type="text" class="form-control" autofocus="true" placeholder="Descripcion" minlength="3" 
-               maxlength="30" name="txtDescripcion" id="txtDescripcion" required/>
+            <label for="txtDescripcion">Descripcion</label>
+            <textarea  class="form-control" autofocus="true" placeholder="Descripcion" minlength="3" 
+               maxlength="200" name="txtDescripcion" id="txtDescripcion" required>
+            </textarea>
           </div>          
 
           <input type="submit" name="Login" value="Registrar" class="login-submit" />

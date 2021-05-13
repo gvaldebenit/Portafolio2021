@@ -3,8 +3,6 @@ from django.contrib.auth.models import Group, User
 
 # Create your models here.
 
-
-
 # FamiliaProducto
 class FamiliaProducto(models.Model):
     idFamiliaProducto = models.AutoField(primary_key = True)
@@ -50,7 +48,7 @@ class Persona(models.Model):
     apellidoMaterno = models.CharField(max_length = 20)
     telefono = models.CharField(max_length = 9)
     direccion = models.CharField(max_length = 40)
-    idGrupo = models.ForeignKey(Group)
+    idGrupo = models.ForeignKey(Group, on_delete=models.CASCADE)
     
     class Meta:
         abstract = True
@@ -88,6 +86,7 @@ class Producto(models.Model):
     precio = models.IntegerField()
     stock = models.IntegerField()
     stockCrit = models.IntegerField()
+    imagen = models.ImageField(upload_to='productos', null =True)
     fVenc = models.DateField(auto_now=False, auto_now_add=False)
     idFamProducto = models.ForeignKey(FamiliaProducto, on_delete=models.CASCADE)
     idTipoProducto = models.ForeignKey(TipoProducto, on_delete=models.CASCADE)

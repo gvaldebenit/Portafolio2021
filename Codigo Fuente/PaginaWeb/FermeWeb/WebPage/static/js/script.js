@@ -97,3 +97,6 @@ function validarForRegistro(){
     resp = validarAmaterno();
     return true;
 }
+
+/* Funciones del Formulario de Registro de Producto */
+    

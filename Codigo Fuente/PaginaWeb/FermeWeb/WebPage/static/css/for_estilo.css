@@ -28,10 +28,10 @@
     background: white;
     border: 1px solid black;
     border-bottom: 5px solid rgba(white, .5);
-    color: white;
+    color: black;
     display: block;
     transition: 250ms ;
-    background: ease-in;
+    
   }
   /* Boton Login */
   .login-submit {
@@ -90,10 +90,10 @@
     background: white;
     border: 1px solid black;
     border-bottom: 5px solid rgba(white, .5);
-    color: white;
+    color: black;
     display: block;
     transition: 250ms ;
-    background: ease-in;
+    
   }
   /* Boton Login */
   .login-submit {
@@ -103,7 +103,7 @@
     margin: 1rem auto;
     padding:10px 30px;
     transition: 25ms;
-    background: ease-in;
+    
   }
   [class*=underlay] {
     left: 0;
@@ -153,7 +153,7 @@
     background: white;
     border: 1px solid black;
     border-bottom: 5px solid rgba(white, .5);
-    color: white;
+    color: black;
     display: block;
     transition: 250ms ;
     background: ease-in;

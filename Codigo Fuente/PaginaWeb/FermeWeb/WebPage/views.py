@@ -75,10 +75,11 @@ def signup(request):
             # Crear un Usuario
             user = User()
             user.first_name = nombre
-            user.last_name = apellido
+            user.last_name = apellidoPaterno
             user.email = correo
-            user.username = usuario
+            user.username = correo
             user.set_password(clave1)
+            # Guardar al Usuario
             user.save()
             # Crear un Cliente
             cliente = Cliente()
@@ -88,7 +89,9 @@ def signup(request):
             cliente.apellidoMaterno = apellidoMaterno
             cliente.email = correo
             cliente.telefono = telefono
-
+            cliente.direccion = direccion
+            # Guardar Cliente
+            cliente.save()
             user = authenticate(request, username = usuario, password = clave1)
             login_autent(request, user)
             return render(request,'index.html', {'user' : user}) 
@@ -98,6 +101,7 @@ def signup(request):
 def registroProducto(request):
     familiaPr = FamiliaProducto.objects.all()
     tipoPr = TipoProducto.objects.all()
+    prov = Proveedor.objects.all()
     if request.POST:
         nombre = request.POST.get("txtNombre")
         precio = request.POST.get("txtPrecio")
@@ -108,9 +112,10 @@ def registroProducto(request):
         desc = request.POST.get("txtDescripcion")
         TipoProd = request.POST.get("TipoProducto")
         FamProd = request.POST.get("familiaProducto")
-        obj_TipoProd = TipoProducto.objects.get(descripcion=TipoProd)
-        obj_TipoFam = FamiliaProducto.objects.get(descripcion=FamProd)
-        idProducto = f"{proveedor:03}" + f"{idFamProd:03}" + f"{fVenc:%d%m%Y}" + f"{FamProd:03}" 
+        obj_TipoProd = TipoProducto.objects.get(idTipoProducto=TipoProd)
+        obj_TipoFam = FamiliaProducto.objects.get(idFamiliaProducto=FamProd)
+        obj_Proveedor = Proveedor.objects.get(idProveedor=proveedor)
+        idProducto = f"{proveedor:03}" + f"{FamProd:03}" + f"{fVenc:%d%m%Y}" + f"{TipoProd:03}" 
 
         prod = Producto(
             idProducto = idProducto,
@@ -119,13 +124,13 @@ def registroProducto(request):
             stock = stock,
             stockCrit = stockCritico,
             fVenc = fVenc,
-            idTipoProducto = obj_TipoProd,
-            idFamProducto = obj_TipoFam,
-            idProveedor = proveedor,
+            idTipoProducto = obj_TipoProd.idTipoProducto,
+            idFamProducto = obj_TipoFam.idFamiliaProducto,
+            idProveedor = obj_Proveedor.idProveedor,
             descripcion = desc
         )
         prod.save()
-        return render(request,'registroProducto.html',{'familia_producto':familiaPr,'tipo_producto':tipoPr,'mensaje':'Se grabo'})
+        return render(request,'registroProducto.html',{'familia_producto':familiaPr,'tipo_producto':tipoPr, 'proveedor':prov ,'mensaje':'Se grabo'})
     return render(request,'registroProducto.html',{'familia_producto':familiaPr,'tipo_producto':tipoPr})
 
 # Busqueda
