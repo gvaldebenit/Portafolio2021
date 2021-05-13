@@ -147,4 +147,12 @@ class ResultadosBusqueda(ListView):
             )
         except:
             lista = Producto.objects.all()
-        return lista
+        return lista     
+
+def ayuda(request):
+    return render(request,'ayuda.html')
+
+def misionyvision(request):
+    return render(request,'misionyvision.html')
+
+

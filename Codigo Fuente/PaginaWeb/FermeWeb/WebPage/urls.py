@@ -25,4 +25,6 @@ urlpatterns = [
     path('',include('api.urls')),
     path('registro_producto', registroProducto, name = "REGP"),
     path('buscar/', ResultadosBusqueda.as_view(), name='BUSCAR'),
+    path('ayuda', ayuda, name = "AYUDA"),
+    path('misionyvision', misionyvision, name = "MISIONYVISION")
 ]
