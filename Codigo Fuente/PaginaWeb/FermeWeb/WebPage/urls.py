@@ -26,5 +26,6 @@ urlpatterns = [
     path('registro_producto', registroProducto, name = "REGP"),
     path('buscar/', ResultadosBusqueda.as_view(), name='BUSCAR'),
     path('ayuda', ayuda, name = "AYUDA"),
-    path('misionyvision', misionyvision, name = "MISIONYVISION")
+    path('misionyvision', misionyvision, name = "MISIONYVISION"),
+    path('contacto', contacto, name = "CONTACTO")
 ]

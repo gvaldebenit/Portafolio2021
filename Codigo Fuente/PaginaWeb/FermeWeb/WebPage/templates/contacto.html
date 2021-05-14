@@ -1,0 +1,56 @@
+{% extends "Template.html" %}
+{% load static %}
+
+{% block estilos %}
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'css/modals.css' %}">
+    <link rel="stylesheet" href="{% static 'css/contacto.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+    <script src="{% static 'js/slider.js' %}"></script>
+    
+{% endblock estilos %}
+
+{% block contenido %}
+      <!-- formulario de contacto en html y css -->
+      <div class="title" style="text-align: center;">
+        <h1 style="color: rgb(89, 89, 255);">Formulario de Contacto</h1>
+    </div>  
+      <!-- Formulario -->
+      <div class="container" style="background-image: linear-gradient(to top, #bbe0ff 100%, #48c6ef 0%);">
+        <div class="container mr-auto" id="Formulario">
+          <form action="" method="POST" onsubmit="">
+            {% csrf_token %} 
+      
+          <label for="nombre" style="color: blue;">Nombre:</label>
+          <input type="text" id="nombre" name="nombre" placeholder="Ingresa Nombre..">
+      
+          <label for="apellido" style="color: blue;">Apellido:</label>
+          <input type="text" id="apellido" name="apellido" placeholder="Ingresa Apellido..">
+
+          <label for="nrotelefono" style="color: blue">Apellido:</label>
+          <input type="text" id="nrotelefono" name="nrotelefono" placeholder="Ingresa Nro.Telefonico..">
+
+          <label for="email" style="color: blue;">Email:</label>
+          <input type="text" id="email" name="email" placeholder="Ingresa Email..">
+      
+          <label for="asunto" style="color: blue;">Asunto</label>
+          <select id="asunto" name="asunto">
+            <option value="consulta">Consulta</option>
+            <option value="opinion">Opinion</option>
+            <option value="reclamo">Reclamo</option>
+          </select>
+      
+          <label for="Descripcion" style="padding: 10px; color: blue;">Descripcion</label>
+          <textarea id="Descripcion" name="Descripcion" placeholder="Agregue su comentario.." style="height:200px"></textarea>
+      
+          <input type="submit" value="Enviar" >
+      
+        </form>
+      </div>
+            
+    </div>
+
+ 
+
+{% endblock contenido %} 

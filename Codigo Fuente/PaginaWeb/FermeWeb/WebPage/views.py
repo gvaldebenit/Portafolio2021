@@ -155,4 +155,7 @@ def ayuda(request):
 def misionyvision(request):
     return render(request,'misionyvision.html')
 
+def contacto(request):
+    return render(request,'contacto.html')
+
 
