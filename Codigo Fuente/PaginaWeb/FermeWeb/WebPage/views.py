@@ -11,6 +11,7 @@ from django.contrib.auth.decorators import login_required, permission_required
 
 # Add Generics
 from django.views.generic import ListView
+from django.db.models import Q
 
 # Create your views here.
 
@@ -138,16 +139,14 @@ class ResultadosBusqueda(ListView):
     # Uso de Modelo
     model = Producto
     template_name = 'resultados.html'
+    context_object_name = 'productos'
 
     def get_queryset(self): # Busqueda
-        query = self.request.GET.get('q')
-        try: 
-            lista = Producto.objects.filter(
-                Q(nombre__icontains=query) | Q(descripcion__icontains=query)
-            )
-        except:
-            lista = Producto.objects.all()
-        return lista     
+        q = self.request.GET.get('q') 
+        lista = Producto.objects.all()
+        if q:
+            lista = Producto.objects.filter(Q(nombre__icontains =q) | Q(descripcion__icontains=q))          
+        return lista
 
 def ayuda(request):
     return render(request,'ayuda.html')

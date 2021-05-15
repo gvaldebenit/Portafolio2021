@@ -91,7 +91,6 @@ class Producto(models.Model):
     idFamProducto = models.ForeignKey(FamiliaProducto, on_delete=models.CASCADE)
     idTipoProducto = models.ForeignKey(TipoProducto, on_delete=models.CASCADE)
     idProveedor = models.ForeignKey(Proveedor, on_delete=models.CASCADE)
-    imagen=models.ImageField(upload_to='productos',null=True)
 
     def __str__(self):
         return self.nombre
@@ -148,6 +147,9 @@ class Region(models.Model):
 
     idRegion = models.AutoField(primary_key = True)
     nombre = models.CharField(max_length = 30)
+
+    def __str__(self):
+        return self.nombre
     
 # Ciudad
 class Ciudad(models.Model):
@@ -155,6 +157,9 @@ class Ciudad(models.Model):
     idCiudad = models.AutoField(primary_key = True)
     nombre = models.CharField(max_length = 30)
     idRegion = models.ForeignKey(Region, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.nombre
     
 # Comuna
 class Comuna(models.Model):
@@ -163,6 +168,8 @@ class Comuna(models.Model):
     nombre = models.CharField(max_length = 30)
     idCiudad = models.ForeignKey(Ciudad, on_delete=models.CASCADE)
     
+    def __str__(self):
+        return self.nombre
  
 
     
