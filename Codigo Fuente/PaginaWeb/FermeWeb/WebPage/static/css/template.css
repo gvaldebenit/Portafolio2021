@@ -33,7 +33,7 @@
     }
     #footer {
         height: auto;
-        background-color: rgb(100, 91, 91);
+        background-color: rgb(80, 123, 163);
         color: rgba(0, 0, 0, 0.555);
         text-align: center;
         padding: 10px;
@@ -67,7 +67,7 @@
         font-family: "Poppins";
     }
     .footer {
-        background-color: rgb(100, 91, 91);
+        background-color: rgb(80, 123, 163);
         color: rgba(0, 0, 0, 0.555);
         text-align: center;
         padding: 40px;
@@ -101,7 +101,7 @@
         font-family: "Poppins";
     }
     .footer {
-        background-color: rgb(100, 91, 91);
+        background-color: rgb(80, 123, 163);
         color: rgba(0, 0, 0, 0.555);
         text-align: center;
         padding: 40px;

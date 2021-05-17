@@ -26,5 +26,7 @@ urlpatterns = [
     path('registro_producto', registroProducto, name = "REGP"),
     path('buscar/', ResultadosBusqueda.as_view(), name='BUSCAR'),
     path('ayuda', ayuda, name = "AYUDA"),
-    path('misionyvision', misionyvision, name = "MISIONYVISION")
+    path('misionyvision', misionyvision, name = "MISIONYVISION"),
+    #path('item/<id>', item, name = "ITEM")
+    path('item/<pk>', ItemDetail.as_view(), name= "ITEM"),
 ]

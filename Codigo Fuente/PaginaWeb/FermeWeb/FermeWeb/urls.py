@@ -15,9 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+#permite indicar que la ubicacion es estatica
+from django.conf.urls.static import static
+
+#debemos importar el archivo setting(varibales MEDIA)
+from django.conf import settings #permite guardar todos los cambios que en setting este ocupando
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('WebPage.urls'))
 ]
+if settings.DEBUG:
+    urlpatterns+= static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

@@ -9,6 +9,9 @@ from django.contrib.auth import authenticate, logout, login as login_autent
 # Add Decorators for Auth pages
 from django.contrib.auth.decorators import login_required, permission_required
 
+#Add Detail View
+from django.views.generic.detail import DetailView
+
 # Add Generics
 from django.views.generic import ListView
 from django.db.models import Q
@@ -154,4 +157,30 @@ def ayuda(request):
 def misionyvision(request):
     return render(request,'misionyvision.html')
 
+def item(request,id):
+    try:
+        item = Producto.objects.get(id)
+        return render(request,'item.html',{'item': item})
+    except:
+        item = Producto.objects.all()
+        return render(request,'404.html')
+    
 
+#class Item(ListView):
+#   model = Producto
+#    template_name = 'item.html'
+
+#     def get_queryset(self):
+#        query = self.request.GET.get('q')
+#        try: 
+#            item = Producto.objects.filter(
+#                Q(imagen__icontains=query) | Q(descripcion__icontains=query)
+#            ).first()
+#        except:
+#            item = Producto.objects.all()
+#        return item
+
+class ItemDetail(DetailView):
+    context_object_name = 'producto_detalle'
+    model =  Producto
+    template_name = 'item.html'
