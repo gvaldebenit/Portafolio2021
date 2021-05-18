@@ -53,29 +53,31 @@
           <div class="form-group">
             <label for="txtfvenn">Fecha Vencimiento</label>
             <input type="date" class="form-control" autofocus="true" placeholder="txtFvenn" name="txtFvenn" 
-            id="txtfvenn" required />
+            id="txtfvenn" />
           </div>
-
-          <div class="form-group">
-            <label for="idfamproducto">Familia Producto</label>    
+          
+          <div class="d-flex flex-wrap">
+            <div class="form-group me-2">
+              <label for="idfamproducto">Familia Producto</label>    
+              <br>
+              <select name="familiaProducto" class="input-100" id="selectorFamilia" onchange="changeSelector()" required>
+                <option value ="" selected >Seleccionar</option>
+                {% for familia in familia_producto %}
+                <option value = "{{familia.idFamiliaProducto}}">{{familia.descripcion}}</option>
+                {% endfor %}
+              </select>
+            </div>
+      
+          <div class="form-group me-2">
+              <label for="idtipoproducto">Tipo Producto</label>
             <br>
-            <select name="familiaProducto" class="input-100" id="selectorFamilia" onchange="changeSelector()" required>
-              <option value ="" selected >Seleccionar</option>
-              {% for familia in familia_producto %}
-              <option value = "{{familia.idFamiliaProducto}}">{{familia.descripcion}}</option>
-              {% endfor %}
-            </select>
+              <select name="TipoProducto" class="input-100" id="selectorTipo" required>
+                <option value="" data-fam="">Seleccionar</option>
+                {% for tipo in tipo_producto %}
+                <option value = "{{tipo.idTipoProducto}}" data-fam="{{tipo.idFamProducto_id}}">{{tipo.descripcion}}</option>
+                {% endfor %}
+              </select>
           </div>
-    
-         <div class="form-group">
-            <label for="idtipoproducto">Tipo Producto</label>
-           <br>
-            <select name="TipoProducto" class="input-100" id="selectorTipo" required>
-              <option value="" data-fam="">Seleccionar</option>
-              {% for tipo in tipo_producto %}
-              <option value = "{{tipo.idTipoProducto}}" data-fam="{{tipo.idFamProducto_id}}">{{tipo.descripcion}}</option>
-              {% endfor %}
-            </select>
          </div>
           <!--
           <div class="form-group">
@@ -90,8 +92,8 @@
           -->
           <div class="form-group">
             <div class ="flex-row">
+              <label for="txtimagen">Imagen</label>
               <input type="file" class="form-control" id="txtimagen">
-              <label class="input-group-text" for="txtimagen">Subir</label>
             </div>
           </div>
 

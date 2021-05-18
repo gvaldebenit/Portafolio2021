@@ -10,7 +10,7 @@ from django.contrib.auth import authenticate, logout, login as login_autent
 from django.contrib.auth.decorators import login_required, permission_required
 
 # Add Generics
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from django.db.models import Q
 
 # Create your views here.
@@ -116,8 +116,11 @@ def registroProducto(request):
         obj_TipoProd = TipoProducto.objects.get(idTipoProducto=TipoProd)
         obj_TipoFam = FamiliaProducto.objects.get(idFamiliaProducto=FamProd)
         obj_Proveedor = Proveedor.objects.get(idProveedor=proveedor)
-        idProducto = f"{proveedor:03}" + f"{FamProd:03}" + f"{fVenc:%d%m%Y}" + f"{TipoProd:03}" 
-
+        if fVenc == '':
+            fVenc = None
+            idProducto = f"{proveedor:03}" + f"{FamProd:03}" + f"00000000" + f"{TipoProd:03}" 
+        else:    
+            idProducto = f"{proveedor:03}" + f"{FamProd:03}" + f"{fVenc:%d%m%Y}" + f"{TipoProd:03}" 
         prod = Producto(
             idProducto = idProducto,
             nombre = nombre,
@@ -132,7 +135,7 @@ def registroProducto(request):
         )
         prod.save()
         return render(request,'registroProducto.html',{'familia_producto':familiaPr,'tipo_producto':tipoPr, 'proveedor':prov ,'mensaje':'Se grabo'})
-    return render(request,'registroProducto.html',{'familia_producto':familiaPr,'tipo_producto':tipoPr})
+    return render(request,'registroProducto.html',{'familia_producto':familiaPr,'tipo_producto':tipoPr, 'proveedor':prov})
 
 # Busqueda
 class ResultadosBusqueda(ListView):
@@ -148,9 +151,50 @@ class ResultadosBusqueda(ListView):
             lista = Producto.objects.filter(Q(nombre__icontains =q) | Q(descripcion__icontains=q))          
         return lista
 
+# Item
+class ItemDetail(DetailView):
+    context_object_name = 'producto_detalle'
+    model =  Producto
+    template_name = 'itemDetail.html'
+
+# Ayuda
 def ayuda(request):
     return render(request,'ayuda.html')
 
+# Pagina Pinturas
+class ListaPinturas(ListView):
+    # Uso de Modelo
+    model = Producto
+    template_name = 'resultados.html'
+    context_object_name = 'productos'
+
+    def get_queryset(self): # Busqueda
+        lista = Producto.objects.filter(idFamProducto__exact=1)         
+        return lista
+
+# Pagina Herramientas
+class ListaHerramienta(ListView):
+    # Uso de Modelo
+    model = Producto
+    template_name = 'resultados.html'
+    context_object_name = 'productos'
+
+    def get_queryset(self): # Busqueda
+        lista = Producto.objects.filter(idFamProducto__exact=2)          
+        return lista
+
+# Pagina Materiales
+class ListaMateriales(ListView):
+    # Uso de Modelo
+    model = Producto
+    template_name = 'resultados.html'
+    context_object_name = 'productos'
+
+    def get_queryset(self): # Busqueda
+        lista = Producto.objects.filter(idFamProducto__exact=3)          
+        return lista
+
+# Mision y Vision
 def misionyvision(request):
     return render(request,'misionyvision.html')
 

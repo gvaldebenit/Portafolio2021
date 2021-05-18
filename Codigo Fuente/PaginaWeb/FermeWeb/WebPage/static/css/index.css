@@ -8,9 +8,8 @@
         align-items: center;
     }
     .carousel-item{
-        height: 350px;
-        
-    }
+        height: 350px;        
+    }    
     .imgSlide1{
         position:absolute;
         top:0;

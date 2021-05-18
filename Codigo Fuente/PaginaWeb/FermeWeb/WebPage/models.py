@@ -87,7 +87,7 @@ class Producto(models.Model):
     stock = models.IntegerField()
     stockCrit = models.IntegerField()
     imagen = models.ImageField(upload_to='productos', null =True)
-    fVenc = models.DateField(auto_now=False, auto_now_add=False)
+    fVenc = models.DateField(auto_now=False, auto_now_add=False, null=True)
     idFamProducto = models.ForeignKey(FamiliaProducto, on_delete=models.CASCADE)
     idTipoProducto = models.ForeignKey(TipoProducto, on_delete=models.CASCADE)
     idProveedor = models.ForeignKey(Proveedor, on_delete=models.CASCADE)
@@ -172,4 +172,4 @@ class Comuna(models.Model):
         return self.nombre
  
 
-    
+

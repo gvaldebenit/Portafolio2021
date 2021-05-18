@@ -1,4 +1,4 @@
-/* Funciones de Validacion de Formulario */
+/* Funciones de Validacion de Formulario de Producto */
 
 /* Validar Nombre Registro */
 function validarNombre(){
@@ -98,5 +98,4 @@ function validarForRegistro(){
     return true;
 }
 
-/* Funciones del Formulario de Registro de Producto */
     
