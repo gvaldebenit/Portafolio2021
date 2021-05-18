@@ -3,26 +3,13 @@
 
 {% block estilos %}
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'css/modals.css' %}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
     <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
     <script src="{% static 'js/slider.js' %}"></script>
+    
 {% endblock estilos %}
 
 {% block contenido %}
-
-<h2> VV </h2>
-    <div>
-        <div>
-            <h2>{{object.nombre}}</h2>
-            <h3>{{object.precio}}</h3>
-        </div>
-        <div>
-            <h4>{{object.descripcion}}</h4>
-        </div>
-        <div>
-            <img src="{{object.imagen.url}}">
-        </div>
-    </div>
-
-
-{% endblock contenido%}
+    <img src="{% static 'images/not_found%}.jpg" class="img-fluid" style="width: auto; height: auto;">
+{% endblock contenido %}

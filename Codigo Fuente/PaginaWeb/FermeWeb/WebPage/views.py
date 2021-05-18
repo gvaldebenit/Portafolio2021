@@ -9,6 +9,9 @@ from django.contrib.auth import authenticate, logout, login as login_autent
 # Add Decorators for Auth pages
 from django.contrib.auth.decorators import login_required, permission_required
 
+#Add Detail View
+from django.views.generic.detail import DetailView
+
 # Add Generics
 from django.views.generic import ListView, DetailView
 from django.db.models import Q
@@ -155,7 +158,7 @@ class ResultadosBusqueda(ListView):
 class ItemDetail(DetailView):
     context_object_name = 'producto_detalle'
     model =  Producto
-    template_name = 'itemDetail.html'
+    template_name = 'item.html'
 
 # Ayuda
 def ayuda(request):
