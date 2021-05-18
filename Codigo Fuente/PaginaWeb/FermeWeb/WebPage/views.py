@@ -198,4 +198,8 @@ class ListaMateriales(ListView):
 def misionyvision(request):
     return render(request,'misionyvision.html')
 
+# Contacto
+def contacto(request):
+    return render(request,'contacto.html')
+
 

@@ -31,4 +31,5 @@ urlpatterns = [
     path('pinturas/', ListaPinturas.as_view(), name='PINTURAS'),
     path('herramientas/', ListaHerramienta.as_view(), name='HERRAMIENTAS'),
     path('materiales/', ListaMateriales.as_view(), name='MATERIALES'),
+    path('contacto', contacto, name = "CONTACTO"),
 ]
