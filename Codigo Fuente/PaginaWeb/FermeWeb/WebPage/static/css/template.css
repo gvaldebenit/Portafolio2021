@@ -7,10 +7,10 @@
 }
 
  /* Estilo para dispositivos grandes */
- @media screen and (min-width:1025px) and (max-width:2000px){
+ @media screen and (min-width:1025px){
     /* navegador */
     #navbarPage {
-        background-color: linear-gradient(-225deg, #22E1FF 0%, #1D8FE1 48%, #625EB1 100%);
+        background: #1b5583;
         top: 0;
     }
     #navbarNavAltMarkup {
@@ -46,7 +46,7 @@
 @media screen and (min-width:420px) and (max-width:1024px) {
     /* navegador */
     #navbarPage {
-        background-image: linear-gradient(-225deg, #22E1FF 0%, #1D8FE1 48%, #625EB1 100%);
+        background: #1b5583;
         top: 0;
     }
     #navbarNavAltMarkup {
@@ -80,7 +80,7 @@
 @media screen and (max-width:420px) {
     /* NAVEGADOR */
     #navbarPage {
-        background-color: linear-gradient(-225deg, #22E1FF 0%, #1D8FE1 48%, #625EB1 100%);
+        background: #1b5583;
         top: 0;
     }
     #navbarNavAltMarkup {
