@@ -47,6 +47,9 @@ def logoutView(request):
 
 # SignUp
 def signup(request):
+    region = Region.objects.all()
+    ciudad = Ciudad.objects.all()
+    comuna = Comuna.objects.all() 
     if request.POST:
         # Obtener los datos
         rut = request.POST.get("txtRut")
@@ -55,6 +58,8 @@ def signup(request):
         apellidoMaterno = request.POST.get("txtApMaterno")
         correo = request.POST.get("txtCorreo")
         direccion = request.POST.get("txtDireccion")
+        idcomuna = request.POST.get("comuna")
+        obj_comuna = Comuna.objects.get(idComuna=idcomuna)
         telefono = request.POST.get("txtNumero")
         usuario = request.POST.get("txtUsuario")
         clave1 = request.POST.get("clave1")
@@ -63,19 +68,19 @@ def signup(request):
             # Verifica que no exista el correo ya registrado
             user = User.objects.get(email = correo)
             ans = 3
-            return render(request, 'formRegistro.html', {'ans' : ans})
+            return render(request, 'registroCliente.html', {'ans' : ans})
         except:
             pass
         try:
             # Verifica que el username no exista
             user = User.objects.get(username = usuario)         
             ans = 1
-            return render(request,'formRegistro.html', {'ans' : ans})
+            return render(request,'registroCliente.html', {'ans' : ans})
         except:
             # Verifica que las claves coincidan
             if clave1 != clave2:               
                 ans = 2
-                return render(request,'formRegistro.html', {'ans' : ans})
+                return render(request,'registroCliente.html', {'ans' : ans})
             # Crear un Usuario
             user = User()
             user.first_name = nombre
@@ -85,6 +90,8 @@ def signup(request):
             user.set_password(clave1)
             # Guardar al Usuario
             user.save()
+            user_group = Group.objects.get(name="Cliente")
+            user.groups.add(user_group)
             # Crear un Cliente
             cliente = Cliente()
             cliente.rut = rut
@@ -94,12 +101,14 @@ def signup(request):
             cliente.email = correo
             cliente.telefono = telefono
             cliente.direccion = direccion
+            cliente.idComuna = obj_comuna.idComuna
+            cliente.idGrupo = user_group.pk 
             # Guardar Cliente
             cliente.save()
             user = authenticate(request, username = usuario, password = clave1)
             login_autent(request, user)
             return render(request,'index.html', {'user' : user}) 
-    return render(request,'formRegistro.html')
+    return render(request,'registroCliente.html')
 
 #Formulario Productos
 def registroProducto(request):

@@ -28,3 +28,7 @@ urlpatterns = [
 ]
 if settings.DEBUG:
     urlpatterns+= static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+
+admin.site.site_header="Administracion Sitio Ferreteria Ferme"
+admin.site.index_title="Administracion FermeWeb"
+admin.site.site_title="Ferreteria Ferme"

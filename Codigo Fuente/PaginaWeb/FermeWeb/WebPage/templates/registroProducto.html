@@ -19,13 +19,13 @@
       $('#selectorTipo').children().prop('selected', false);
       //$("#selectorTipo").filter('data("fam")="' + idFamilia + '"]').show();
     }
-    
   </script>
 
   <!-- Formulario -->
     <div class="container mr-auto" id="Formulario">
       <form action="" method="POST" onsubmit="return validarForRegistro()">
         {% csrf_token %}          
+
           <div class="form-group">
             <label for="txtnombre">Nombre</label>
             <input type="text" class="form-control" autofocus="true" placeholder="Nombre Producto" minlength="3" 
@@ -68,18 +68,18 @@
               </select>
             </div>
       
-          <div class="form-group me-2">
+            <div class="form-group me-2">
               <label for="idtipoproducto">Tipo Producto</label>
-            <br>
+              <br>
               <select name="TipoProducto" class="input-100" id="selectorTipo" required>
                 <option value="" data-fam="">Seleccionar</option>
                 {% for tipo in tipo_producto %}
                 <option value = "{{tipo.idTipoProducto}}" data-fam="{{tipo.idFamProducto_id}}">{{tipo.descripcion}}</option>
                 {% endfor %}
               </select>
+            </div>
           </div>
-         </div>
-          <!--
+
           <div class="form-group">
             <label for="txtproveedor">Proveedor</label>
             <br>
@@ -89,7 +89,7 @@
               {% endfor %}
             </select>
           </div>
-          -->
+
           <div class="form-group">
             <div class ="flex-row">
               <label for="txtimagen">Imagen</label>

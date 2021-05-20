@@ -39,6 +39,35 @@ class Cargo(models.Model):
     def __str__(self):
         return self.cargo
 
+# Region
+class Region(models.Model):
+
+    idRegion = models.AutoField(primary_key = True)
+    nombre = models.CharField(max_length = 30)
+
+    def __str__(self):
+        return self.nombre
+    
+# Ciudad
+class Ciudad(models.Model):
+
+    idCiudad = models.AutoField(primary_key = True)
+    nombre = models.CharField(max_length = 30)
+    idRegion = models.ForeignKey(Region, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.nombre
+    
+# Comuna
+class Comuna(models.Model):
+
+    idComuna = models.AutoField(primary_key = True)
+    nombre = models.CharField(max_length = 30)
+    idCiudad = models.ForeignKey(Ciudad, on_delete=models.CASCADE)
+    
+    def __str__(self):
+        return self.nombre
+
 # Persona
 class Persona(models.Model):
     
@@ -49,6 +78,7 @@ class Persona(models.Model):
     telefono = models.CharField(max_length = 9)
     direccion = models.CharField(max_length = 40)
     idGrupo = models.ForeignKey(Group, on_delete=models.CASCADE)
+    idComuna = models.ForeignKey(Comuna, on_delete=models.CASCADE)
     
     class Meta:
         abstract = True
@@ -142,34 +172,6 @@ class Factura(models.Model):
     total = models.IntegerField()
     idVenta = models.ForeignKey(Venta, on_delete=models.CASCADE)
     
-# Region
-class Region(models.Model):
 
-    idRegion = models.AutoField(primary_key = True)
-    nombre = models.CharField(max_length = 30)
-
-    def __str__(self):
-        return self.nombre
-    
-# Ciudad
-class Ciudad(models.Model):
-
-    idCiudad = models.AutoField(primary_key = True)
-    nombre = models.CharField(max_length = 30)
-    idRegion = models.ForeignKey(Region, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return self.nombre
-    
-# Comuna
-class Comuna(models.Model):
-
-    idComuna = models.AutoField(primary_key = True)
-    nombre = models.CharField(max_length = 30)
-    idCiudad = models.ForeignKey(Ciudad, on_delete=models.CASCADE)
-    
-    def __str__(self):
-        return self.nombre
- 
 
 
