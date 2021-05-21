@@ -9,19 +9,23 @@
 {% endblock estilos %}
 
 {% block contenido %}
-
-<h2> hola </h2>
+<div class="d-flex flex-wrap col-12 row justify-content-around align-items-center">
+<h2></h2>
 {% for item in object_list %}
-    <div>
-        <div>
-            <h2>{{item.nombre}}</h2>
-            <a href="/item/{{item.idProducto}}">Link</a>
-            <h3>{{item.precio}}</h3>
+        <div class="col-3 ms-3">
+            <div>
+                <a href="/item/{{item.idProducto}}">
+                    <div class="col-5" style="height: fit-content; width: fit-content;">
+                        <img src={{item.imagen.url}}  class="img-fluid"  width="250px" height="250px">
+                    </div>
+                </a>
+                <h2>{{item.nombre}}</h2>
+                <div>
+                    <h6 >{{item.descripcion}}</h6>
+                </div>
+                <h3 class="text-danger">${{item.precio}}</h3>
+            </div>
         </div>
-        <div>
-            <h4>{{item.descripcion}}</h4>
-        </div>
-    </div>
 {%endfor%}
-
+</div>
 {% endblock contenido%}

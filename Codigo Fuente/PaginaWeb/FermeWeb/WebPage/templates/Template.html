@@ -38,7 +38,28 @@
                 {%if user.is_authenticated %}
                     <li><a class="nav-item nav-link me-auto" id="a-nav" href="">Bienvenido: {{user.first_name}}</a></li>
                     <li><a class="nav-item nav-link" id="a-nav" href="{% url 'LOGOUT' %}"> Cerrar Sesion </a></li>
-                    <li><a class="nav-item nav-link" id="a-nav" href=""> Carro de Compra </a></li>
+                    <!--<li><a class="nav-item nav-link" id="a-nav" href=""> Carro de Compra </a></li>-->
+                    <li class="nav-item dropdown">
+                        <img src="{% static 'images/cart.jpeg' %}" class="nav-link dropdown-toggle img-fluid" height="50px" width="50px" href="#" 
+                        id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></img>
+                        <div id="carrito" class="dropdown-menu" aria-labelledby="navbarCollapse">
+                            <table id="lista-carrito" class="table dropdown-item">
+                                <thead>
+                                    <tr>
+                                        <th>Imagen</th>
+                                        <th>Nombre</th>
+                                        <th>Precio</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+
+                            <a href="#" id="vaciar-carrito" class="btn btn-primary btn-block">Vaciar Carrito</a>
+                            <a href="#" id="procesar-pedido" class="btn btn-danger btn-block">Procesar
+                                Compra</a>
+                        </div>
+                    </li>
                     <li><a class="nav-item nav-link" id="a-nav" href="{% url 'REGP' %}"> Registro Producto </a></li>
                 {% else %}
                     <li><a class="nav-item nav-link" id="a-nav" href="{% url 'LOGIN' %}"> Iniciar Sesion </a></li>
