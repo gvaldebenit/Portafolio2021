@@ -102,7 +102,7 @@ def signup(request):
             cliente.email = correo
             cliente.telefono = telefono
             cliente.direccion = direccion
-            cliente.idComuna = obj_comuna.idComuna
+            cliente.idComuna = obj_comuna
             cliente.idGrupo = user_group.pk 
             # Guardar Cliente
             cliente.save()
