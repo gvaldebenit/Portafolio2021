@@ -443,8 +443,7 @@
 	"pk": 1,
 	"fields": {
 	  "nombre": "Gran Iquique", 
-      "idRegion": 1}}, 
-	}
+      "idRegion": 1}
   },
   {
 	"model": "WebPage.Comuna",
@@ -491,8 +490,7 @@
 	"pk": 2,
 	"fields": {
 	  "nombre": "Antofagasta", 
-      "idRegion": 2}}, 
-	}
+      "idRegion": 2}
   },
   
   {
@@ -532,8 +530,7 @@
 	"pk": 3,
 	"fields": {
 	  "nombre": "Copiapo",
-      "idRegion": 3}}, 
-	}
+      "idRegion": 3}
   },
   
   {
@@ -565,8 +562,7 @@
 	"pk": 4,
 	"fields": {
 	  "nombre": "Gran La Serena",
-      "idRegion": 4}},
-	}
+      "idRegion": 4}
   },
   
   {
@@ -590,8 +586,7 @@
 	"pk": 5,
 	"fields": {
 	  "nombre": "Gran San Antonio",
-      "idRegion": 5}},
-	}
+      "idRegion": 5}
   },
   
   {
@@ -631,8 +626,7 @@
 	"pk": 6,
 	"fields": {
 	  "nombre": "Gran Rancagua",
-      "idRegion": 6}},
-	}
+      "idRegion": 6}
   },
   
   {
@@ -672,8 +666,7 @@
 	"pk": 7,
 	"fields": {
 	  "nombre": "Talca",
-      "idRegion": 7}},
-	}
+      "idRegion": 7}
   },
   
   {
@@ -721,8 +714,7 @@
 	"pk": 8,
 	"fields": {
 	  "nombre": "Gran Concepcion",
-      "idRegion": 8}},
-	}
+      "idRegion": 8}
   },
   
   {
@@ -745,7 +737,7 @@
 	"model": "WebPage.Comuna",
 	"pk": 30,
 	"fields":{
-      "nombre": "Chiguayante"
+      "nombre": "Chiguayante",
 	  "idCiudad": 8}
   },
   
@@ -770,8 +762,7 @@
 	"pk": 9,
 	"fields": {
 	  "nombre": "Gran Temuco",
-      "idRegion": 9}},
-	}
+      "idRegion": 9}
   },
   
   {
@@ -795,8 +786,7 @@
 	"pk": 10,
 	"fields": {
 	  "nombre": "Llanquihue",
-      "idRegion": 10}},
-	}
+      "idRegion": 10}
   },
   
   {
@@ -844,8 +834,7 @@
 	"pk": 11,
 	"fields": {
 	  "nombre": "Coyhaique",
-      "idRegion": 11}},
-	}
+      "idRegion": 11}
   },
   
   {
@@ -869,8 +858,7 @@
 	"pk": 12,
 	"fields": {
 	  "nombre": "Magallanes",
-      "idRegion": 12}},
-	}
+      "idRegion": 12}
   },
   
   {
@@ -910,8 +898,7 @@
 	"pk": 13,
 	"fields": {
 	  "nombre": "Gran Santiago", 
-      "idRegion": 13}}, 
-	}
+      "idRegion": 13}
   },
   
   {
@@ -959,8 +946,7 @@
 	"pk": 14,
 	"fields": {
 	  "nombre": "Valdivia",
-      "idRegion": 14}},
-	}
+      "idRegion": 14}
   },
   
   {
@@ -1008,8 +994,7 @@
 	"pk": 15,
 	"fields": {
 	  "nombre": "Arica",
-      "idRegion": 15}},
-	}
+      "idRegion": 15}
   },
   
   {
@@ -1033,8 +1018,7 @@
 	"pk": 16,
 	"fields": {
 	  "nombre": "Digullin",
-      "idRegion": 16}},
-	}
+      "idRegion": 16}
   },
   
   {
@@ -1075,7 +1059,7 @@
 	"fields":{
       "nombre": "Pemuco",
 	  "idCiudad": 16}
-  }
+  },
   
   {
 	"model": "WebPage.Comuna",
@@ -1083,7 +1067,7 @@
 	"fields":{
       "nombre": "Pemuco",
 	  "idCiudad": 16}
-  }
+  },
   { 
 	"model": "auth.user",
     "pk": 1,
@@ -1095,7 +1079,7 @@
         "is_staff": true,
         "is_active": true
     }
-  }
+  },
   {
 	"model": "auth.group",
 	"pk": 1,
@@ -1103,7 +1087,7 @@
 		"name": "Cliente",
 		"permissions": []
 	}	
-  }	
+  },
   {
 	"model": "auth.group",
 	"pk": 2,
@@ -1111,7 +1095,7 @@
 		"name": "Vendedor",
 		"permissions": []
 	}	
-  }
+  },
   {
 	"model": "auth.group",
 	"pk": 3,
@@ -1119,7 +1103,7 @@
 		"name": "Empleado",
 		"permissions": []
 	}	
-  }  
+  },  
   {
 	"model": "auth.group",
 	"pk": 4,

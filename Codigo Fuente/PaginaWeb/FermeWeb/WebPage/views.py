@@ -16,6 +16,7 @@ from django.views.generic.detail import DetailView
 from django.views.generic import ListView, DetailView
 from django.db.models import Q
 
+from datetime import datetime
 # Create your views here.
 
 # Index
@@ -130,9 +131,10 @@ def registroProducto(request):
         obj_Proveedor = Proveedor.objects.get(idProveedor=proveedor)
         if fVenc == '':
             fVenc = None
-            idProducto = f"{proveedor:03}" + f"{FamProd:03}" + f"00000000" + f"{TipoProd:03}" 
+            idProducto = f"{proveedor:0>3}" + f"{FamProd:0>3}" + f"00000000" + f"{TipoProd:0>3}" 
         else:    
-            idProducto = f"{proveedor:03}" + f"{FamProd:03}" + f"{fVenc:%d%m%Y}" + f"{TipoProd:03}" 
+            fVenc = datetime.strptime(fVenc,"%Y-%m-%d")
+            idProducto = f"{proveedor:0>3}" + f"{FamProd:0>3}" + fVenc.strftime("%d%m%Y") + f"{TipoProd:0>3}" 
         prod = Producto(
             idProducto = idProducto,
             nombre = nombre,
@@ -140,13 +142,13 @@ def registroProducto(request):
             stock = stock,
             stockCrit = stockCritico,
             fVenc = fVenc,
-            idTipoProducto = obj_TipoProd.idTipoProducto,
-            idFamProducto = obj_TipoFam.idFamiliaProducto,
-            idProveedor = obj_Proveedor.idProveedor,
+            idTipoProducto = obj_TipoProd,
+            idFamProducto = obj_TipoFam,
+            idProveedor = obj_Proveedor,
             descripcion = desc
         )
         prod.save()
-        return render(request,'registroProducto.html',{'familia_producto':familiaPr,'tipo_producto':tipoPr, 'proveedor':prov ,'mensaje':'Se grabo'})
+        return render(request,'registroProducto.html',{'familia_producto':familiaPr,'tipo_producto':tipoPr, 'proveedor':prov ,'mensaje':'Producto Registrado'})
     return render(request,'registroProducto.html',{'familia_producto':familiaPr,'tipo_producto':tipoPr, 'proveedor':prov})
 
 # Busqueda

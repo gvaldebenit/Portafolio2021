@@ -100,14 +100,18 @@
           <div class="form-group">
             <label for="txtDescripcion">Descripcion</label>
             <textarea  class="form-control" autofocus="true" placeholder="Descripcion" minlength="3" 
-               maxlength="200" name="txtDescripcion" id="txtDescripcion" required>
+              maxlength="200" name="txtDescripcion" id="txtDescripcion" required>
             </textarea>
           </div>          
 
           <input type="submit" name="Login" value="Registrar" class="login-submit" />
       </form>
     </div>
-<div>
-  <h2>{{mensaje}}</h2>
-</div>    
+
+{% if mensaje %}
+  <script>
+    alert({{mensaje}})
+  </script>
+{% endif %}    
+
 {% endblock contenido %}
