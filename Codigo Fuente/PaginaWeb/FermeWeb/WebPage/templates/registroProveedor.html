@@ -9,7 +9,7 @@
 {% block contenido %}
 
     <div class="title">
-        <h2>Registro de Usuarios</h2>
+        <h2>Registro de Proveedores</h2>
     </div>
 
   <!-- Jquery para Selector -->
@@ -35,7 +35,7 @@
 
   <!-- Formulario -->
     <div class="container mr-auto" id="Formulario">
-      <form action="{% url 'SIGNUP' %}" method="POST" onsubmit="return validarForRegistro()">
+      <form action="{% url 'REGPROV' %}" method="POST" onsubmit="return validarForRegistro()">
         {% csrf_token %}    
 
           <div class="form-group">
@@ -46,20 +46,8 @@
 
           <div class="form-group">
             <label for="txtnombre">Nombre</label>
-            <input type="text" class="form-control" autofocus="true" placeholder="Nombre" minlength="3" 
+            <input type="text" class="form-control" autofocus="true" placeholder="Nombre Empresa" minlength="3" 
                maxlength="30" name="txtNombre" id="txtnombre" required/>
-          </div>
-
-          <div class="form-group">
-            <label for="txtapaterno">Apellido Paterno</label>
-            <input type="text" class="form-control" autofocus="true" placeholder="Apellido Paterno" minlength="3" 
-               maxlength="20" name="txtApPaterno" id="txtapaterno" required/>
-          </div>
-
-          <div class="form-group">
-            <label for="txtamaterno">Apellido Materno</label>
-            <input type="text" class="form-control" autofocus="true" placeholder="Apellido Materno" minlength="3" 
-               maxlength="20" name="txtApMaterno" id="txtamaterno" required/>
           </div>
 
           <div class="form-group">
@@ -103,10 +91,27 @@
             </div>
           </div>
 
+          <div class="form-group me-2">
+            <label for="selectorRubro">Rubro</label>    
+            <br>
+            <select name="rubro" class="input-100" id="selectorRubro" required>
+              <option value ="" selected >Seleccionar</option>
+              {% for rubro in rubro %}
+                <option value = "{{rubro.idRubro}}">{{rubro.rubro}}</option>
+              {% endfor %}
+            </select>
+          </div>
+
           <div class="form-group">
             <label for="txtnumero">Telefono</label>
             <input type="number" class="form-control" autofocus="true" placeholder="912345678" name="txtNumero" 
                id="txtnumero" required minlength="9" maxlength="9"/>
+          </div>
+
+          <div class="form-group">
+            <label for="txtrepresentante">Representante</label>
+            <input type="text" class="form-control" autofocus="true" placeholder="Representante" name="txtRepresentante" 
+               id="txtrepresentante" required minlength="5" maxlength="50"/>
           </div>
 
           <div class="form-group">

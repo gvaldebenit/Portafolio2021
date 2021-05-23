@@ -7,17 +7,26 @@ from .models import *
 from django.contrib.auth import authenticate, logout, login as login_autent
 
 # Add Decorators for Auth pages
-from django.contrib.auth.decorators import login_required, permission_required
-
-#Add Detail View
-from django.views.generic.detail import DetailView
+from django.contrib.auth.decorators import login_required, permission_required, user_passes_test
 
 # Add Generics
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, CreateView
 from django.db.models import Q
 
+# Date and DateTime Handler
 from datetime import datetime
+
 # Create your views here.
+
+# Funcion para verificar si un usuario está en un grupo
+def group_required(*group_names):
+
+   def in_groups(u):
+       if u.is_authenticated:
+           if bool(u.groups.filter(name__in=group_names)) | u.is_superuser:
+               return True
+       return False
+   return user_passes_test(in_groups)
 
 # Index
 def index(request):
@@ -62,26 +71,25 @@ def signup(request):
         idcomuna = request.POST.get("comuna")
         obj_comuna = Comuna.objects.get(idComuna=idcomuna)
         telefono = request.POST.get("txtNumero")
-        usuario = request.POST.get("txtUsuario")
         clave1 = request.POST.get("clave1")
         clave2 = request.POST.get("clave2")
         try:
             # Verifica que no exista el correo ya registrado
             user = User.objects.get(email = correo)
             ans = 3
-            return render(request, 'registroCliente.html', {'ans' : ans})
+            return render(request, 'registroCliente.html', {'ans' : ans, 'region':region, 'ciudad':ciudad, 'comuna':comuna})
         except:
             pass
         try:
             # Verifica que el username no exista
-            user = User.objects.get(username = usuario)         
+            user = User.objects.get(username = correo)         
             ans = 1
-            return render(request,'registroCliente.html', {'ans' : ans})
+            return render(request,'registroCliente.html', {'ans' : ans, 'region':region, 'ciudad':ciudad, 'comuna':comuna})
         except:
             # Verifica que las claves coincidan
             if clave1 != clave2:               
                 ans = 2
-                return render(request,'registroCliente.html', {'ans' : ans})
+                return render(request,'registroCliente.html', {'ans' : ans, 'region':region, 'ciudad':ciudad, 'comuna':comuna})
             # Crear un Usuario
             user = User()
             user.first_name = nombre
@@ -103,15 +111,17 @@ def signup(request):
             cliente.telefono = telefono
             cliente.direccion = direccion
             cliente.idComuna = obj_comuna
-            cliente.idGrupo = user_group.pk 
+            cliente.idUsuario = user
             # Guardar Cliente
             cliente.save()
-            user = authenticate(request, username = usuario, password = clave1)
+            user = authenticate(request, username = correo, password = clave1)
             login_autent(request, user)
             return render(request,'index.html', {'user' : user}) 
-    return render(request,'registroCliente.html')
+    return render(request,'registroCliente.html', {'region':region, 'ciudad':ciudad, 'comuna':comuna})
 
 #Formulario Productos
+# @login required(login_url='login/')
+# @group_required('Vendedor', 'Empleado')
 def registroProducto(request):
     familiaPr = FamiliaProducto.objects.all()
     tipoPr = TipoProducto.objects.all()
@@ -205,7 +215,10 @@ class ListaMateriales(ListView):
     context_object_name = 'productos'
 
     def get_queryset(self): # Busqueda
-        lista = Producto.objects.filter(idFamProducto__exact=3)          
+        user = self.request.user
+        if user.groups.filter(name = "Proveedor").exists():
+
+            lista = Producto.objects.filter(idFamProducto__exact=3)          
         return lista
 
 # Mision y Vision
@@ -216,4 +229,101 @@ def misionyvision(request):
 def contacto(request):
     return render(request,'contacto.html')
 
+# Orden Compra
+# @login required(login_url='login/')
+# @group_required('Empleado')
+def encargarProducto(request):
+    #pass
+    return render(request, 'registroOrden.html')
+
+# Listado Orden Compra
+# @login required(login_url='login/')
+# @group_required('Empleado', 'Proveedor')
+class ListaOrdenCompra(ListView):
+    # Uso de Modelo
+    model = OrdenCompra
+    template_name = 'ListadoOrden.html'
+    context_object_name = 'Ordenes de Compra'
+
+    def get_queryset(self): # Busqueda
+        user = self.request.user
+        if user.groups.filter(name__in="Proveedor").exists():
+            try:
+                proveedor = Proveedor.objects.first(idUsuario=user)
+                lista = OrdenCompra.objects.filter(idProducto__idProveedor = proveedor)          
+                return lista
+            except:
+                lista = []
+                return lista
+        else:
+            lista = OrdenCompra.objects.all()
+            return lista
+
+# Listado Orden Compra
+# @login required(login_url='login/')
+# @group_required('Empleado', 'Vendedor')
+def crearProveedor(request):
+    region = Region.objects.all()
+    ciudad = Ciudad.objects.all()
+    comuna = Comuna.objects.all() 
+    rubro = Rubro.objects.all()
+    if request.POST:
+        # Obtener los datos
+        rut = request.POST.get("txtRut")
+        nombre = request.POST.get("txtNombre")
+        correo = request.POST.get("txtCorreo")
+        direccion = request.POST.get("txtDireccion")
+        idcomuna = request.POST.get("comuna")
+        obj_comuna = Comuna.objects.get(idComuna=idcomuna)
+        telefono = request.POST.get("txtNumero")
+        representante = request.POST.get("txtRepresentante")
+        rubro = request.POST.get("rubro")
+        obj_rubro = Rubro.objects.get(idRubro=rubro)
+        clave1 = request.POST.get("clave1")
+        clave2 = request.POST.get("clave2")
+        try:
+            # Verifica que no exista el correo ya registrado
+            user = User.objects.get(email = correo)
+            ans = 3
+            return render(request, 'registroProveedor.html', {'ans' : ans, 'region':region, 'ciudad':ciudad, 'comuna':comuna, 'rubro':rubro})
+        except:
+            pass
+        try:
+            # Verifica que el username no exista
+            user = User.objects.get(username = correo)         
+            ans = 1
+            return render(request,'registroProveedor.html', {'ans' : ans, 'region':region, 'ciudad':ciudad, 'comuna':comuna, 'rubro':rubro})
+        except:
+            # Verifica que las claves coincidan
+            if clave1 != clave2:               
+                ans = 2
+                return render(request,'registroProveedor.html', {'ans' : ans, 'region':region, 'ciudad':ciudad, 'comuna':comuna, 'rubro':rubro})
+            # Crear un Usuario
+            user = User()
+            user.first_name = nombre
+            user.last_name = ''
+            user.email = correo
+            user.username = correo
+            user.set_password(clave1)
+            # Guardar al Usuario
+            user.save()
+            user_group = Group.objects.get(name="Proveedor")
+            user.groups.add(user_group)
+            # Crear un Proveedor
+            proveedor = Proveedor()
+            proveedor.rut = rut
+            proveedor.nombres = nombre
+            proveedor.apellidoPaterno = ''
+            proveedor.apellidoMaterno = ''
+            proveedor.telefono = telefono
+            proveedor.direccion = direccion
+            proveedor.idComuna = obj_comuna
+            proveedor.idUsuario = user
+            proveedor.representante = representante
+            proveedor.idRubro = obj_rubro
+            # Guardar Proveedor
+            proveedor.save()
+            msg = 'Proveedor Creado Exitosamente' # Mensaje de Exito
+            return render(request,'registroProveedor', {'region':region, 'ciudad':ciudad, 'comuna':comuna, 'rubro':rubro, 'msg': msg}) 
+    return render(request,'registroProveedor.html', {'region':region, 'ciudad':ciudad, 'comuna':comuna, 'rubro':rubro})
 

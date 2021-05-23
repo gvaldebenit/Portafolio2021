@@ -32,4 +32,8 @@ urlpatterns = [
     path('herramientas/', ListaHerramienta.as_view(), name='HERRAMIENTAS'),
     path('materiales/', ListaMateriales.as_view(), name='MATERIALES'),
     path('contacto', contacto, name = "CONTACTO"),
+    path('orden_compra', encargarProducto, name = 'ORDENCOMPRA'),
+    path('listado_orden_compra', ListaOrdenCompra.as_view(), name='LISTORDENCOMPRA'),
+    path('registro_proveedor', crearProveedor, name='REGPROV')
+
 ]

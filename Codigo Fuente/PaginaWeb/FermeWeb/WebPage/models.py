@@ -73,12 +73,12 @@ class Persona(models.Model):
     
     rut = models.CharField(max_length = 10)
     nombres = models.CharField(max_length = 30)
-    apellidoPaterno = models.CharField(max_length = 20)
-    apellidoMaterno = models.CharField(max_length = 20)
+    apellidoPaterno = models.CharField(max_length = 20, null= True)
+    apellidoMaterno = models.CharField(max_length = 20, null= True)
     telefono = models.CharField(max_length = 9)
     direccion = models.CharField(max_length = 40)
-    idGrupo = models.ForeignKey(Group, on_delete=models.CASCADE)
     idComuna = models.ForeignKey(Comuna, on_delete=models.CASCADE)
+    idUsuario = models.ForeignKey(User, on_delete=models.CASCADE)
     
     class Meta:
         abstract = True

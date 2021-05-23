@@ -84,8 +84,9 @@
             <label for="txtproveedor">Proveedor</label>
             <br>
             <select name="txtProveedor" class="input-100">
-            {% for prov in proveedor %}
-              <option value = "{{prov.idProveedor}}">{{prov.nombres}}</option>
+              <option value = "">Seleccionar</option>
+              {% for prov in proveedor %}
+                <option value = "{{prov.idProveedor}}">{{prov.nombres}}</option>
               {% endfor %}
             </select>
           </div>
