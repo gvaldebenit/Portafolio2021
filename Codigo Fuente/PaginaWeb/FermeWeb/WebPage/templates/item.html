@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
     <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
     <script src="{% static 'js/slider.js' %}"></script>
+    <script src="{% static 'js/carrito.js' %}"></script>
     
 {% endblock estilos %}
 
@@ -29,8 +30,13 @@
                     </div>
                     <br>
                     <br>
-                    
-                    <button class="btn btn-danger" type="submit">Agregar al Carrito</button>
+                    <input type="hidden" class="prodId" value="{{object.idProducto}}" />
+                    <input type="hidden" class="imagen" value="{{object.imagen.url}}" />
+                    <input type="hidden" class="nomProd" value="{{object.nombre}}" />
+                    <input type="hidden" class="precio" value="{{object.precio}}" />
+                    <input type="number" value="1" class="form-control" id="prodCant" style="width: min-content;" />
+                    <br>
+                    <button class="btn btn-danger" type="button" id="addToCartBtn"><i class="fa fa-shopping-cart"></i>  Agregar al Carrito</button>
                 </div>
         </div>
     </div>
