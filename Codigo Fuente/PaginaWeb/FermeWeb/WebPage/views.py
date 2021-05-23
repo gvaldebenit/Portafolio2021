@@ -1,4 +1,6 @@
+from django.http.response import JsonResponse
 from django.shortcuts import render
+from django.template.loader import render_to_string
 
 # Import models
 from .models import *
@@ -15,6 +17,9 @@ from django.db.models import Q
 
 # Date and DateTime Handler
 from datetime import datetime
+
+from django.template.loader import render_to_string
+
 
 # Create your views here.
 
@@ -326,4 +331,72 @@ def crearProveedor(request):
             msg = 'Proveedor Creado Exitosamente' # Mensaje de Exito
             return render(request,'registroProveedor', {'region':region, 'ciudad':ciudad, 'comuna':comuna, 'rubro':rubro, 'msg': msg}) 
     return render(request,'registroProveedor.html', {'region':region, 'ciudad':ciudad, 'comuna':comuna, 'rubro':rubro})
+
+#add-to-cart
+
+def add_to_cart(request):
+    #del request.session['cartdata']
+    cart_p={}
+    cart_p[str(request.GET['prodId'])]={
+        'nombre':request.GET['nomProd'],
+        'imagen':request.GET['imagen'],
+        'cant':request.GET['cant'],
+        'precio':request.GET['precio'],
+    }
+    if 'cartdata' in request.session:
+        if str(request.GET['prodId']) in request.session['cartdata']:
+            cart_data=request.session['cartdata']
+            cart_data[str(request.GET['prodId'])]['cant']=int(cart_p[str(request.GET['prodId'])]['cant'])
+            cart_data.update(cart_data)
+            request.session['cartdata']=cart_data
+        else:
+            cart_data=request.session['cartdata']
+            cart_data.update(cart_p)
+            request.session['cartdata']=cart_data
+    else:
+        request.session['cartdata']=cart_p
+    
+    return JsonResponse({'data':request.session['cartdata'],'totalitems':len(request.session['cartdata'])})
+
+#carro
+def cart_list(request):
+    total_amt=0
+    try:
+        for p_id,item in request.session['cartdata'].items():
+            total_amt+=int(item['cant'])*int(item['precio'])
+        return render(request, 'cart.html',{'cart_data':request.session['cartdata'],'totalitems':len(request.session['cartdata']),'total_amt':total_amt})
+    except:
+        return render(request, 'cart.html')
+
+#eliminar
+
+def delete_cart_item(request):
+    p_id=str(request.GET['prodId'])
+    if 'cartdata' in request.session:
+        if p_id in request.session['cartdata']:
+            cart_data=request.session['cartdata']
+            del request.session['cartdata'][p_id]
+            request.session['cartdata']=cart_data
+    total_amt=0
+    for p_id,item in request.session['cartdata'].items():
+        total_amt+=int(item['cant'])*int(item['precio'])
+    t=render_to_string('ajax/cart-list.html',{'cart_data':request.session['cartdata'],'totalitems':len(request.session['cartdata']),'total_amt':total_amt})
+    return JsonResponse({'data':t,'totalitems':len(request.session['cartdata'])})
+
+#actualizar
+
+def update_cart_item(request):
+    p_id=str(request.GET['prodId'])
+    p_cant=request.GET['cant']
+    if 'cartdata' in request.session:
+        if p_id in request.session['cartdata']:
+            cart_data=request.session['cartdata']
+            cart_data[str(request.GET['prodId'])]['cant']=p_cant
+            request.session['cartdata']=cart_data
+    total_amt=0
+    for p_id,item in request.session['cartdata'].items():
+        total_amt+=int(item['cant'])*int(item['precio'])
+    t=render_to_string('ajax/cart-list.html',{'cart_data':request.session['cartdata'],'totalitems':len(request.session['cartdata']),'total_amt':total_amt})
+    return JsonResponse({'data':t,'totalitems':len(request.session['cartdata'])})
+
 

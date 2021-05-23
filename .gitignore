@@ -1,21 +1,2 @@
 Codigo Fuente/PaginaWeb/MyVenv/
-Codigo Fuente/PaginaWeb/FermeWeb/WebPage/migrations/__pycache__/0001_initial.cpython-38.pyc
-Codigo Fuente/PaginaWeb/FermeWeb/WebPage/migrations/__pycache__/__init__.cpython-38.pyc
-Codigo Fuente/PaginaWeb/FermeWeb/WebPage/__pycache__/views.cpython-38.pyc
-Codigo Fuente/PaginaWeb/FermeWeb/WebPage/__pycache__/urls.cpython-38.pyc
-Codigo Fuente/PaginaWeb/FermeWeb/WebPage/__pycache__/models.cpython-38.pyc
-Codigo Fuente/PaginaWeb/FermeWeb/WebPage/__pycache__/apps.cpython-38.pyc
-Codigo Fuente/PaginaWeb/FermeWeb/WebPage/__pycache__/admin.cpython-38.pyc
-Codigo Fuente/PaginaWeb/FermeWeb/WebPage/__pycache__/__init__.cpython-38.pyc
-Codigo Fuente/PaginaWeb/FermeWeb/FermeWeb/__pycache__/wsgi.cpython-38.pyc
-Codigo Fuente/PaginaWeb/FermeWeb/FermeWeb/__pycache__/urls.cpython-38.pyc
-Codigo Fuente/PaginaWeb/FermeWeb/FermeWeb/__pycache__/settings.cpython-38.pyc
-Codigo Fuente/PaginaWeb/FermeWeb/FermeWeb/__pycache__/__init__.cpython-38.pyc
-Codigo Fuente/PaginaWeb/FermeWeb/api/migrations/__pycache__/__init__.cpython-38.pyc
-Codigo Fuente/PaginaWeb/FermeWeb/api/__pycache__/views.cpython-38.pyc
-Codigo Fuente/PaginaWeb/FermeWeb/api/__pycache__/urls.cpython-38.pyc
-Codigo Fuente/PaginaWeb/FermeWeb/api/__pycache__/serializers.cpython-38.pyc
-Codigo Fuente/PaginaWeb/FermeWeb/api/__pycache__/models.cpython-38.pyc
-Codigo Fuente/PaginaWeb/FermeWeb/api/__pycache__/apps.cpython-38.pyc
-Codigo Fuente/PaginaWeb/FermeWeb/api/__pycache__/admin.cpython-38.pyc
-Codigo Fuente/PaginaWeb/FermeWeb/api/__pycache__/__init__.cpython-38.pyc
+*.pyc
