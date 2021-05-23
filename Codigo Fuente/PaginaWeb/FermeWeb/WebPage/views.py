@@ -247,9 +247,12 @@ def add_to_cart(request):
 #carro
 def cart_list(request):
     total_amt=0
-    for p_id,item in request.session['cartdata'].items():
-        total_amt+=int(item['cant']*int(item['precio']))
-    return render(request, 'cart.html',{'cart_data':request.session['cartdata'],'totalitems':len(request.session['cartdata']),'total_amt':total_amt})
+    try:
+        for p_id,item in request.session['cartdata'].items():
+            total_amt+=int(item['cant'])*int(item['precio'])
+        return render(request, 'cart.html',{'cart_data':request.session['cartdata'],'totalitems':len(request.session['cartdata']),'total_amt':total_amt})
+    except:
+        return render(request, 'cart.html')
 
 #eliminar
 
