@@ -116,7 +116,7 @@ class Producto(models.Model):
     precio = models.IntegerField()
     stock = models.IntegerField()
     stockCrit = models.IntegerField()
-    imagen = models.ImageField(upload_to='productos', null =True)
+    imagen = models.ImageField(upload_to='productos', default='not_found.jpg')
     fVenc = models.DateField(auto_now=False, auto_now_add=False, null=True)
     idFamProducto = models.ForeignKey(FamiliaProducto, on_delete=models.CASCADE)
     idTipoProducto = models.ForeignKey(TipoProducto, on_delete=models.CASCADE)
@@ -133,7 +133,10 @@ class OrdenCompra(models.Model):
     cantidad = models.IntegerField()
     total = models.IntegerField()
     comentario = models.CharField(max_length = 200, blank= True)
+    fechaPedido = models.DateTimeField(auto_now=False, auto_now_add=False)
     idEmpleado = models.ForeignKey(Empleado, on_delete=models.CASCADE)
+    enviada = models.BooleanField(default=False)
+    recibido = models.BooleanField(default=False)
 
 # OrdenVenta (Master)
 class Venta(models.Model):
@@ -142,7 +145,7 @@ class Venta(models.Model):
     fechaVenta = models.DateTimeField(auto_now=False, auto_now_add=False)
     idCliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
     total = models.IntegerField()
-    estado = models.IntegerField()
+    valido = models.BooleanField(default=True)
 
 # Detalle (Slave)
 class Detalle(models.Model):
@@ -161,6 +164,7 @@ class Boleta(models.Model):
     fechaEmision = models.DateTimeField(auto_now=False, auto_now_add=False)
     totalBoleta = models.IntegerField()
     idVenta = models.ForeignKey(Venta, on_delete=models.CASCADE)
+    vigente = models.BooleanField(default = True)
 
 # Factura
 class Factura(models.Model):
@@ -171,6 +175,7 @@ class Factura(models.Model):
     iva = models.IntegerField()
     total = models.IntegerField()
     idVenta = models.ForeignKey(Venta, on_delete=models.CASCADE)
+    vigente = models.BooleanField(default = True)
     
 
 

@@ -1,0 +1,107 @@
+{% extends "Template.html" %}
+{% load static %}
+{% block estilos %}
+    <link rel="stylesheet" href="{% static 'css/for_estilo.css' %}">
+
+{% endblock estilos %}
+        
+{% block contenido %}
+  <div class="title">
+    <h2>Crear Orden de Compra</h2>
+  </div>
+
+  <!-- Jquery para Selector -->
+  <script>
+    function changeSelector(){
+      var elems = $('#selectorProducto option[data-prov="'+$("#selectorProveedor").val()+'"]');
+      $('#selectorProducto option').not(elems).hide();
+      elems.show();
+      $('#selectorProducto').children().prop('selected', false);
+      //$("#selectorTipo").filter('data("fam")="' + idFamilia + '"]').show();
+    }
+    function calculoTotal(){
+      $('#txtTotal').value = ($('#txtCantidad').val()) * $('#txtValor').val())
+    }
+  </script>
+
+  <!-- saber si recibe datos o no -->
+  {% if valProd and valProv %}
+    <script>
+      $(document).ready(function(){
+        var idProd = "{{valProd}}";
+        var idProv = "{{valProv}}";
+        $('#selectorProducto').value = idProd;
+        $('#selectorProveedor').value = idProv;
+      });
+    </script>
+  {% endif %}
+
+  <!-- Formulario -->
+    <div class="container mr-auto" id="Formulario">
+      <form action="" method="POST" onsubmit="return validarForRegistro()">
+        {% csrf_token %}          
+
+          <br>
+            <h2>Producto</h2>
+          <br>
+          <div class="d-flex flex-wrap">
+            <div class="form-group me-2">
+              <label for="txtproveedor">Proveedor</label>
+              <br>
+              <select name="txtProveedor" class="input-100" id="selectorProveedor" onchange=changeSelector()>
+              {% for prov in proveedor %}
+                <option value = "{{prov.idProveedor}}">{{prov.nombres}}</option>
+              {% endfor %}
+              </select>
+            </div>
+    
+            <div class="form-group me-2">
+              <label for="txtproducto">Producto</label>
+              <br>
+              <select name="txtProducto" class="input-100" id="selectorProducto">
+              {% for prod in productos %}
+                <option value = "{{prod.idProducto}}" data-prov="{{prod.idProveedor_id}}">{{prod.nombre}}</option>
+              {% endfor %}
+              </select>
+            </div>
+          </div>
+
+        <br>
+        <h2>Stock</h2>
+        <br>
+        <div class="form-group">
+          <label for="txtCantidad">Cantidad</label>
+          <input type="number" class="form-control" autofocus="true" placeholder="Stock" name="txtCantidad" min="1" 
+            id="txtCantidad" required onchange=calculoTotal()/>
+        </div>
+
+        <div class="form-group">
+          <label for="txtValor">Valor Unitario</label>
+          <input type="number" class="form-control" autofocus="true" placeholder="Valor Unitario" name="txtValor" min="1" 
+            id="txtValor" required onchange=calculoTotal()/>
+        </div>
+
+        <div class="form-group">
+          <label for="txtTotal">Total Compra</label>
+          <input type="number" class="form-control" autofocus="true" placeholder="Total" name="txtTotal" min="1" 
+            id="txtTotal" required readonly/>
+        </div>
+
+        <div class="form-group">
+          <label for="txtDescripcion">Comentarios</label>
+            <textarea  class="form-control" autofocus="true" placeholder="Descripcion" minlength="3" 
+               maxlength="200" name="txtDescripcion" id="txtDescripcion" required>
+            </textarea>
+        </div>          
+
+        <div class="d-flex flex-wrap">
+          <input type="submit" name="Enviar" value="Enviar Orden " class="login-submit"/>
+          <input type="submit" name="Guardar" value="Guardar Orden " class="login-submit"/>
+        </div>
+      </form>
+    </div>
+<div>
+
+  <h2>{{mensaje}}</h2>
+</div>    
+{% endblock contenido %}

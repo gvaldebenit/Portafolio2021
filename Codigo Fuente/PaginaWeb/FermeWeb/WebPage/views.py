@@ -1,6 +1,7 @@
 from django.http.response import JsonResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.template.loader import render_to_string
+from django.urls import reverse
 
 # Import models
 from .models import *
@@ -13,13 +14,10 @@ from django.contrib.auth.decorators import login_required, permission_required, 
 
 # Add Generics
 from django.views.generic import ListView, DetailView, CreateView
-from django.db.models import Q
+from django.db.models import Q, F
 
 # Date and DateTime Handler
 from datetime import datetime
-
-from django.template.loader import render_to_string
-
 
 # Create your views here.
 
@@ -125,7 +123,7 @@ def signup(request):
     return render(request,'registroCliente.html', {'region':region, 'ciudad':ciudad, 'comuna':comuna})
 
 #Formulario Productos
-# @login required(login_url='login/')
+# @login_required(login_url='login/')
 # @group_required('Vendedor', 'Empleado')
 def registroProducto(request):
     familiaPr = FamiliaProducto.objects.all()
@@ -220,10 +218,7 @@ class ListaMateriales(ListView):
     context_object_name = 'productos'
 
     def get_queryset(self): # Busqueda
-        user = self.request.user
-        if user.groups.filter(name = "Proveedor").exists():
-
-            lista = Producto.objects.filter(idFamProducto__exact=3)          
+        lista = Producto.objects.filter(idFamProducto__exact=3)          
         return lista
 
 # Mision y Vision
@@ -235,19 +230,50 @@ def contacto(request):
     return render(request,'contacto.html')
 
 # Orden Compra
-# @login required(login_url='login/')
+# @login_required(login_url='login/')
 # @group_required('Empleado')
 def encargarProducto(request):
-    #pass
-    return render(request, 'registroOrden.html')
+    productos = Producto.objects.all()
+    prov = Proveedor.objects.all()
+    if request.GET:
+        idProd = request.GET.get('idProd')
+        idProv = request.GET.get('idProv')
+        return render(request,'registroOrdenCompra.html',{'proveedor':prov, 'productos':productos , 'valProd': idProd, 'valProv':idProv})
+    if request.POST:
+        producto = request.POST.get("txtProducto")
+        cantidad = request.POST.get("txtCantidad")
+        total = request.POST.get('txtTotal')        
+        comentario = request.POST.get("txtDescripcion")
+        fechaPedido = datetime.now()
+        user = request.user        
+        obj_Producto = Producto.objects.get(idProducto=producto)
+        empleado = Empleado.objects.first(idUsuario=user)
+        if request.POST['submit'] == 'Enviar':
+            enviado = True
+        elif request.POST['submit'] == 'Guardar':
+            enviado = False
+        else:
+            enviado = False
+        orden = OrdenCompra(
+            idProducto = obj_Producto,
+            cantidad = cantidad,
+            total = total,
+            comentario = comentario,
+            fechaPedido = fechaPedido,
+            idEmpleado = empleado,
+            enviada = enviado
+        )
+        orden.save()
+        return render(request,'registroOrdenCompra.html',{'proveedor':prov, 'productos':productos ,'mensaje':'Orden Registrada'})
+    return render(request,'registroOrdenCompra.html',{'proveedor':prov, 'productos':productos})
 
 # Listado Orden Compra
-# @login required(login_url='login/')
+# @login_required(login_url='login/')
 # @group_required('Empleado', 'Proveedor')
 class ListaOrdenCompra(ListView):
     # Uso de Modelo
     model = OrdenCompra
-    template_name = 'ListadoOrden.html'
+    template_name = 'listadoOrden.html'
     context_object_name = 'Ordenes de Compra'
 
     def get_queryset(self): # Busqueda
@@ -263,9 +289,22 @@ class ListaOrdenCompra(ListView):
         else:
             lista = OrdenCompra.objects.all()
             return lista
+    
+    def get_context_data(self, *args, **kwargs):
+        context = super(ListaOrdenCompra, self).get_context_data(*args, **kwargs)
+        context['Productos_StockCrit'] = Producto.objects.filter(stock__lte = F('stockCrit'))
+        return context 
 
-# Listado Orden Compra
-# @login required(login_url='login/')
+# Detalle Orden Compra
+# @login_required(login_url='login/')
+# @group_required('Empleado', 'Proveedor')
+class OrdenCompraDetail(DetailView):
+    context_object_name = 'OrdenCompra_detalle'
+    model =  OrdenCompra
+    template_name = 'ordenDetail.html'
+
+# Crear Proveedor
+# @login_required(login_url='login/')
 # @group_required('Empleado', 'Vendedor')
 def crearProveedor(request):
     region = Region.objects.all()
@@ -329,11 +368,10 @@ def crearProveedor(request):
             # Guardar Proveedor
             proveedor.save()
             msg = 'Proveedor Creado Exitosamente' # Mensaje de Exito
-            return render(request,'registroProveedor', {'region':region, 'ciudad':ciudad, 'comuna':comuna, 'rubro':rubro, 'msg': msg}) 
+            return render(request,'registroProveedor.html', {'region':region, 'ciudad':ciudad, 'comuna':comuna, 'rubro':rubro, 'msg': msg}) 
     return render(request,'registroProveedor.html', {'region':region, 'ciudad':ciudad, 'comuna':comuna, 'rubro':rubro})
 
-#add-to-cart
-
+# Añadir al Carro
 def add_to_cart(request):
     #del request.session['cartdata']
     cart_p={}
@@ -358,18 +396,77 @@ def add_to_cart(request):
     
     return JsonResponse({'data':request.session['cartdata'],'totalitems':len(request.session['cartdata'])})
 
-#carro
+# Carro y Concretar Compra
 def cart_list(request):
-    total_amt=0
-    try:
-        for p_id,item in request.session['cartdata'].items():
-            total_amt+=int(item['cant'])*int(item['precio'])
-        return render(request, 'cart.html',{'cart_data':request.session['cartdata'],'totalitems':len(request.session['cartdata']),'total_amt':total_amt})
-    except:
-        return render(request, 'cart.html')
+    total_amt = 0
+    if request.POST: # Concretar la venta
+        doc = request.POST.get("RadioDoc") # Eleccion de Boleta o Factura
+        if doc == 'Boleta':
+            listaCompra = request.session['cartdata'] # Carro de Compra
+            user = request.user # Usuario
+            cliente = Cliente.objects.first(idUsuario=user.id) # Cliente
+            for p_id, item in listaCompra.items(): 
+                total_amt += int(item['cant']) * int(item['precio']) # Total Boleta
+            venta = Venta() # Venta es el Master
+            fechaHora = datetime.now()
+            venta.fechaVenta = fechaHora
+            venta.idCliente = cliente
+            venta.total = total_amt
+            for p_id, item in listaCompra.items(): # Generar detalle de Venta
+                detalle = Detalle()
+                detalle.idVenta = venta
+                producto = Producto.objects.first(idProducto = p_id)
+                detalle.idProducto = producto
+                detalle.precioUnitario = int(item['precio'])
+                detalle.cantidad = int(item['cant'])
+                detalle.subtotal = detalle.cantidad * detalle.precioUnitario
+            # Crear Boleta    
+            boleta = Boleta()
+            boleta.fechaEmision = fechaHora
+            boleta.totalBoleta = venta.total
+            boleta.idVenta = venta
+            boleta.save()
+            return redirect(reverse('BOLETA', kwargs={'pk':boleta.nroBoleta}))
 
-#eliminar
+        elif doc == 'Factura':
+            listaCompra = request.session['cartdata'] # Carro de Compra
+            user = request.user # Usuario
+            cliente = Cliente.objects.first(idUsuario=user) # Cliente
+            for p_id, item in listaCompra.items(): 
+                total_amt += int(item['cant']) * int(item['precio']) # Total Boleta
+            venta = Venta() # Venta es el Master
+            fechaHora = datetime.now()
+            venta.fechaVenta = fechaHora
+            venta.idCliente = cliente
+            venta.total = total_amt
+            for p_id, item in listaCompra.items(): # Generar detalle de Venta
+                detalle = Detalle()
+                detalle.idVenta = venta
+                producto = Producto.objects.first(idProducto = p_id)
+                detalle.idProducto = producto
+                detalle.precioUnitario = int(item['precio'])
+                detalle.cantidad = int(item['cant'])
+                detalle.subtotal = detalle.cantidad * detalle.precioUnitario
+            # Crear Factura    
+            factura = Factura()
+            factura.fechaEmision = fechaHora
+            factura.total = venta.total
+            factura.idVenta = venta
+            factura.iva = int(round(venta.total * 0.19))
+            factura.neto = int(factura.total) - int(factura.iva) 
+            factura.save()
+            return redirect(reverse('FACTURA', kwargs={'pk':factura.nroFactura}))
+        else:
+            return render(request, 'cart.html')
+    else:
+        try:
+            for p_id,item in request.session['cartdata'].items():
+                total_amt+=int(item['cant'])*int(item['precio'])
+            return render(request, 'cart.html',{'cart_data':request.session['cartdata'],'totalitems':len(request.session['cartdata']),'total_amt':total_amt})
+        except:
+            return render(request, 'cart.html')
 
+# Eliminar del Carro
 def delete_cart_item(request):
     p_id=str(request.GET['prodId'])
     if 'cartdata' in request.session:
@@ -383,8 +480,7 @@ def delete_cart_item(request):
     t=render_to_string('ajax/cart-list.html',{'cart_data':request.session['cartdata'],'totalitems':len(request.session['cartdata']),'total_amt':total_amt})
     return JsonResponse({'data':t,'totalitems':len(request.session['cartdata'])})
 
-#actualizar
-
+# Actualizar productos en Carro
 def update_cart_item(request):
     p_id=str(request.GET['prodId'])
     p_cant=request.GET['cant']
@@ -399,4 +495,36 @@ def update_cart_item(request):
     t=render_to_string('ajax/cart-list.html',{'cart_data':request.session['cartdata'],'totalitems':len(request.session['cartdata']),'total_amt':total_amt})
     return JsonResponse({'data':t,'totalitems':len(request.session['cartdata'])})
 
+# Listado Boleta
+# @login_required(login_url='login/')
+# @group_required('Vendedor')
+class ListaBoleta(ListView):
+    # Uso de Modelo
+    model = Boleta
+    template_name = 'listadoBoletas.html'
+    context_object_name = 'Boletas'
 
+# Detalle Boleta
+# @login_required(login_url='login/')
+# @group_required('Vendedor', 'Cliente')
+class BoletaDetail(DetailView):
+    context_object_name = 'Boleta_detalle'
+    model =  Boleta
+    template_name = 'boleta.html'
+
+# Listado Factura
+# @login_required(login_url='login/')
+# @group_required('Vendedor')
+class ListaFactura(ListView):
+    # Uso de Modelo
+    model = Factura
+    template_name = 'listadoBoletas.html'
+    context_object_name = 'Facturas'
+
+# Detalle Factura
+# @login_required(login_url='login/')
+# @group_required('Vendedor', 'Cliente')
+class FacturaDetail(DetailView):
+    context_object_name = 'Factura_detalle'
+    model =  Factura
+    template_name = 'factura.html'

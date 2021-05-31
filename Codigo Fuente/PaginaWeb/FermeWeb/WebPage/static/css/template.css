@@ -39,6 +39,19 @@
         padding: 10px;
         outline: 5px auto black;
     }
+
+    .dropdown-toggle {
+        color: white;
+    }
+    
+    .dropdown-menu {
+        background: #1b5583;
+    }
+
+    .dropdown-item {
+        color: white;
+        background: #1b5583;
+    }
 }
 
 /* Estilo para dispositivos medianos (Tablets) */
@@ -71,6 +84,19 @@
         color: rgba(0, 0, 0, 0.555);
         text-align: center;
         padding: 40px;
+    }
+
+    .dropdown-toggle {
+        color: white;
+    }
+    
+    .dropdown-menu {
+        background: #1b5583;
+    }
+
+    .dropdown-item {
+        color: white;
+        background: #1b5583;
     }
 }
 
@@ -105,5 +131,18 @@
         color: rgba(0, 0, 0, 0.555);
         text-align: center;
         padding: 40px;
+    }
+    
+    .dropdown-toggle {
+        color: white;
+    }
+    
+    .dropdown-menu {
+        background: #1b5583;
+    }
+
+    .dropdown-item {
+        color: white;
+        background: #1b5583;
     }
 }

@@ -42,7 +42,7 @@
                     <!-- Acciones segun grupo del usuario -->
                     <li class ="nav-item dropdown">
                         <a class="nav-link dropdown-toggle me-auto" id="navbarDropdownMenuLink" href="" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">Acciones</a>
+                        data-bs-toggle="dropdown" aria-expanded="false" style= "color:white">Acciones</a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <!-- Items de Proveedor -->
                             {% if user.groups.all.0.name == "Proveedor" %}
@@ -64,6 +64,7 @@
                             {% endif %}
                             <!-- Items de un superuser o staff -->
                             {% if user.is_superuser or user.is_staff %}
+                                <li><a class="dropdown-item" id="a-nav" href="{% url 'admin:index' %}">Administrador</a></li>
                                 <li><a class="dropdown-item" id="a-nav" href="{% url 'REGP' %}">Registro Producto</a></li>
                                 <li><a class="dropdown-item" id="a-nav" href="{% url 'REGPROV' %}">Registro Proveedor</a></li>
                                 <li><a class="dropdown-item" id="a-nav" href="{% url 'ORDENCOMPRA' %}">Orden de Compra</a></li>
@@ -73,12 +74,11 @@
                             {% endif %}
                         </ul>
                     </li>
-                    <li><a class="nav-item nav-link me-auto" id="a-nav" href="{% url 'LOGOUT' %}"> Cerrar Sesion </a></li>
                     <!--<li><a class="nav-item nav-link" id="a-nav" href=""> Carro de Compra </a></li>-->
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="{% url 'cart' %}"><img src="{% static 'images/cart.svg'%}" ></img> Cart (<span class="cart-list">{{request.session.cartdata|length}}</span>)</a>
-                      </li>
-                    <li><a class="nav-item nav-link" id="a-nav" href="{% url 'REGP' %}"> Registro Producto </a></li>
+                        <a class="nav-link text-white" href="{% url 'cart' %}"><img src="{% static 'images/cart.svg'%}"> </img>(<span class="cart-list">{{request.session.cartdata|length}}</span>)</a>
+                    </li>
+                    <li><a class="nav-item nav-link me-auto" id="a-nav" href="{% url 'LOGOUT' %}"> Cerrar Sesion </a></li>
                 {% else %}
                     <li><a class="nav-item nav-link" id="a-nav" href="{% url 'LOGIN' %}"> Iniciar Sesion </a></li>
                     <li><a class="nav-item nav-link" id="a-nav" href="{% url 'SIGNUP' %}">Nuevo Usuario</a></li>
