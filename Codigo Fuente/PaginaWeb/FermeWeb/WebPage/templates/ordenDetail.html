@@ -18,18 +18,18 @@
       elems.show();
       $('#selectorProducto').children().prop('selected', false);
       //$("#selectorTipo").filter('data("fam")="' + idFamilia + '"]').show();
-    }
+    };
     function calculoTotal(){
-      $('#txtTotal').value = ($('#txtCantidad').val()) * $('#txtValor').val())
-    }
+      $('#txtTotal').value = ($('#txtCantidad').val()) *($('#txtValor').val())
+    };
   </script>
 
   <!-- saber si recibe datos o no -->
-  {% if valProd and valProv %}
+  {% if item is not None %}
     <script>
       $(document).ready(function(){
-        var idProd = "{{valProd}}";
-        var idProv = "{{valProv}}";
+        var idProd = "{{item.idProducto}}";
+        var idProv = "{{item.idProveedor_id}}";
         $('#selectorProducto').value = idProd;
         $('#selectorProveedor').value = idProv;
       });

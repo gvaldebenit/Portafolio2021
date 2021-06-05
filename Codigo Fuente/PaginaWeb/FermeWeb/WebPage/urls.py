@@ -35,6 +35,7 @@ urlpatterns = [
     path('materiales/', ListaMateriales.as_view(), name='MATERIALES'),
     path('contacto', contacto, name = "CONTACTO"),
     path('orden_compra', encargarProducto, name = 'ORDENCOMPRA'),
+    path('orden_compra/<str:id_prod>', encargarProducto, name = 'ORDENCOMPRA'),
     path('listado_ordenCompra', ListaOrdenCompra.as_view(), name='LISTORDENCOMPRA'),
     path('ordenCompra/<pk>', OrdenCompraDetail.as_view(), name="ORDENDETAIL"),
     path('registro_proveedor', crearProveedor, name='REGPROV'),
@@ -46,4 +47,5 @@ urlpatterns = [
     path('listado_factura', ListaFactura.as_view(), name="LISTAFACTURA"),
     path('boleta/<pk>', BoletaDetail.as_view(), name="BOLETA"),
     path('factura/<pk>', FacturaDetail.as_view(), name="FACTURA"),
+    #path('factura', FacturaDetail, name="FACTURA"),
 ]

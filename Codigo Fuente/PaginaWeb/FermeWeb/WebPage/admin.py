@@ -17,4 +17,6 @@ admin.site.register(Comuna)
 admin.site.register(Cliente)
 admin.site.register(Boleta)
 admin.site.register(Factura)
+admin.site.register(Venta)
+admin.site.register(Detalle)
 

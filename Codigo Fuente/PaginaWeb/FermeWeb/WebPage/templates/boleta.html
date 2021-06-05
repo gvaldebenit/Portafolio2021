@@ -1,0 +1,124 @@
+{% extends "Template.html" %}
+{% load static %}
+
+{% block estilos %}
+    
+{% endblock estilos %}
+
+{% block contenido %}
+<!--
+        <div class="title" style="text-align: center;">
+            <h1 style="padding: 15px; color: rgb(89, 89, 255);">Factura</h1>
+        </div>
+
+        
+        <div class="container" style="background-image: linear-gradient(to top, #bbe0ff 100%, #48c6ef 0%);">
+            <div class="container mr-auto" id="Factura">
+
+                    <label for="idCliente" style="color: blue;">Numero Id</label>
+                    <br><input type="text" name="idCliente" id="idCliente" placeholder="idCliente"><br><br>
+
+                    <label for="nombreCliente" style="color: blue;">Nombre del Cliente</label>
+                    <br><input type="text" name="nombreCliente" id="nombreCliente" placeholder="Nombre"><br><br>
+                    
+                    <label for="direccionCliente" style="color: blue;">Direccion</label>
+                    <br><input type="text" name="direccionCliente" id="direccionCliente" placeholder="Direccion"><br><br>
+                    
+                    <label for="telefonoCliente" style="color: blue;">Telefono </label>
+                    <br><input type="text" name="telefonoCliente" id="telefonoCliente" placeholder="Telefono"><br><br>
+                
+                    <input class="btn btn-primary" type="button"  name="Continuar" onclick="generarFactura()"   value="Continuar"/>
+            </div> 
+        </div>-->
+        
+        <div class="border border-dark mx-4 mt-2 ">
+            <div class="col-12 row container-fluid mb-4 mt-4" > 
+                <div class = "col-2 mx-2 mt-2 w-25">
+                    <img class="img-fluid" src="{% static 'images/logo2.png'%}" alt="" width="60%" height="60%">
+                </div>
+                <div class="col"></div>
+                <div class="col-4 mt-3">
+                    <h6>RUT :<a id="rutEmp">99.999.999</a> </h6>
+                    <h6>Razon social: <a id="nomEmp"></a>Fermeweb</h6>
+                    <h6 id="dirEmp">Isabel Riquelme 2784</h6>
+                    <h6 id="comCiuEmp">Pedro Aguirre Cerda - Santiago</h6>
+                </div>
+                <div class="col-4 border border-dark align-self-center">
+                    <h4 class="text-center text-danger">Rut:<a id="rutEmp">99.999.999</a> </h4>
+                    <h4 class="text-center text-danger"> Boleta Electronica</h4>
+                    <h4 class="text-center text-danger">N° {{object.nroBoleta}}</h4>
+                </div>
+            </div>
+            <div class="col-12 row container-fluid mb-4">
+                <div class="col-5 mx-2 border border-dark">
+                    <h6>Señores: {{object.idVenta.idCliente.nombres}} {{object.idVenta.idCliente.apellidoPaterno}} {{object.idVenta.idCliente.apellidoMaterno}} &nbsp; &nbsp; &nbsp; Rut: {{object.idVenta.idCliente.rut}}</h6>
+                    <h6>Direccion: {{object.idVenta.idCliente.direccion}}</h6>
+                    <h6>Comuna: {{object.idVenta.idCliente.idComuna.nombre}}&nbsp; &nbsp; &nbsp;Ciudad: {{object.idVenta.idCliente.idComuna.idCiudad.nombre}} </h6>
+                    <h6>Contacto: + 56 {{object.idVenta.idCliente.telefono}}</h6>
+                </div>
+                <div class="col-2"></div>
+                <div class="col-4 mx-2 text-center align-self-center">Fecha Emision: {{object.fechaEmision}}</div>
+            </div>
+            <div class="row mx-4 table-responsive">
+                <table class="table text-center ">
+                    <thead>
+                        <tr>
+                            <th >Codigo</th>
+                            <th >Descripcion</th>
+                            <th >Cantidad</th>
+                            <th >Precio</th>
+                            <th >Valor</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for item in Detalles %}
+                        <tr>
+                            
+                            <td>{{item.idProducto_id}}</td>
+                            <td>{{item.idProducto.nombre}}</td>
+                            <td>{{item.cantidad}}</td>
+                            <td>{{item.precioUnitario}}</td>
+                            <td>{{item.subtotal}}</td>
+                            
+                        </tr>
+                    {% endfor%}
+                    </tbody>
+                </table>
+            </div>
+            <br><br><br><br>
+            <div class="col-12 row mt-2 mb-4 mx-4">
+                <div class="col-4 mt-2 ">
+                    <img src="{% static 'images/TimbreElectronico.jpeg' %}" class="img-fluid">
+                </div>
+                <div class="col-3"></div>
+                <div class="col-3 border border-dark h-100 align-items-center">
+                    <br>
+                    <h6>Monto Total: ${{object.totalBoleta}}</h6>
+                    <br>
+                </div>
+            </div>
+            <div class="container-fluid">
+                    <div class="col-12 row border border-dark rounded mx-auto">
+                        <div class="col-5">
+                            <h6>Nombre: {{object.idVenta.idCliente.nombres}} {{object.idVenta.idCliente.apellidoPaterno}} {{object.idVenta.idCliente.apellidoMaterno}}</h6>
+                            <br>
+                            <h6>Firma:                                   </a></h6>
+                        </div>                
+                        <div class="col-4 ">
+                            <h6>R.U.T: {{object.idVenta.idCliente.rut}}</h6>
+                        </div>               
+                        <div class="col-3">
+                            <h6>Fecha: {{object.fechaEmision}}</h6>
+                        </div>
+                    </div>
+                </div>
+                <h6 class="text-end text-danger">CEDIBLE &nbsp; &nbsp;</h6>
+            </div>
+        </div>
+{% endblock contenido%}
+
+
+
+
+
+

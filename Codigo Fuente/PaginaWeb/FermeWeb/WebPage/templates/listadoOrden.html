@@ -8,82 +8,88 @@
 
 {% block contenido %}
 
-{% if user.groups.all.0.name == "Empleado" or user.is_superuser or user.is_staff %}
-<h2> Productos Escasos
-<div class = "container-fluid m-2 overflow-auto">
-    <table class ="table">
+<div class="container-fluid p-auto m-auto">
+    {% if user.groups.all.0.name == "Empleado" or user.is_superuser or user.is_staff %}
+    <h2 class="text-center mt-4"> Productos Escasos</h2>
+    <br>
+    <div class = "container-fluid m-2 mx-auto overflow-auto">
+    <table class ="table table-bordered border-dark text-center">
         <thead>
         <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Producto</th>
-            <th scope="col">Stock</th>
-            <th scope="col">Stock Critico</th>
-            <th scope="col"> </th>
+            <th >ID</th>
+            <th >Producto</th>
+            <th >Stock</th>
+            <th >Stock Critico</th>
+            <th >¿Ordenar?</th>
         </tr>
         </thead>
         <tbody>
         {% for item in Productos_StockCrit %}
         <tr>
-            <th scope="row">{{item.idProducto}}</th>
+            <th >{{item.idProducto}}</th>
             <td>{{item.nombre}}</td>
             <td>{{item.stock}}</td>
             <td>{{item.stockCrit}}</td>
-            <td><a href="{% url 'ORDENCOMPRA' %}" onclick=enviarData(this) class="btn btn-primary" role="button" 
+            <td><a href="{% url 'ORDENCOMPRA' item.idProducto %}" id="enviarData" class="btn btn-primary" role="button" 
                 data-idProd="{{item.idProducto}}" data-idProv="{{item.idProveedor_id}}">Ordenar</a></td>
+        </tr>
+        {% empty %}
+        <tr>
+            <th>Vacio</th>
+            <td>Vacio</td>
+            <td>Vacio</td>
+            <td>Vacio</td>
+            <td>Vacio</td>
         </tr>
         {% endfor %}    
         </tbody>
     </table>    
-</div>
-<!-- Ajax para Formulario -->
-<script>
-    function enviarData(el){
+    </div>
 
-        var idProd = $(el).data('idProd');
-        var idProv = $(el).data('idProv');
-        $.ajax({
-            type: 'GET',
-            url:"{% url 'ORDENCOMPRA' %}",
-            data:{
-                'idProd':idProd,
-                'idProv':idProv,
-            },      
-            success: return true;
-            error: function(res){
-                alert('Error al realizar la solicitud')
-            } 
-        }) 
-    }
-</script>
-{% endif %}
+    <br>
+    <br>
 
-<div class="d-flex flex-wrap col-12 row justify-content-around align-items-center">
-    <h2>Listado de Ordenes de Compra</h2>
-    <table class ="table">
+    {% endif %}
+
+    <h2 class="text-center">Listado de Ordenes de Compra</h2>
+    <br>
+    <div class="container-fluid mx-auto overflow-auto table-responsive-sm">
+    <table class ="table table-sm table-bordered border-dark text-center">
         <thead>
         <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Fecha Pedido</th>
-            <th scope="col">Producto</th>
-            <th scope="col">Cantidad</th>
-            <th scope="col">Valor</th>
-            <th scope="col">Empleado</th>
-            <th scope="col"> </th>
+            <th>ID</th>
+            <th>Fecha Pedido</th>
+            <th>Producto</th>
+            <th>Cantidad</th>
+            <th>Valor</th>
+            <th>Empleado</th>
+            <th>Revisar</th>
         </tr>
         </thead>
         <tbody>
         {% for orden in object_list %}
         <tr>
-            <th scope="row">{{orden.idOrdenCompra}}</th>
-            <td>{{orden.fechaPedido}}</td>
-            <td>{{orden.idProducto__nombre}}</td>
-            <td>{{orden.cantidad}}</td>
-            <td>{{orden.total}}</td>
-            <td>{{orden.idEmpleado__nombres}}
-            <td><a href="/ordenCompra/{{orden.idOrdenCompra}}" class="btn btn-primary" role="button" >Detalles</a></td>
+            <th>{{orden.idOrdenCompra}}</th>
+                <td>{{orden.fechaPedido}}</td>
+                <td>{{orden.idProducto__nombre}}</td>
+                <td>{{orden.cantidad}}</td>
+                <td>{{orden.total}}</td>
+                <td>{{orden.idEmpleado__nombres}}</td>
+                <td><a href="/ordenCompra/{{orden.idOrdenCompra}}" class="btn btn-primary" role="button">Detalles</a></td>
+        </tr>
+        {% empty %}
+        <tr>
+            <th>Vacio</th>
+            <td>Vacio</td>
+            <td>Vacio</td>
+            <td>Vacio</td>
+            <td>Vacio</td>
+            <th>Vacio</th>
+            <td>Vacio</td>
         </tr>
         {% endfor %}    
         </tbody>
     </table>    
+    </div>
 </div>
 {% endblock contenido%}

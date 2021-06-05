@@ -232,13 +232,12 @@ def contacto(request):
 # Orden Compra
 # @login_required(login_url='login/')
 # @group_required('Empleado')
-def encargarProducto(request):
+def encargarProducto(request, id_prod=None):
     productos = Producto.objects.all()
     prov = Proveedor.objects.all()
-    if request.GET:
-        idProd = request.GET.get('idProd')
-        idProv = request.GET.get('idProv')
-        return render(request,'registroOrdenCompra.html',{'proveedor':prov, 'productos':productos , 'valProd': idProd, 'valProv':idProv})
+    if id_prod is not None:
+        item = Producto.objects.get(pk=id_prod) 
+        return render(request,'registroOrdenCompra.html',{'proveedor':prov, 'productos':productos , 'item': item})
     if request.POST:
         producto = request.POST.get("txtProducto")
         cantidad = request.POST.get("txtCantidad")
@@ -404,7 +403,7 @@ def cart_list(request):
         if doc == 'Boleta':
             listaCompra = request.session['cartdata'] # Carro de Compra
             user = request.user # Usuario
-            cliente = Cliente.objects.first(idUsuario=user.id) # Cliente
+            cliente = Cliente.objects.get(idUsuario=user) # Cliente
             for p_id, item in listaCompra.items(): 
                 total_amt += int(item['cant']) * int(item['precio']) # Total Boleta
             venta = Venta() # Venta es el Master
@@ -412,26 +411,29 @@ def cart_list(request):
             venta.fechaVenta = fechaHora
             venta.idCliente = cliente
             venta.total = total_amt
+            venta.save()
             for p_id, item in listaCompra.items(): # Generar detalle de Venta
                 detalle = Detalle()
                 detalle.idVenta = venta
-                producto = Producto.objects.first(idProducto = p_id)
+                producto = Producto.objects.get(idProducto = p_id)
                 detalle.idProducto = producto
                 detalle.precioUnitario = int(item['precio'])
                 detalle.cantidad = int(item['cant'])
                 detalle.subtotal = detalle.cantidad * detalle.precioUnitario
+                detalle.save()
             # Crear Boleta    
             boleta = Boleta()
             boleta.fechaEmision = fechaHora
             boleta.totalBoleta = venta.total
             boleta.idVenta = venta
             boleta.save()
+            del request.session['cartdata']
             return redirect(reverse('BOLETA', kwargs={'pk':boleta.nroBoleta}))
 
         elif doc == 'Factura':
             listaCompra = request.session['cartdata'] # Carro de Compra
             user = request.user # Usuario
-            cliente = Cliente.objects.first(idUsuario=user) # Cliente
+            cliente = Cliente.objects.get(idUsuario=user) # Cliente
             for p_id, item in listaCompra.items(): 
                 total_amt += int(item['cant']) * int(item['precio']) # Total Boleta
             venta = Venta() # Venta es el Master
@@ -439,22 +441,25 @@ def cart_list(request):
             venta.fechaVenta = fechaHora
             venta.idCliente = cliente
             venta.total = total_amt
+            venta.save()
             for p_id, item in listaCompra.items(): # Generar detalle de Venta
                 detalle = Detalle()
                 detalle.idVenta = venta
-                producto = Producto.objects.first(idProducto = p_id)
+                producto = Producto.objects.get(idProducto = p_id)
                 detalle.idProducto = producto
                 detalle.precioUnitario = int(item['precio'])
                 detalle.cantidad = int(item['cant'])
                 detalle.subtotal = detalle.cantidad * detalle.precioUnitario
+                detalle.save()
             # Crear Factura    
             factura = Factura()
             factura.fechaEmision = fechaHora
             factura.total = venta.total
             factura.idVenta = venta
             factura.iva = int(round(venta.total * 0.19))
-            factura.neto = int(factura.total) - int(factura.iva) 
+            factura.neto = int(factura.total) - int(factura.iva)
             factura.save()
+            del request.session['cartdata']
             return redirect(reverse('FACTURA', kwargs={'pk':factura.nroFactura}))
         else:
             return render(request, 'cart.html')
@@ -512,6 +517,11 @@ class BoletaDetail(DetailView):
     model =  Boleta
     template_name = 'boleta.html'
 
+    def get_context_data(self, *args, **kwargs):
+        context = super(BoletaDetail, self).get_context_data(*args, **kwargs)
+        context['Detalles'] = Detalle.objects.filter(idVenta_id = self.object.idVenta)
+        return context
+
 # Listado Factura
 # @login_required(login_url='login/')
 # @group_required('Vendedor')
@@ -528,3 +538,11 @@ class FacturaDetail(DetailView):
     context_object_name = 'Factura_detalle'
     model =  Factura
     template_name = 'factura.html'
+
+    def get_context_data(self, *args, **kwargs):
+        context = super(FacturaDetail, self).get_context_data(*args, **kwargs)
+        context['Detalles'] = Detalle.objects.filter(idVenta_id = self.object.idVenta)
+        return context
+
+#def FacturaDetail(request):
+ #   return render(request, 'factura.html')
