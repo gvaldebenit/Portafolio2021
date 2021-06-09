@@ -1,107 +1,170 @@
 {% extends "Template.html" %}
 {% load static %}
+
 {% block estilos %}
-    <link rel="stylesheet" href="{% static 'css/for_estilo.css' %}">
-
-{% endblock estilos %}
-        
-{% block contenido %}
-  <div class="title">
-    <h2>Crear Orden de Compra</h2>
-  </div>
-
-  <!-- Jquery para Selector -->
-  <script>
-    function changeSelector(){
-      var elems = $('#selectorProducto option[data-prov="'+$("#selectorProveedor").val()+'"]');
-      $('#selectorProducto option').not(elems).hide();
-      elems.show();
-      $('#selectorProducto').children().prop('selected', false);
-      //$("#selectorTipo").filter('data("fam")="' + idFamilia + '"]').show();
-    };
-    function calculoTotal(){
-      $('#txtTotal').value = ($('#txtCantidad').val()) *($('#txtValor').val())
-    };
-  </script>
-
-  <!-- saber si recibe datos o no -->
-  {% if item is not None %}
-    <script>
-      $(document).ready(function(){
-        var idProd = "{{item.idProducto}}";
-        var idProv = "{{item.idProveedor_id}}";
-        $('#selectorProducto').value = idProd;
-        $('#selectorProveedor').value = idProv;
-      });
-    </script>
-  {% endif %}
-
-  <!-- Formulario -->
-    <div class="container mr-auto" id="Formulario">
-      <form action="" method="POST" onsubmit="return validarForRegistro()">
-        {% csrf_token %}          
-
-          <br>
-            <h2>Producto</h2>
-          <br>
-          <div class="d-flex flex-wrap">
-            <div class="form-group me-2">
-              <label for="txtproveedor">Proveedor</label>
-              <br>
-              <select name="txtProveedor" class="input-100" id="selectorProveedor" onchange=changeSelector()>
-              {% for prov in proveedor %}
-                <option value = "{{prov.idProveedor}}">{{prov.nombres}}</option>
-              {% endfor %}
-              </select>
-            </div>
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
     
-            <div class="form-group me-2">
-              <label for="txtproducto">Producto</label>
-              <br>
-              <select name="txtProducto" class="input-100" id="selectorProducto">
-              {% for prod in productos %}
-                <option value = "{{prod.idProducto}}" data-prov="{{prod.idProveedor_id}}">{{prod.nombre}}</option>
-              {% endfor %}
-              </select>
+{% endblock estilos %}
+
+{% block contenido %}  
+    <title>Orden de Compra</title>
+    <div class="border border-dark mx-4 mt-2 ">
+        <div class="col-12 row container-fluid mb-4 mt-4" > 
+            <div class = "col-2 mx-2 mt-2 w-25">
+                <img class="img-fluid" src="{% static 'images/logo2.png'%}" alt="" width="60%" height="60%">
             </div>
-          </div>
-
-        <br>
-        <h2>Stock</h2>
-        <br>
-        <div class="form-group">
-          <label for="txtCantidad">Cantidad</label>
-          <input type="number" class="form-control" autofocus="true" placeholder="Stock" name="txtCantidad" min="1" 
-            id="txtCantidad" required onchange=calculoTotal()/>
+            <div class="col"></div>
+            <div class="col-4 mt-3">
+                <h6>RUT :<a id="rutEmp">99.999.999</a> </h6>
+                <h6>Razon social: <a id="nomEmp"></a>Fermeweb</h6>
+                <h6 id="dirEmp">Isabel Riquelme 2784</h6>
+                <h6 id="comCiuEmp">Pedro Aguirre Cerda - Santiago</h6>
+            </div>
+            <div class="col-4 border border-dark align-self-center">
+                <h4 class="text-center text-danger">Rut:<a id="rutEmp">99.999.999</a> </h4>
+                <h4 class="text-center text-danger" id="bolFac">Orden de Compra (Uso Interno)</h4>
+                <h4 class="text-center text-danger">N° {{object.idOrdenCompra}}</a></h4>
+                {% if object.recibido == True %}
+                <h4 class="text-center text-danger">ORDEN RECIBIDA</h4>
+                {% elif object.valido == False %}
+                <h4 class="text-center text-danger">ORDEN ANULADA</h4>
+                {% endif %}
+            </div>
         </div>
-
-        <div class="form-group">
-          <label for="txtValor">Valor Unitario</label>
-          <input type="number" class="form-control" autofocus="true" placeholder="Valor Unitario" name="txtValor" min="1" 
-            id="txtValor" required onchange=calculoTotal()/>
+        <div class="col-12 row container-fluid mb-4">
+            <div class="col-5 mx-2 border border-dark">
+                <h6>Empresa: {{object.idProducto.idProveedor.nombres}}</h6>
+                <h6>Rut: {{object.idProducto.idProveedor.rut}}</h6>
+                <h6>Representante: {{object.idProducto.idProveedor.representante}}</h6>
+                <h6>Direccion: {{object.idProducto.idProveedor.direccion}}</h6>
+                <h6>Comuna: {{object.idProducto.idProveedor.idComuna.nombre}}&nbsp; &nbsp; &nbsp;Ciudad: {{object.idProducto.idProveedor.idComuna.idCiudad.nombre}}</h6>
+                <h6>Contacto: + 56 {{object.idProducto.idProveedor.telefono}}</h6>
+            </div>
+            <div class="col-2"></div>
+            <div class="col-4 mx-2 text-center align-self-center">Fecha Emision: {{object.fechaPedido}}</div>
         </div>
-
-        <div class="form-group">
-          <label for="txtTotal">Total Compra</label>
-          <input type="number" class="form-control" autofocus="true" placeholder="Total" name="txtTotal" min="1" 
-            id="txtTotal" required readonly/>
+        <div class="row mx-4 table-responsive">
+            <table class="table text-center ">
+                <thead>
+                    <tr>
+                        <th >Codigo</th>
+                        <th >Descripcion</th>
+                        <th >Cantidad</th>
+                        <th >Total</th>
+                        <th >Comentario</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr> 
+                        <td>{{object.idProducto_id}}</td>
+                        <td>{{object.idProducto.nombre}}</td>
+                        <td>{{object.cantidad}}</td>
+                        <td>{{object.total}}</td>
+                        <td>{{object.comentario}}</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-
-        <div class="form-group">
-          <label for="txtDescripcion">Comentarios</label>
-            <textarea  class="form-control" autofocus="true" placeholder="Descripcion" minlength="3" 
-               maxlength="200" name="txtDescripcion" id="txtDescripcion" required>
-            </textarea>
-        </div>          
-
-        <div class="d-flex flex-wrap">
-          <input type="submit" name="Enviar" value="Enviar Orden " class="login-submit"/>
-          <input type="submit" name="Guardar" value="Guardar Orden " class="login-submit"/>
+        <br><br><br><br>
+        <div class="col-12 row mt-2 mb-4 mx-4">
+            <div class="col-4 mt-2 ">
+                <img src="{% static 'images/TimbreElectronico.jpeg' %}" class="img-fluid">
+            </div>
+            <div class="col-3"></div>
+            <div class="col-3 border border-dark h-100 align-items-center">
+                <h6>Monto Total: ${{object.total}}</h6>
+            </div>
         </div>
-      </form>
+        <div class="container-fluid">
+                <div class="col-12 row border border-dark rounded mx-auto">
+                    <div class="col-5">
+                        <h6>Nombre Empleado: {{object.idEmpleado.nombres}} {{object.idEmpleado.apellidoPaterno}} {{object.idEmpleado.apellidoMaterno}}</h6>
+                        <br>
+                        <h6>Firma:                                   </a></h6>
+                    </div>                
+                    <div class="col-4 ">
+                        <h6>R.U.T: {{object.idEmpleado.rut}}</h6>
+                    </div>               
+                    <div class="col-3">
+                        <h6>Fecha: {{object.fechaPedido}}</h6>
+                        {% if object.enviada == False %}
+                        <h6>Estado: Sin Enviar</h6>
+                        {% elif object.enviada == True and object.recibido == False %}
+                        <h6>Estado: Enviada, Sin Recibir</h6>
+                        {% elif object.enviada == True and object.recibido == True %}
+                        <h6>Estado: Recibida</h6>
+                        {% elif object.valido == False %}
+                        <h6>Estado: Anulada</h6>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <h6 class="text-end text-danger">USO INTERNO, NO VALIDO PARA SII &nbsp; &nbsp;</h6>
+        </div>
     </div>
-<div>
 
-  <h2>{{mensaje}}</h2>
-</div>    
-{% endblock contenido %}
+<!-- Opciones para empleados solamente -->
+{% if user.groups.all.0.name != "Proveedor" %}
+    <br>
+    <div class="mx-3">
+        <a href="{% url 'LISTORDENCOMPRA' %}" class="btn btn-primary m-2">Volver a Listado</a>
+        <!-- Anular Orden, si esta vigente y aun no se recibe -->
+        {% if object.vigente == True and object.recibido == False%}
+            <a href="{% url 'DELORDEN' object.idOrdenCompra %}" class="btn btn-danger m-2">Anular Documento</a>
+        {% else %}
+            <a href="" class="btn btn-danger disabled m-2">Anular Documento</a>
+        {% endif %}
+        <!-- Enviar orden, si no esta enviada -->
+        {% if object.vigente == True and object.recibido == False and object.enviada == False %}
+            <a href="{% url 'ENVORDEN' object.idOrdenCompra %}" class="btn btn-primary m-2">Enviar Orden</a>
+        {% else %}
+            <a href="" class="btn btn-primary disabled m-2">Enviar Orden</a>
+        {% endif %}
+        <!-- Enviar orden, si no esta enviada -->
+        {% if object.vigente == True and object.recibido == False and object.enviada == True %}
+            <a href="{% url 'RECIBORDEN' object.idOrdenCompra %}" class="btn btn-success m-2">Recibir Pedido</a>
+        {% else %}
+            <a href="" class="btn btn-success disabled m-2">Recibir Pedido</a>
+        {% endif %}
+    </div>
+{% endif %}
+
+ <!-- Modal para mensajes -->
+  <div id="messageModal" class="modal" tabindex="-1">
+    <div class="modal-dialog">	
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Mensaje</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="mensaje">
+        <div>
+        {{mensaje}}
+        </div>
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          <a href="{% url 'LISTORDENCOMPRA' %}" class="btn btn-primary">Volver a Listado</a>
+        </div>
+    </div>
+    </div>
+  </div> 
+
+  <!-- Activador del Modal -->
+  {% if mensaje %}
+  <script>
+    $(document).ready(function(){
+      $('#messageModal').modal("toggle")
+    });
+  </script>
+  {% endif %}  
+
+
+
+{% endblock contenido%}
+
+
+
+
+
+

@@ -40,6 +40,7 @@
                 {% if user.is_authenticated %}
                     <li><a class="nav-item nav-link me-auto" id="a-nav" href="">Bienvenido: {{user.first_name}}</a></li>
                     <!-- Acciones segun grupo del usuario -->
+                    {% if user.groups.all.0.name != "Cliente" %}
                     <li class ="nav-item dropdown">
                         <a class="nav-link dropdown-toggle me-auto" id="navbarDropdownMenuLink" href="" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false" style= "color:white">Acciones</a>
@@ -52,8 +53,8 @@
                             {% if user.groups.all.0.name == "Vendedor" %}
                                 <li><a class="dropdown-item" href="{% url 'REGP' %}">Registro Producto</a></li>
                                 <li><a class="dropdown-item" href="{% url 'REGPROV' %}">Registro Proveedor</a></li>
-                                <li><a class="dropdown-item" id="a-nav" href="">Boleta</a></li>
-                                <li><a class="dropdown-item" id="a-nav" href="">Factura</a></li>
+                                <li><a class="dropdown-item" id="a-nav" href="{% url 'LISTABOLETA' %}">Ver Boletas</a></li>
+                                <li><a class="dropdown-item" id="a-nav" href="{% url 'LISTAFACTURA' %}">Ver Facturas</a></li>
                             {% endif %}
                             <!-- Items de Empleado -->
                             {% if user.groups.all.0.name == "Empleado" %}
@@ -69,15 +70,17 @@
                                 <li><a class="dropdown-item" id="a-nav" href="{% url 'REGPROV' %}">Registro Proveedor</a></li>
                                 <li><a class="dropdown-item" id="a-nav" href="{% url 'ORDENCOMPRA' %}">Orden de Compra</a></li>
                                 <li><a class="dropdown-item" id="a-nav" href="{% url 'LISTORDENCOMPRA' %}">Ver Orden Compra</a></li>
-                                <li><a class="dropdown-item" id="a-nav" href="">Boleta</a></li>
-                                <li><a class="dropdown-item" id="a-nav" href="">Factura</a></li>
+                                <li><a class="dropdown-item" id="a-nav" href="{% url 'LISTABOLETA' %}">Ver Boletas</a></li>
+                                <li><a class="dropdown-item" id="a-nav" href="{% url 'LISTAFACTURA' %}">Ver Facturas</a></li>
                             {% endif %}
                         </ul>
                     </li>
-                    <!--<li><a class="nav-item nav-link" id="a-nav" href=""> Carro de Compra </a></li>-->
+                    {% endif %}
+                    {% if user.groups.all.0.name == "Cliente" %}
                     <li class="nav-item">
                         <a class="nav-link text-white" href="{% url 'cart' %}"><img src="{% static 'images/cart.svg'%}"> </img>(<span class="cart-list">{{request.session.cartdata|length}}</span>)</a>
                     </li>
+                    {% endif %}
                     <li><a class="nav-item nav-link me-auto" id="a-nav" href="{% url 'LOGOUT' %}"> Cerrar Sesion </a></li>
                 {% else %}
                     <li><a class="nav-item nav-link" id="a-nav" href="{% url 'LOGIN' %}"> Iniciar Sesion </a></li>
@@ -92,7 +95,7 @@
                 <li><a class="nav-item nav-link" id="a-nav" href="{%url 'MATERIALES'%}">Materiales Construccion</a></li>
                 <li><a class="nav-item nav-link" id="a-nav" href="{%url 'MISIONYVISION'%}">Mision y Vision</a></li>
                 <li><a class="nav-item nav-link" id="a-nav" href="{%url 'CONTACTO'%}">Contacto</a></li>
-                <li><a class="nav-item nav-link" id="a-nav" href="{%url 'AYUDA'%}">Necesitas Ayuda?</a></li>
+                <li><a class="nav-item nav-link" id="a-nav" href="{%url 'AYUDA'%}">¿Necesitas Ayuda?</a></li>
             </ul>
         </div>
     </nav>

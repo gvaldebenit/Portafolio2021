@@ -1,0 +1,433 @@
+[
+  {
+    "model": "auth.user",
+    "pk": 2,
+    "fields": {
+      "password": "pbkdf2_sha256$216000$HEEmDprZOtrJ$ZSFfqvri0V+tbyuM2QMphFsR4AndF+NWQaEv8YI3OWA=",
+      "last_login": "2021-06-03 00:18:00.017",
+      "is_superuser": false,
+      "username": "zenkonanabi@gmail.com",
+      "first_name": "Ignacio",
+      "last_name": "Curipan",
+      "email": "zenkonanabi@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2021-06-01 23:40:17",
+      "groups": [
+		    1
+	    ],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 3,
+    "fields": {
+      "password": "pbkdf2_sha256$216000$HEEmDprZOtrJ$ZSFfqvri0V+tbyuM2QMphFsR4AndF+NWQaEv8YI3OWA=",
+      "last_login": "2021-06-02 22:33:14.944",
+      "is_superuser": false,
+      "username": "hola@example.ex",
+      "first_name": "Satanin",
+      "last_name": "Bernales",
+      "email": "hola@example.ex",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2021-06-01 23:51:07",
+      "groups": [
+        1
+      ],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 4,
+    "fields": {
+      "password": "pbkdf2_sha256$216000$HEEmDprZOtrJ$ZSFfqvri0V+tbyuM2QMphFsR4AndF+NWQaEv8YI3OWA=",
+      "last_login": "2021-06-02 22:33:14.944",
+      "is_superuser": false,
+      "username": "contacto@maderaspenon.cl",
+      "first_name": " ",
+      "last_name": " ",
+      "email": "contacto@maderaspenon.cl",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2021-06-01 23:51:07",
+      "groups": [
+        4
+      ],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 5,
+    "fields": {
+      "password": "pbkdf2_sha256$216000$HEEmDprZOtrJ$ZSFfqvri0V+tbyuM2QMphFsR4AndF+NWQaEv8YI3OWA=",
+      "last_login": "2021-06-02 22:33:14.944",
+      "is_superuser": false,
+      "username": "sr.rojas@materialesrojas.cl",
+      "first_name": " ",
+      "last_name": " ",
+      "email": "sr.rojas@materialesrojas.cl",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2021-06-01 23:51:07",
+      "groups": [
+        4
+      ],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 6,
+    "fields": {
+      "password": "pbkdf2_sha256$216000$HEEmDprZOtrJ$ZSFfqvri0V+tbyuM2QMphFsR4AndF+NWQaEv8YI3OWA=",
+      "last_login": "2021-06-02 22:33:14.944",
+      "is_superuser": false,
+      "username": "Luis.Bernales@ferme.cl",
+      "first_name": "Luis",
+      "last_name": "Bernales",
+      "email": "Luis.Bernales@ferme.cl",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2021-06-01 23:51:07",
+      "groups": [
+        3
+      ],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 7,
+    "fields": {
+      "password": "pbkdf2_sha256$216000$HEEmDprZOtrJ$ZSFfqvri0V+tbyuM2QMphFsR4AndF+NWQaEv8YI3OWA=",
+      "last_login": "2021-06-02 22:33:14.944",
+      "is_superuser": false,
+      "username": "Maria.Rojas@ferme.cl",
+      "first_name": "Maria",
+      "last_name": "Rojas",
+      "email": "Maria.Rojas@ferme.cl",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2021-06-01 23:51:07",
+      "groups": [
+        3
+      ],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 8,
+    "fields": {
+      "password": "pbkdf2_sha256$216000$HEEmDprZOtrJ$ZSFfqvri0V+tbyuM2QMphFsR4AndF+NWQaEv8YI3OWA=",
+      "last_login": "2021-06-02 22:33:14.944",
+      "is_superuser": false,
+      "username": "Lorena.Dias@ferme.cl",
+      "first_name": "Lorena",
+      "last_name": "Dias",
+      "email": "Lorena.Dias@ferme.cl",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2021-06-01 23:51:07",
+      "groups": [
+        2
+      ],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "WebPage.cliente",
+    "pk": 1,
+    "fields": {
+      "rut": "19240882-2",
+      "nombres": "Ignacio",
+      "apellidoPaterno": "Curipan",
+      "apellidoMaterno": "Sandoval",
+      "telefono": "987654322",
+      "direccion": "Ramon Venegas 2684",
+      "idComuna": 50,
+      "idUsuario": 2,
+      "email": "zenkonanabi@gmail.com"
+    }
+  },
+  {
+    "model": "WebPage.cliente",
+    "pk": 2,
+    "fields": {
+      "rut": "19240888-8",
+      "nombres": "Satanin ",
+      "apellidoPaterno": "Bernales",
+      "apellidoMaterno": "Bernales",
+      "telefono": "912345678",
+      "direccion": "Calle 12",
+      "idComuna": 3,
+      "idUsuario": 3,
+      "email": "hola@example.ex"
+    }
+  },
+  {
+    "model": "WebPage.proveedor",
+    "pk": 1,
+    "fields": {
+      "rut": "50345678-9",
+      "nombres": "Maderas El Penon",
+      "apellidoPaterno": " ",
+      "apellidoMaterno": " ",
+      "telefono": "922334455",
+      "direccion": "Calle falsa 123",
+      "idComuna": 6,
+      "idUsuario": 4,
+      "representante": "Alberto Bueras",
+      "idRubro": 2
+    }
+  },
+  {
+    "model": "WebPage.proveedor",
+    "pk": 2,
+    "fields": {
+      "rut": "57123456-2",
+      "nombres": "Materiales Rojas",
+      "apellidoPaterno": " ",
+      "apellidoMaterno": " ",
+      "telefono": "212343765",
+      "direccion": "Barraca 14, Av. Industrial",
+      "idComuna": 20,
+      "idUsuario": 5,
+      "representante": "Nacar Rojas",
+      "idRubro": 5
+    }
+  },
+  {
+    "model": "WebPage.empleado",
+    "pk": 1,
+    "fields": {
+      "rut": "08234543-3",
+      "nombres": "Luis",
+      "apellidoPaterno": "Bernales",
+      "apellidoMaterno": "Bernales",
+      "telefono": "922334455",
+      "direccion": "Calle falsa 234",
+      "idComuna": 46,
+      "idUsuario": 6,
+      "cargo": 1
+    }
+  },
+  {
+    "model": "WebPage.empleado",
+    "pk": 2,
+    "fields": {
+      "rut": "11232111-4",
+      "nombres": "Maria",
+      "apellidoPaterno": "Rojas",
+      "apellidoMaterno": "Gonzales",
+      "telefono": "922334455",
+      "direccion": "Calle falsa 111",
+      "idComuna": 46,
+      "idUsuario": 7,
+      "cargo": 3
+    }
+  },
+  {
+    "model": "WebPage.empleado",
+    "pk": 3,
+    "fields": {
+      "rut": "17142765-3",
+      "nombres": "Lorena",
+      "apellidoPaterno": "Dias",
+      "apellidoMaterno": "Rojas",
+      "telefono": "922334455",
+      "direccion": "Calle falsa 133",
+      "idComuna": 46,
+      "idUsuario": 8,
+      "cargo": 2
+    }
+  },
+  {
+    "model": "WebPage.producto",
+    "pk": "00200201062021021",
+    "fields": {
+      "nombre": "Taladro Bauker",
+      "descripcion": "Taladro Bauker 7 velocidades",
+      "precio": 49990,
+      "stock": 30,
+      "stockCrit": 5,
+      "imagen": "not_found.jpg",
+      "fVenc": "2021-06-01",
+      "idFamProducto": 2,
+      "idTipoProducto": 21,
+      "idProveedor": 2
+    }
+  },
+  {
+    "model": "WebPage.producto",
+    "pk": "00200200000000021",
+    "fields": {
+      "nombre": "Percutor Bauker",
+      "descripcion": "Percutor Clase 10",
+      "precio": 120990,
+      "stock": 4,
+      "stockCrit": 10,
+      "imagen": "not_found.jpg",
+      "fVenc": null,
+      "idFamProducto": 2,
+      "idTipoProducto": 21,
+      "idProveedor": 2
+    }
+  },
+  {
+    "model": "WebPage.producto",
+    "pk": "00100305062022024",
+    "fields": {
+      "nombre": "Lamina Madera Prensada",
+      "descripcion": "Madera prensada Dimensiones 400cm x 200cm x 1cm",
+      "precio": 12990,
+      "stock": 20,
+      "stockCrit": 50,
+      "imagen": "not_found.jpg",
+      "fVenc": "2024-06-05",
+      "idFamProducto": 3,
+      "idTipoProducto": 24,
+      "idProveedor": 1
+    }
+  },
+  {
+    "model": "WebPage.venta",
+    "pk": 1,
+    "fields": {
+      "fechaVenta": "2021-05-29 19:40:00.953",
+      "idCliente": 1,
+      "total": 99980,
+      "valido": true
+    }
+  },
+  {
+    "model": "WebPage.venta",
+    "pk": 2,
+    "fields": {
+      "fechaVenta": "2021-06-01 12:00:44.896",
+      "idCliente": 1,
+      "total": 170980,
+      "valido": true
+    }
+  },
+  {
+    "model": "WebPage.venta",
+    "pk": 3,
+    "fields": {
+      "fechaVenta": "2021-06-01 23:57:15.378",
+      "idCliente": 2,
+      "total": 38970,
+      "valido": true
+    }
+  },
+  {
+    "model": "WebPage.detalle",
+    "pk": 1,
+    "fields": {
+      "idVenta": 1,
+      "idProducto": "00200201062021021",
+      "cantidad": 2,
+      "precioUnitario": 49990,
+      "subtotal": 99980
+    }
+  },
+  {
+    "model": "WebPage.detalle",
+    "pk": 2,
+    "fields": {
+      "idVenta": 2,
+      "idProducto": "00200200000000021",
+      "cantidad": 1,
+      "precioUnitario": 120990,
+      "subtotal": 120990
+    }
+  },
+  {
+    "model": "WebPage.detalle",
+    "pk": 3,
+    "fields": {
+      "idVenta": 2,
+      "idProducto": "00200201062021021",
+      "cantidad": 1,
+      "precioUnitario": 49990,
+      "subtotal": 49990
+    }
+  },
+  {
+    "model": "WebPage.detalle",
+    "pk": 4,
+    "fields": {
+      "idVenta": 3,
+      "idProducto": "00100305062022024",
+      "cantidad": 3,
+      "precioUnitario": 12990,
+      "subtotal": 38970
+    }
+  },
+  {
+    "model": "WebPage.boleta",
+    "pk": 1,
+    "fields": {
+      "fechaEmision": "2021-05-29 19:40:04.953",
+      "total": 99980,
+      "idVenta": 1,
+      "vigente": true
+    }
+  },
+  {
+    "model": "WebPage.boleta",
+    "pk": 2,
+    "fields": {
+      "fechaEmision": "2021-06-01 23:57:30.896",
+      "total": 38970,
+      "idVenta": 3,
+      "vigente": true
+    }
+  },
+  {
+    "model": "WebPage.factura",
+    "pk": 1,
+    "fields": {
+      "fechaEmision": "2021-06-01 12:01:00.896",
+      "neto": 138494,
+      "iva": 32486,
+      "total": 170980,
+      "idVenta": 2,
+      "vigente": true
+    }
+  },
+  {
+    "model": "WebPage.ordencompra",
+    "pk": 1,
+    "fields": {
+      "idProducto": "00100305062022024",	
+      "cantidad": 10,
+      "total": 46000,
+      "comentario": "Pedido por falta de stock Critico",
+      "fechaPedido": "2021-06-01 12:01:00.896",
+      "idEmpleado": 1,
+      "enviada": true,
+      "recibido": true,
+      "valido": true
+    }
+  },
+  {
+    "model": "WebPage.ordencompra",
+    "pk": 2,
+    "fields": {
+      "idProducto": "00200200000000021",	
+      "cantidad": 4,
+      "total": 200000,
+      "comentario": "Pedido por falta de stock Critico",
+      "fechaPedido": "2021-06-01 15:00:00.896",
+      "idEmpleado": 2,
+      "enviada": true,
+      "recibido": true,
+      "valido": true
+    }
+  }
+]

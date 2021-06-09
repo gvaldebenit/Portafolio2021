@@ -18,27 +18,30 @@
       elems.show();
       $('#selectorProducto').children().prop('selected', false);
       //$("#selectorTipo").filter('data("fam")="' + idFamilia + '"]').show();
-    }
+    };
     function calculoTotal(){
-      $('#txtTotal').value = ($('#txtCantidad').val()) * $('#txtValor').val())
-    }
+      var total = ($('#txtCantidad').val()) * ($('#txtValor').val());
+      $('#txtTotal').val(total);
+    };
   </script>
 
   <!-- saber si recibe datos o no -->
-  {% if valProd and valProv %}
+  {% if item is not None %}
     <script>
       $(document).ready(function(){
-        var idProd = "{{valProd}}";
-        var idProv = "{{valProv}}";
+        var idProd = "{{item.idProducto}}";
+        var idProv = "{{item.idProveedor_id}}";
         $('#selectorProducto').value = idProd;
-        $('#selectorProveedor').value = idProv;
+        $('#selectorProveedor').value= idProv;
+        $('#selectorProducto option[value="'+ idProd +'"]').prop('selected', 'selected');
+        $('#selectorProveedor option[value="'+ idProv +'"]').prop('selected', 'selected');
       });
     </script>
   {% endif %}
 
   <!-- Formulario -->
     <div class="container mr-auto" id="Formulario">
-      <form action="" method="POST" onsubmit="return validarForRegistro()">
+      <form action="{% url 'ORDENCOMPRA' %}" method="POST">
         {% csrf_token %}          
 
           <br>
@@ -49,20 +52,24 @@
               <label for="txtproveedor">Proveedor</label>
               <br>
               <select name="txtProveedor" class="input-100" id="selectorProveedor" onchange=changeSelector()>
+              <option value ="" selected >Seleccionar</option>
               {% for prov in proveedor %}
                 <option value = "{{prov.idProveedor}}">{{prov.nombres}}</option>
               {% endfor %}
               </select>
+              <a class="m-2" href="{% url 'REGPROV' %}"><img src="{% static 'images/plus-lg.svg'%}"></a> 
             </div>
     
             <div class="form-group me-2">
               <label for="txtproducto">Producto</label>
               <br>
               <select name="txtProducto" class="input-100" id="selectorProducto">
+              <option value ="" selected >Seleccionar</option>
               {% for prod in productos %}
                 <option value = "{{prod.idProducto}}" data-prov="{{prod.idProveedor_id}}">{{prod.nombre}}</option>
               {% endfor %}
               </select>
+              <a class="m-2" href="{% url 'REGP' %}"><img src="{% static 'images/plus-lg.svg'%}"></a> 
             </div>
           </div>
 
@@ -72,13 +79,13 @@
         <div class="form-group">
           <label for="txtCantidad">Cantidad</label>
           <input type="number" class="form-control" autofocus="true" placeholder="Stock" name="txtCantidad" min="1" 
-            id="txtCantidad" required onchange=calculoTotal()/>
+            id="txtCantidad" onchange=calculoTotal() required/>
         </div>
 
         <div class="form-group">
           <label for="txtValor">Valor Unitario</label>
           <input type="number" class="form-control" autofocus="true" placeholder="Valor Unitario" name="txtValor" min="1" 
-            id="txtValor" required onchange=calculoTotal()/>
+            id="txtValor" onchange=calculoTotal() required/>
         </div>
 
         <div class="form-group">
@@ -90,18 +97,43 @@
         <div class="form-group">
           <label for="txtDescripcion">Comentarios</label>
             <textarea  class="form-control" autofocus="true" placeholder="Descripcion" minlength="3" 
-               maxlength="200" name="txtDescripcion" id="txtDescripcion" required>
-            </textarea>
+               maxlength="200" name="txtDescripcion" id="txtDescripcion" required></textarea>
         </div>          
-
         <div class="d-flex flex-wrap">
           <input type="submit" name="Enviar" value="Enviar Orden " class="login-submit"/>
           <input type="submit" name="Guardar" value="Guardar Orden " class="login-submit"/>
         </div>
       </form>
     </div>
-<div>
 
-  <h2>{{mensaje}}</h2>
-</div>    
+<!-- Modal para mensajes -->
+<div id="messageModal" class="modal" tabindex="-1">
+  <div class="modal-dialog">	
+	<div class="modal-content">
+		<div class="modal-header">
+		  <h5 class="modal-title">Mensaje</h5>
+		  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		</div>
+		<div class="modal-body" id="mensaje">
+			<div>
+      {{mensaje}}
+			</div>
+		</div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <a href="{% url 'LISTORDENCOMPRA' %}" class="btn btn-primary">Volver a Listado</a>
+      </div>
+	</div>
+  </div>
+</div> 
+
+<!-- Script para abrir modal en caso de que haya mensaje -->
+{% if mensaje %}
+<script>
+  $(document).ready(function(){
+    $('#messageModal').modal("toggle")
+  });
+</script>
+{% endif %}
+
 {% endblock contenido %}

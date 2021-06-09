@@ -71,10 +71,10 @@
         <tr>
             <th>{{orden.idOrdenCompra}}</th>
                 <td>{{orden.fechaPedido}}</td>
-                <td>{{orden.idProducto__nombre}}</td>
+                <td>{{orden.idProducto}}</td>
                 <td>{{orden.cantidad}}</td>
                 <td>{{orden.total}}</td>
-                <td>{{orden.idEmpleado__nombres}}</td>
+                <td>{{orden.idEmpleado}}</td>
                 <td><a href="/ordenCompra/{{orden.idOrdenCompra}}" class="btn btn-primary" role="button">Detalles</a></td>
         </tr>
         {% empty %}

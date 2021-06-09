@@ -136,24 +136,35 @@
       </form>
     </div>
 
-    <!-- Mensajes de Retorno en Caso de Error -->
-    {% if ans == 1%}
-        <script>
-            setTimeout(function(){ alert("Usuario ya Existe"); }, 500);
-        </script>
-    {% endif %} 
+  <!-- Modal para mensajes -->
+  <div id="messageModal" class="modal" tabindex="-1">
+    <div class="modal-dialog">	
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Mensaje</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="mensaje">
+        <div>
+        {{mensaje}}
+        </div>
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          <a href="{% url 'INDEX' %}" class="btn btn-primary">Volver a Inicio</a>
+        </div>
+    </div>
+    </div>
+  </div> 
 
-    {% if ans == 2%}
-        <script>
-            setTimeout(function(){ alert("Las contraseñas no coinciden"); }, 500);
-        </script>
-    {% endif %}  
-
-    {% if ans == 3 %}
-        <script>
-            setTimeout(function(){alert("Email ya existente en la base de datos")}; 500);
-        </script>     
-    {% endif %}
+  <!-- Activador del Modal -->
+  {% if mensaje %}
+  <script>
+    $(document).ready(function(){
+      $('#messageModal').modal("toggle")
+    });
+  </script>
+  {% endif %}   
          
 {% endblock contenido %}
 

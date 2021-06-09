@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import Group, User
 
+
 # Create your models here.
 
 # FamiliaProducto
@@ -83,13 +84,15 @@ class Persona(models.Model):
     class Meta:
         abstract = True
         
-    def __str__(self):
-        return self.nombres
 
 # Cliente
 class Cliente(Persona):
     idCliente = models.AutoField(primary_key = True)
     email = models.CharField(max_length = 40)
+
+    def __str__(self):
+        nombre = self.nombres + ' ' + self.apellidoPaterno + ' ' + self.apellidoMaterno
+        return nombre
     
 # Proveedor
 class Proveedor(Persona):
@@ -98,6 +101,10 @@ class Proveedor(Persona):
     representante = models.CharField(max_length = 50)
     idRubro = models.ForeignKey(Rubro, on_delete=models.CASCADE)
 
+    def __str__(self):
+        nombre = self.nombres 
+        return nombre
+
 # Empleado
 class Empleado(Persona):
     
@@ -105,7 +112,8 @@ class Empleado(Persona):
     cargo = models.ForeignKey(Cargo, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.cargo
+        nombre = self.nombres + ' ' + self.apellidoPaterno + ' ' + self.apellidoMaterno
+        return nombre
 
 # Producto
 class Producto(models.Model):
@@ -137,6 +145,12 @@ class OrdenCompra(models.Model):
     idEmpleado = models.ForeignKey(Empleado, on_delete=models.CASCADE)
     enviada = models.BooleanField(default=False)
     recibido = models.BooleanField(default=False)
+    valido = models.BooleanField(default=True)
+    
+    def __str__(self):
+        nombre = ''
+        nombre = nombre + 'Orden Compra ' + str(self.idOrdenCompra) + ' de Producto ' + str(self.idProducto)
+        return nombre
 
 # OrdenVenta (Master)
 class Venta(models.Model):
@@ -147,6 +161,11 @@ class Venta(models.Model):
     total = models.IntegerField()
     valido = models.BooleanField(default=True)
 
+    def __str__(self):
+        nombre = ''
+        nombre = nombre + 'Venta ' + str(self.idVenta) + ' en Fecha ' + str(self.fechaVenta)
+        return nombre
+
 # Detalle (Slave)
 class Detalle(models.Model):
     
@@ -156,15 +175,25 @@ class Detalle(models.Model):
     cantidad = models.IntegerField()
     precioUnitario = models.IntegerField()
     subtotal = models.IntegerField()
+
+    def __str__(self):
+        nombre = ''
+        nombre = nombre + 'Detalle Venta ' + str(self.idDetalle) + ' de Venta ' + str(self.idVenta)
+        return nombre
     
 # Boleta
 class Boleta(models.Model):
     
     nroBoleta = models.AutoField(primary_key = True)
     fechaEmision = models.DateTimeField(auto_now=False, auto_now_add=False)
-    totalBoleta = models.IntegerField()
+    total = models.IntegerField()
     idVenta = models.ForeignKey(Venta, on_delete=models.CASCADE)
     vigente = models.BooleanField(default = True)
+
+    def __str__(self):
+        nombre = ''
+        nombre = nombre + 'Boleta nro' + str(self.nroBoleta)
+        return nombre
 
 # Factura
 class Factura(models.Model):
@@ -176,6 +205,11 @@ class Factura(models.Model):
     total = models.IntegerField()
     idVenta = models.ForeignKey(Venta, on_delete=models.CASCADE)
     vigente = models.BooleanField(default = True)
+
+    def __str__(self):
+        nombre = ''
+        nombre = nombre + 'Factura nro' + str(self.nroFactura)
+        return nombre
     
 
 

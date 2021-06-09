@@ -1,0 +1,61 @@
+{% extends "Template.html" %}
+{% load static %}
+
+{% block estilos %}
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    
+{% endblock estilos %}
+
+{% block contenido %}
+
+    <h2 class="text-center">Listado de Boletas</h2>
+    <br>
+    <div class="container-fluid mx-auto overflow-auto table-responsive-sm">
+    <table class ="table table-sm table-bordered border-dark text-center">
+        <thead>
+        <tr>
+            <th>nro Documento</th>
+            <th>Fecha Emision</th>
+            <th>Venta</th>
+            <th>Total</th>
+            <th>Estado</th>
+            <th>Ver Documento</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for doc in object_list %}
+        <tr>
+            <th>{{doc.nroBoleta}}</th>
+                <td>{{doc.fechaEmision}}</td>
+                <td>{{doc.idVenta}}</td>
+                <td>{{doc.total}}</td>
+                {% if doc.vigente %}
+                <td> 
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" checked disabled>
+                    <label class="form-check-label" for="inlineCheckbox1">Vigente</label>
+                </td>
+                {% else %}
+                <td>
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" disabled>
+                    <label class="form-check-label" for="inlineCheckbox1">Vigente</label>
+                </td>
+                {% endif %}
+                <td><a href="/boleta/{{doc.nroBoleta}}" class="btn btn-primary" role="button">Detalles</a></td>
+        </tr>
+        {% empty %}
+        <tr>
+            <th>Vacio</th>
+            <td>Vacio</td>
+            <td>Vacio</td>
+            <td>Vacio</td>
+            <td>Vacio</td>
+            <th>Vacio</th>
+            <td>Vacio</td>
+        </tr>
+        {% endfor %}    
+        </tbody>
+    </table>    
+    </div>
+</div>
+
+{% endblock contenido %}

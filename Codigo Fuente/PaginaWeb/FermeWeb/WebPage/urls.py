@@ -47,5 +47,10 @@ urlpatterns = [
     path('listado_factura', ListaFactura.as_view(), name="LISTAFACTURA"),
     path('boleta/<pk>', BoletaDetail.as_view(), name="BOLETA"),
     path('factura/<pk>', FacturaDetail.as_view(), name="FACTURA"),
-    #path('factura', FacturaDetail, name="FACTURA"),
+    path('del_boleta/<idBoleta>', borrarBoleta, name="DELBOLETA"),
+    path('del_factura/<idFactura>', borrarFactura, name="DELFACTURA"),
+    path('del_orden/<idOrden>', borrarOrden, name="DELORDEN"),
+    path('env_orden/<idOrden>', enviarOrden, name="ENVORDEN"),
+    path('rec_orden/<idOrden>', recibirOrden, name="RECIBORDEN"),
+    
 ]

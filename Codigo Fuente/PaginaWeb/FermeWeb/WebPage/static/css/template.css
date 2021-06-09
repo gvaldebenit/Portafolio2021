@@ -48,7 +48,7 @@
         background: #1b5583;
     }
 
-    .dropdown-item {
+    .navbar-collapse #a-nav.dropdown-item {
         color: white;
         background: #1b5583;
     }
@@ -94,7 +94,7 @@
         background: #1b5583;
     }
 
-    .dropdown-item {
+    .navbar-collapse #a-nav.dropdown-item {
         color: white;
         background: #1b5583;
     }
@@ -141,7 +141,7 @@
         background: #1b5583;
     }
 
-    .dropdown-item {
+    .navbar-collapse #a-nav.dropdown-item {
         color: white;
         background: #1b5583;
     }
