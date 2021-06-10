@@ -25,7 +25,7 @@
         <tbody>
         {% for doc in object_list %}
         <tr>
-            <th>{{doc.nroBoleta}}</th>
+            <th>{{doc.nroFactura}}</th>
                 <td>{{doc.fechaEmision}}</td>
                 <td>{{doc.idVenta}}</td>
                 <td>{{doc.total}}</td>
@@ -40,7 +40,7 @@
                     <label class="form-check-label" for="inlineCheckbox1">Vigente</label>
                 </td>
                 {% endif %}
-                <td><a href="/factura/{{doc.nroBoleta}}" class="btn btn-primary" role="button">Detalles</a></td>
+                <td><a href="/factura/{{doc.nroFactura}}" class="btn btn-primary" role="button">Detalles</a></td>
         </tr>
         {% empty %}
         <tr>

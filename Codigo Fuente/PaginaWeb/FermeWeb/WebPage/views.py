@@ -2,6 +2,7 @@ from django.http.response import JsonResponse
 from django.shortcuts import render, redirect
 from django.template.loader import render_to_string
 from django.urls import reverse
+from django.utils.decorators import method_decorator
 
 # Import models
 from .models import *
@@ -286,8 +287,8 @@ def encargarProducto(request, id_prod=None):
     return render(request,'registroOrdenCompra.html',{'proveedor':prov, 'productos':productos})
 
 # Listado Orden Compra
-@login_required(login_url='login/')
-@group_required('Empleado', 'Proveedor')
+@method_decorator(login_required(login_url='login/'), name='dispatch')
+@method_decorator(group_required('Empleado', 'Proveedor'), name='dispatch')
 class ListaOrdenCompra(ListView):
     # Uso de Modelo
     model = OrdenCompra
@@ -313,9 +314,10 @@ class ListaOrdenCompra(ListView):
         context['Productos_StockCrit'] = Producto.objects.filter(stock__lte = F('stockCrit')) #Query
         return context 
 
+
 # Detalle Orden Compra
-@login_required(login_url='login/')
-@group_required('Empleado', 'Proveedor')
+@method_decorator(login_required(login_url='login/'), name='dispatch')
+@method_decorator(group_required('Empleado', 'Proveedor'), name='dispatch')
 class OrdenCompraDetail(DetailView):
     context_object_name = 'OrdenCompra_detalle'
     model =  OrdenCompra
@@ -537,8 +539,8 @@ def update_cart_item(request):
     return JsonResponse({'data':t,'totalitems':len(request.session['cartdata'])})
 
 # Listado Boleta
-@login_required(login_url='login/')
-@group_required('Vendedor')
+@method_decorator(login_required(login_url='login/'), name='dispatch')
+@method_decorator(group_required('Vendedor'), name='dispatch')
 class ListaBoleta(ListView):
     # Uso de Modelo
     model = Boleta
@@ -546,8 +548,8 @@ class ListaBoleta(ListView):
     context_object_name = 'Boletas'
 
 # Detalle Boleta
-@login_required(login_url='login/')
-@group_required('Vendedor', 'Cliente')
+@method_decorator(login_required(login_url='login/'), name='dispatch')
+@method_decorator(group_required('Vendedor', 'Cliente'), name='dispatch')
 class BoletaDetail(DetailView):
     context_object_name = 'Boleta_detalle'
     model =  Boleta
@@ -559,8 +561,8 @@ class BoletaDetail(DetailView):
         return context
 
 # Listado Factura
-@login_required(login_url='login/')
-@group_required('Vendedor')
+@method_decorator(login_required(login_url='login/'), name='dispatch')
+@method_decorator(group_required('Vendedor'), name='dispatch')
 class ListaFactura(ListView):
     # Uso de Modelo
     model = Factura
@@ -568,8 +570,8 @@ class ListaFactura(ListView):
     context_object_name = 'Facturas'
 
 # Detalle Factura
-@login_required(login_url='login/')
-@group_required('Vendedor', 'Cliente')
+@method_decorator(login_required(login_url='login/'), name='dispatch')
+@method_decorator(group_required('Vendedor', 'Cliente'), name='dispatch')
 class FacturaDetail(DetailView):
     context_object_name = 'Factura_detalle'
     model =  Factura
@@ -581,8 +583,8 @@ class FacturaDetail(DetailView):
         return context
 
 # Eliminar Boleta
-@login_required(login_url='login/')
-@group_required('Vendedor')
+@method_decorator(login_required(login_url='login/'), name='dispatch')
+@method_decorator(group_required('Vendedor'), name='dispatch')
 def borrarBoleta(request, idBoleta):
     nroBoleta = idBoleta 
     boleta = Boleta.objects.get(pk=nroBoleta)
@@ -600,8 +602,8 @@ def borrarBoleta(request, idBoleta):
         return render(request, 'boleta.html', {'object':boleta, 'mensaje': mensaje})
 
 # Eliminar Factura
-@login_required(login_url='login/')
-@group_required('Vendedor')
+@method_decorator(login_required(login_url='login/'), name='dispatch')
+@method_decorator(group_required('Vendedor'), name='dispatch')
 def borrarFactura(request, idFactura):
     nroFactura = idFactura 
     factura = Factura.objects.get(pk=nroFactura)
@@ -619,8 +621,8 @@ def borrarFactura(request, idFactura):
         return render(request, 'factura.html', {'object':factura, 'mensaje': mensaje})
 
 # Eliminar Orden
-@login_required(login_url='login/')
-@group_required('Empleado')
+@method_decorator(login_required(login_url='login/'), name='dispatch')
+@method_decorator(group_required('Empleado'), name='dispatch')
 def borrarOrden(request, idOrden):
     orden = OrdenCompra.objects.get(pk = idOrden)
     try:
@@ -636,8 +638,8 @@ def borrarOrden(request, idOrden):
         return render(request, 'ordenDetail.html', {'object':orden, 'mensaje': mensaje})
 
 # Enviar Orden
-@login_required(login_url='login/')
-@group_required('Empleado')
+@method_decorator(login_required(login_url='login/'), name='dispatch')
+@method_decorator(group_required('Empleado'), name='dispatch')
 def enviarOrden(request, idOrden):
     orden = OrdenCompra.objects.get(pk = idOrden)
     try:
@@ -653,8 +655,8 @@ def enviarOrden(request, idOrden):
         return render(request, 'ordenDetail.html', {'object':orden, 'mensaje': mensaje})
 
 # Recibir Orden
-@login_required(login_url='login/')
-@group_required('Empleado')
+@method_decorator(login_required(login_url='login/'), name='dispatch')
+@method_decorator(group_required('Empleado'), name='dispatch')
 def recibirOrden(request, idOrden):
     orden = OrdenCompra.objects.get(pk = idOrden)
     try:
