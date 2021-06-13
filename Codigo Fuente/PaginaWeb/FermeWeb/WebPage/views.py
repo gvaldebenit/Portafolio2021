@@ -249,7 +249,7 @@ def encargarProducto(request, id_prod=None):
         item = Producto.objects.get(pk=id_prod) # Traer el item y darlo a la pagina
         return render(request,'registroOrdenCompra.html',{'proveedor':prov, 'productos':productos , 'item': item})
     if request.POST: # Generar una Orden de Compra
-        #try:
+        try:
             # Recoger los Datos
             producto = request.POST.get("txtProducto")
             cantidad = request.POST.get("txtCantidad")
@@ -281,9 +281,9 @@ def encargarProducto(request, id_prod=None):
             else:
                 mensaje = 'Orden Registrada'
             return render(request,'registroOrdenCompra.html',{'proveedor':prov, 'productos':productos ,'mensaje': mensaje})
-        #except:
-         #   mensaje = 'Error al intentar registrar'
-          #  return render(request,'registroOrdenCompra.html',{'proveedor':prov, 'productos':productos ,'mensaje': mensaje})
+        except:
+            mensaje = 'Error al intentar registrar'
+            return render(request,'registroOrdenCompra.html',{'proveedor':prov, 'productos':productos ,'mensaje': mensaje})
     return render(request,'registroOrdenCompra.html',{'proveedor':prov, 'productos':productos})
 
 # Listado Orden Compra
