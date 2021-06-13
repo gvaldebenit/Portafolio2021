@@ -4,7 +4,7 @@
 <createdTime>2021-03-19 03:39:01 UTC</createdTime>
 <ownerDesignName>ER</ownerDesignName>
 <engineerTo>
-<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+<item key="284878DF-57B7-345A-0AE0-02291F7D2316" value="true"/>
 </engineerTo>
 <adequatelyNormalized>NO</adequatelyNormalized>
 <expectedVolumes>0</expectedVolumes>
@@ -20,44 +20,22 @@
 <createdTime>2021-03-29 23:32:55 UTC</createdTime>
 <ownerDesignName>ER</ownerDesignName>
 <engineerTo>
-<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+<item key="284878DF-57B7-345A-0AE0-02291F7D2316" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="cantidad" id="E5B66466-83B0-A3A0-CE03-BE674B0BC4CF">
-<createdBy>Gibafenrir</createdBy>
-<createdTime>2021-04-04 22:10:21 UTC</createdTime>
+<Attribute name="idVenta" id="B6E78A22-CC3B-E654-037C-BDE199FBDC17">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-05-03 20:34:42 UTC</createdTime>
+<generatorID>D50F0C41-3245-07BC-77BB-BE2BB1F1A400</generatorID>
 <ownerDesignName>ER</ownerDesignName>
 <engineerTo>
-<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+<item key="284878DF-57B7-345A-0AE0-02291F7D2316" value="true"/>
 </engineerTo>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT019</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="valorUnitario" id="39DE6987-A0A4-15EB-F57B-8147FDF6A298">
-<createdBy>Gibafenrir</createdBy>
-<createdTime>2021-04-04 22:10:31 UTC</createdTime>
-<ownerDesignName>ER</ownerDesignName>
-<engineerTo>
-<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
-</engineerTo>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT019</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="sub total" id="36D2111C-BEEE-01CF-8BBF-C6BAB4F176B1">
-<createdBy>Gibafenrir</createdBy>
-<createdTime>2021-04-04 22:11:10 UTC</createdTime>
-<ownerDesignName>ER</ownerDesignName>
-<engineerTo>
-<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
-</engineerTo>
+<referedAttribute>15132F56-7BE4-EB7D-A7DC-B203D63B5978</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
@@ -69,7 +47,7 @@
 <generatorID>DA0F9F8D-E646-9454-AA91-76D8CC8B47DF</generatorID>
 <ownerDesignName>ER</ownerDesignName>
 <engineerTo>
-<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+<item key="284878DF-57B7-345A-0AE0-02291F7D2316" value="true"/>
 </engineerTo>
 <referedAttribute>8532C1F5-5E9D-9A8E-7653-CF93AC129CA7</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
@@ -78,15 +56,37 @@
 <dataTypeSize>17 CHAR</dataTypeSize>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="idVent" id="B6E78A22-CC3B-E654-037C-BDE199FBDC17">
-<createdBy>Yhodarks</createdBy>
-<createdTime>2021-05-03 20:34:42 UTC</createdTime>
-<generatorID>D50F0C41-3245-07BC-77BB-BE2BB1F1A400</generatorID>
+<Attribute name="cantidad" id="E5B66466-83B0-A3A0-CE03-BE674B0BC4CF">
+<createdBy>Gibafenrir</createdBy>
+<createdTime>2021-04-04 22:10:21 UTC</createdTime>
 <ownerDesignName>ER</ownerDesignName>
 <engineerTo>
-<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+<item key="284878DF-57B7-345A-0AE0-02291F7D2316" value="true"/>
 </engineerTo>
-<referedAttribute>15132F56-7BE4-EB7D-A7DC-B203D63B5978</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="precioUnitario" id="39DE6987-A0A4-15EB-F57B-8147FDF6A298">
+<createdBy>Gibafenrir</createdBy>
+<createdTime>2021-04-04 22:10:31 UTC</createdTime>
+<ownerDesignName>ER</ownerDesignName>
+<engineerTo>
+<item key="284878DF-57B7-345A-0AE0-02291F7D2316" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="subtotal" id="36D2111C-BEEE-01CF-8BBF-C6BAB4F176B1">
+<createdBy>Gibafenrir</createdBy>
+<createdTime>2021-04-04 22:11:10 UTC</createdTime>
+<ownerDesignName>ER</ownerDesignName>
+<engineerTo>
+<item key="284878DF-57B7-345A-0AE0-02291F7D2316" value="true"/>
+</engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
@@ -99,7 +99,7 @@
 <createdTime>2021-03-20 05:03:11 UTC</createdTime>
 <ownerDesignName>ER</ownerDesignName>
 <engineerTo>
-<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+<item key="284878DF-57B7-345A-0AE0-02291F7D2316" value="true"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>

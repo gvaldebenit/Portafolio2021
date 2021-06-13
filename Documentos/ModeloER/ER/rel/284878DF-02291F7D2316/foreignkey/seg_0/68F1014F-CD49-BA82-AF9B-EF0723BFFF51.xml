@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="68F1014F-CD49-BA82-AF9B-EF0723BFFF51" containerWithKeyObject="5ED70764-150F-EE41-A182-24424682F9EE" localFKIndex="630A91A2-FD0D-1F18-EC70-BDCD95750AAC" name="Proveedor_Rubro_FK">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-06-11 04:07:48 UTC</createdTime>
+<generatorID>044524C2-D3D0-260E-8839-04E67F57BF62</generatorID>
+<ownerDesignName>ER</ownerDesignName>
+<referredTableLongName>Rubro</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>C66DE561-9C9C-063F-C153-3CF3BE9B3DD9</referredTableID>
+<keyObject>98CA85C8-DB5B-2000-C31C-C15A9BB79B4F</keyObject>
+<referredKeyID>98CA85C8-DB5B-2000-C31C-C15A9BB79B4F</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>idRubro</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

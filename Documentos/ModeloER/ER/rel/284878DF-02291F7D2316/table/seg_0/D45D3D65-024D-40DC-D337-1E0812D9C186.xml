@@ -1,0 +1,75 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="D45D3D65-024D-40DC-D337-1E0812D9C186" name="Comuna">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-06-11 04:07:48 UTC</createdTime>
+<generatorID>F59FEC7D-193E-AE3D-094F-1041ACF36641</generatorID>
+<ownerDesignName>ER</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="idComuna" id="655D7582-38AE-0B0A-5C24-9E089069D0AF">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-06-11 04:07:48 UTC</createdTime>
+<generatorID>3CC60DF8-6A29-BCD4-21A2-8FA0193F700B</generatorID>
+<ownerDesignName>ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Nombre" id="A29C36E7-F726-ADD3-507F-7B530C83A2EC">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-06-11 04:07:48 UTC</createdTime>
+<generatorID>42D990BF-0F4E-0DD4-F108-FBE39B1C9B23</generatorID>
+<ownerDesignName>ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 CHAR</dataTypeSize>
+<ownDataTypeParameters>30 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Ciudad_idCiudad" id="917FCFA7-B399-9E13-C667-87C13C30BCB1">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-06-11 04:07:48 UTC</createdTime>
+<generatorID>D172E4CC-AF4A-D63C-FECE-A554E23309E7</generatorID>
+<ownerDesignName>ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="C8141025-BDB5-B2B3-FD82-2FDD754D818E" referredColumn="8F0A23CF-4479-BF66-ACB8-BB4A316ABFA6"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="322B1CB7-4E31-B28D-6F2B-C1D5885520F3" name="Comuna_PK">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-06-11 04:07:48 UTC</createdTime>
+<generatorID>320CE000-20E2-4C2F-EDCA-9EF1028DE4DB</generatorID>
+<ownerDesignName>ER</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="655D7582-38AE-0B0A-5C24-9E089069D0AF"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D7D3FE5A-002C-C40D-A479-CCC419523E3D" name="Comuna_Ciudad_FK">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-06-11 04:07:48 UTC</createdTime>
+<generatorID>9DEB02B8-8DAE-8166-7469-2D30726CFAF0</generatorID>
+<ownerDesignName>ER</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="917FCFA7-B399-9E13-C667-87C13C30BCB1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

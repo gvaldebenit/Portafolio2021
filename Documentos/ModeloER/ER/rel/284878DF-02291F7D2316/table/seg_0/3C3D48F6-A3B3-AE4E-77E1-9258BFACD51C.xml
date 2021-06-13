@@ -1,0 +1,119 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="3C3D48F6-A3B3-AE4E-77E1-9258BFACD51C" name="Factura">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-06-11 04:07:48 UTC</createdTime>
+<generatorID>2C01841B-7F80-EDAC-06D1-C916DAC1D7A8</generatorID>
+<ownerDesignName>ER</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="nroFactura" id="E3294239-3287-9C82-CE4A-30BBE2B58F97">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-06-11 04:07:48 UTC</createdTime>
+<generatorID>FB1D2E54-2EA0-3F31-793D-74DE8210DF05</generatorID>
+<ownerDesignName>ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="fechaEmision" id="20F1C582-FD21-25D1-A31F-9D1E5FE8E241">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-06-11 04:07:48 UTC</createdTime>
+<generatorID>CEC56A54-EF00-DEEA-EBC4-AACD1AE15683</generatorID>
+<ownerDesignName>ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="neto" id="E71BD715-8346-B00A-833E-3C66CD815CCB">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-06-11 04:07:48 UTC</createdTime>
+<generatorID>2E032244-056E-0319-5CAA-767FE2573EBF</generatorID>
+<ownerDesignName>ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="iva" id="F3AD64CF-5526-B471-DE31-2426F078D915">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-06-11 04:07:48 UTC</createdTime>
+<generatorID>C85E3745-A138-949F-2624-9ADDCC812CD1</generatorID>
+<ownerDesignName>ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="total" id="FE6381A6-3064-D3A2-BF23-59713DFAFA46">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-06-11 04:07:48 UTC</createdTime>
+<generatorID>B1CE185F-64E9-905D-4572-1678902628EA</generatorID>
+<ownerDesignName>ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Venta_idVenta" id="59DA341D-6C8C-04FB-2C14-353053C8C600">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-06-11 04:07:48 UTC</createdTime>
+<generatorID>AC3B51FB-5680-F92C-CF68-B5645CB79387</generatorID>
+<ownerDesignName>ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="119677C4-BFED-F7A8-DAC6-0349A865AA91" referredColumn="F8AE211E-3C7B-4FEE-441E-8010D8D3D973"/>
+</associations>
+</Column>
+<Column name="vigente" id="EDB73E91-0ACB-5AD5-37AF-2AED170638E8">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-06-11 04:07:48 UTC</createdTime>
+<generatorID>4C506067-9867-DE2B-604B-12B2CC1087FC</generatorID>
+<ownerDesignName>ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1 BYTE</dataTypeSize>
+<ownDataTypeParameters>1 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="AF5B7736-6932-AC82-3EC9-22637C4084E0" name="Factura_PK">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-06-11 04:07:48 UTC</createdTime>
+<generatorID>2230A2E0-5AD8-0567-EEAD-0104848EA611</generatorID>
+<ownerDesignName>ER</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E3294239-3287-9C82-CE4A-30BBE2B58F97"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="ED94F39E-988B-A44C-83AF-A1E743E640FA" name="Factura_Venta_FK">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-06-11 04:07:48 UTC</createdTime>
+<generatorID>748D0DA1-1830-F18A-8452-22A0AD906DDA</generatorID>
+<ownerDesignName>ER</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="59DA341D-6C8C-04FB-2C14-353053C8C600"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

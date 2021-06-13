@@ -1,0 +1,87 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="CC8F5B75-A096-0ED4-F156-38ADAA3B135B" name="Usuario">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-06-11 04:07:48 UTC</createdTime>
+<generatorID>EC87DE7A-FDE7-8E42-70C4-C7856C0FAD4E</generatorID>
+<ownerDesignName>ER</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="idUsuario" id="A5181AA7-4DCB-07AA-FF2A-038C050DE1A8">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-06-11 04:07:48 UTC</createdTime>
+<generatorID>A9441D1B-A723-06B6-F256-DB204EB041D4</generatorID>
+<ownerDesignName>ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="usuario" id="7C4922C5-2038-D86B-7468-4B5AC83E25AD">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-06-11 04:07:48 UTC</createdTime>
+<generatorID>B97E2836-994D-88E0-A9FF-0D3C049629BE</generatorID>
+<ownerDesignName>ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="contraseña" id="8709869F-639C-F320-522C-20D5B425E70C">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-06-11 04:07:48 UTC</createdTime>
+<generatorID>63DA576A-53A6-9CC2-E2D8-D7C63444A2BC</generatorID>
+<ownerDesignName>ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="idGrupo" id="C6212EAC-D2D1-C834-7D60-A49EC7A5C83E">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-06-11 04:07:48 UTC</createdTime>
+<generatorID>F18FC313-90A4-D93E-7511-C98BD5BBCD4B</generatorID>
+<ownerDesignName>ER</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="B4C14EB3-5982-C6B9-0C00-0C93677F7216" referredColumn="EB400FD8-7666-F7A1-0FB3-C43069F8F77E"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="06C14F2A-AE9D-CD13-00AD-C95A11982006" name="Usuario_PK">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-06-11 04:07:48 UTC</createdTime>
+<generatorID>646CCA1C-D7D1-D6AB-29F3-2BF5CBB55D73</generatorID>
+<ownerDesignName>ER</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A5181AA7-4DCB-07AA-FF2A-038C050DE1A8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="44FB4240-026E-78B5-7552-4A14EBFA66FE" name="Usuario_Grupo_FK">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-06-11 04:07:48 UTC</createdTime>
+<generatorID>6CB77F00-FAAE-F17C-6922-90AD3C5F2DD5</generatorID>
+<ownerDesignName>ER</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C6212EAC-D2D1-C834-7D60-A49EC7A5C83E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

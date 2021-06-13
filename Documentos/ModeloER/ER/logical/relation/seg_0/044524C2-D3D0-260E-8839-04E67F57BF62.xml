@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="RubroProv" directorySegmentName="seg_0" id="044524C2-D3D0-260E-8839-04E67F57BF62">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-06-11 03:53:37 UTC</createdTime>
+<ownerDesignName>ER</ownerDesignName>
+<engineerTo>
+<item key="284878DF-57B7-345A-0AE0-02291F7D2316" value="true"/>
+</engineerTo>
+<sourcePk>76365BC1-F8E8-1EE4-BA61-9466DD8912AB</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>4FCEA287-5F93-942B-378B-5EAF33F3747F</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>2618F425-DFCB-130A-F456-3095A8E9C430</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

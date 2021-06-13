@@ -249,7 +249,7 @@ def encargarProducto(request, id_prod=None):
         item = Producto.objects.get(pk=id_prod) # Traer el item y darlo a la pagina
         return render(request,'registroOrdenCompra.html',{'proveedor':prov, 'productos':productos , 'item': item})
     if request.POST: # Generar una Orden de Compra
-        try:
+        #try:
             # Recoger los Datos
             producto = request.POST.get("txtProducto")
             cantidad = request.POST.get("txtCantidad")
@@ -258,10 +258,10 @@ def encargarProducto(request, id_prod=None):
             fechaPedido = datetime.now()
             user = request.user        
             obj_Producto = Producto.objects.get(idProducto=producto)
-            empleado = Empleado.objects.first(idUsuario=user)
-            if request.POST['submit'] == 'Enviar': # Se presiona el Btn Enviar
+            empleado = Empleado.objects.get(idUsuario=user)
+            if request.POST.get('Enviar'): # Se presiona el Btn Enviar
                 enviado = True
-            elif request.POST['submit'] == 'Guardar': # Se presionael Btn Guardar
+            elif request.POST.get('Guardar'): # Se presionael Btn Guardar
                 enviado = False
             else:
                 enviado = False
@@ -281,9 +281,9 @@ def encargarProducto(request, id_prod=None):
             else:
                 mensaje = 'Orden Registrada'
             return render(request,'registroOrdenCompra.html',{'proveedor':prov, 'productos':productos ,'mensaje': mensaje})
-        except:
-            mensaje = 'Error al intentar registrar'
-            return render(request,'registroOrdenCompra.html',{'proveedor':prov, 'productos':productos ,'mensaje': mensaje})
+        #except:
+         #   mensaje = 'Error al intentar registrar'
+          #  return render(request,'registroOrdenCompra.html',{'proveedor':prov, 'productos':productos ,'mensaje': mensaje})
     return render(request,'registroOrdenCompra.html',{'proveedor':prov, 'productos':productos})
 
 # Listado Orden Compra
@@ -297,9 +297,9 @@ class ListaOrdenCompra(ListView):
 
     def get_queryset(self): # Busqueda
         user = self.request.user
-        if user.groups.filter(name__in="Proveedor").exists():
+        if user.groups.filter(name="Proveedor").exists():
             try:
-                proveedor = Proveedor.objects.first(idUsuario=user)
+                proveedor = Proveedor.objects.get(idUsuario=user)
                 lista = OrdenCompra.objects.filter(idProducto__idProveedor = proveedor)          
                 return lista
             except:
@@ -583,8 +583,8 @@ class FacturaDetail(DetailView):
         return context
 
 # Eliminar Boleta
-@method_decorator(login_required(login_url='login/'), name='dispatch')
-@method_decorator(group_required('Vendedor'), name='dispatch')
+@login_required(login_url='login/')
+@group_required('Vendedor')
 def borrarBoleta(request, idBoleta):
     nroBoleta = idBoleta 
     boleta = Boleta.objects.get(pk=nroBoleta)
@@ -602,8 +602,8 @@ def borrarBoleta(request, idBoleta):
         return render(request, 'boleta.html', {'object':boleta, 'mensaje': mensaje})
 
 # Eliminar Factura
-@method_decorator(login_required(login_url='login/'), name='dispatch')
-@method_decorator(group_required('Vendedor'), name='dispatch')
+@login_required(login_url='login/')
+@group_required('Vendedor')
 def borrarFactura(request, idFactura):
     nroFactura = idFactura 
     factura = Factura.objects.get(pk=nroFactura)
@@ -621,8 +621,8 @@ def borrarFactura(request, idFactura):
         return render(request, 'factura.html', {'object':factura, 'mensaje': mensaje})
 
 # Eliminar Orden
-@method_decorator(login_required(login_url='login/'), name='dispatch')
-@method_decorator(group_required('Empleado'), name='dispatch')
+@login_required(login_url='login/')
+@group_required('Empleado')
 def borrarOrden(request, idOrden):
     orden = OrdenCompra.objects.get(pk = idOrden)
     try:
@@ -638,8 +638,8 @@ def borrarOrden(request, idOrden):
         return render(request, 'ordenDetail.html', {'object':orden, 'mensaje': mensaje})
 
 # Enviar Orden
-@method_decorator(login_required(login_url='login/'), name='dispatch')
-@method_decorator(group_required('Empleado'), name='dispatch')
+@login_required(login_url='login/')
+@group_required('Empleado')
 def enviarOrden(request, idOrden):
     orden = OrdenCompra.objects.get(pk = idOrden)
     try:
@@ -655,8 +655,8 @@ def enviarOrden(request, idOrden):
         return render(request, 'ordenDetail.html', {'object':orden, 'mensaje': mensaje})
 
 # Recibir Orden
-@method_decorator(login_required(login_url='login/'), name='dispatch')
-@method_decorator(group_required('Empleado'), name='dispatch')
+@login_required(login_url='login/')
+@group_required('Empleado')
 def recibirOrden(request, idOrden):
     orden = OrdenCompra.objects.get(pk = idOrden)
     try:

@@ -4,7 +4,7 @@
 <createdTime>2021-03-17 22:59:19 UTC</createdTime>
 <ownerDesignName>ER</ownerDesignName>
 <engineerTo>
-<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+<item key="284878DF-57B7-345A-0AE0-02291F7D2316" value="true"/>
 </engineerTo>
 <adequatelyNormalized>NO</adequatelyNormalized>
 <expectedVolumes>0</expectedVolumes>
@@ -20,50 +20,63 @@
 <createdTime>2021-03-17 22:59:25 UTC</createdTime>
 <ownerDesignName>ER</ownerDesignName>
 <engineerTo>
-<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+<item key="284878DF-57B7-345A-0AE0-02291F7D2316" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="fecha emision" id="6CAB686D-C511-014F-B3F7-A1F96228E7EF">
+<Attribute name="fechaEmision" id="6CAB686D-C511-014F-B3F7-A1F96228E7EF">
 <createdBy>Gibafenrir</createdBy>
 <createdTime>2021-04-04 21:55:44 UTC</createdTime>
 <ownerDesignName>ER</ownerDesignName>
 <engineerTo>
-<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+<item key="284878DF-57B7-345A-0AE0-02291F7D2316" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT008</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="totalBoleta" id="04C25A92-0F8E-74DF-2DDC-988C4D6815BF">
+<Attribute name="total" id="04C25A92-0F8E-74DF-2DDC-988C4D6815BF">
 <createdBy>Yhodarks</createdBy>
 <createdTime>2021-03-20 05:02:26 UTC</createdTime>
 <ownerDesignName>ER</ownerDesignName>
 <engineerTo>
-<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+<item key="284878DF-57B7-345A-0AE0-02291F7D2316" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="idVent" id="59DE70D3-6457-8197-E273-96E34FF12460">
+<Attribute name="idVenta" id="59DE70D3-6457-8197-E273-96E34FF12460">
 <createdBy>Gibafenrir</createdBy>
 <createdTime>2021-04-04 21:57:29 UTC</createdTime>
 <generatorID>AADE6A63-B82B-7FEA-1E39-90559DA093E7</generatorID>
 <ownerDesignName>ER</ownerDesignName>
 <engineerTo>
-<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+<item key="284878DF-57B7-345A-0AE0-02291F7D2316" value="true"/>
 </engineerTo>
 <referedAttribute>15132F56-7BE4-EB7D-A7DC-B203D63B5978</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="vigente" id="F0EBFC29-FF23-B631-0092-950145835037">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-06-11 03:58:45 UTC</createdTime>
+<ownerDesignName>ER</ownerDesignName>
+<engineerTo>
+<item key="284878DF-57B7-345A-0AE0-02291F7D2316" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1 BYTE</dataTypeSize>
+<ownDataTypeParameters>1 BYTE,,</ownDataTypeParameters>
 </Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
@@ -72,7 +85,7 @@
 <createdTime>2021-03-17 23:00:01 UTC</createdTime>
 <ownerDesignName>ER</ownerDesignName>
 <engineerTo>
-<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+<item key="284878DF-57B7-345A-0AE0-02291F7D2316" value="true"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>

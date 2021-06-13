@@ -1,0 +1,70 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="9353AB03-9802-4AE6-A9FD-0A712C52F06A" name="Grupo">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-06-11 04:02:39 UTC</createdTime>
+<ownerDesignName>ER</ownerDesignName>
+<engineerTo>
+<item key="284878DF-57B7-345A-0AE0-02291F7D2316" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="idGrupo" id="DFC5B07F-CC0E-49C9-00D4-FA6B8DB1E206">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-06-11 04:02:44 UTC</createdTime>
+<ownerDesignName>ER</ownerDesignName>
+<engineerTo>
+<item key="284878DF-57B7-345A-0AE0-02291F7D2316" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="nombre" id="E4CE62B1-AD31-E34B-9F53-F32F68F20EB4">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-06-11 04:03:01 UTC</createdTime>
+<ownerDesignName>ER</ownerDesignName>
+<engineerTo>
+<item key="284878DF-57B7-345A-0AE0-02291F7D2316" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Permisos" id="821942C0-0568-845D-A478-47B0B29C7434">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-06-11 04:03:17 UTC</createdTime>
+<ownerDesignName>ER</ownerDesignName>
+<engineerTo>
+<item key="284878DF-57B7-345A-0AE0-02291F7D2316" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT050</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="ED8AB5D8-086F-1CE2-75CE-CE143EF72AE8" name="Grupo PK">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-06-11 04:03:00 UTC</createdTime>
+<ownerDesignName>ER</ownerDesignName>
+<engineerTo>
+<item key="284878DF-57B7-345A-0AE0-02291F7D2316" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>DFC5B07F-CC0E-49C9-00D4-FA6B8DB1E206</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

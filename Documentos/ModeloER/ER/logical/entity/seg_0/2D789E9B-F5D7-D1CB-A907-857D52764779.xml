@@ -4,7 +4,7 @@
 <createdTime>2021-03-18 00:15:03 UTC</createdTime>
 <ownerDesignName>ER</ownerDesignName>
 <engineerTo>
-<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+<item key="284878DF-57B7-345A-0AE0-02291F7D2316" value="true"/>
 </engineerTo>
 <adequatelyNormalized>NO</adequatelyNormalized>
 <expectedVolumes>0</expectedVolumes>
@@ -15,12 +15,12 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="idVent" id="15132F56-7BE4-EB7D-A7DC-B203D63B5978">
+<Attribute name="idVenta" id="15132F56-7BE4-EB7D-A7DC-B203D63B5978">
 <createdBy>Yhodarks</createdBy>
 <createdTime>2021-03-18 00:15:10 UTC</createdTime>
 <ownerDesignName>ER</ownerDesignName>
 <engineerTo>
-<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+<item key="284878DF-57B7-345A-0AE0-02291F7D2316" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -33,7 +33,7 @@
 <generatorID>BED6F819-8ACB-39E7-B3C4-16442CAB51FA</generatorID>
 <ownerDesignName>ER</ownerDesignName>
 <engineerTo>
-<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+<item key="284878DF-57B7-345A-0AE0-02291F7D2316" value="true"/>
 </engineerTo>
 <referedAttribute>4CBC3D6E-6C4F-5961-F326-55A877C31FF9</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
@@ -41,12 +41,12 @@
 <logicalDatatype>LOGDT019</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="fecVenta" id="FADB1765-AA4B-1884-01FC-D7BBC2C7DB78">
+<Attribute name="fechaVenta" id="FADB1765-AA4B-1884-01FC-D7BBC2C7DB78">
 <createdBy>Gibafenrir</createdBy>
 <createdTime>2021-04-04 21:53:42 UTC</createdTime>
 <ownerDesignName>ER</ownerDesignName>
 <engineerTo>
-<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+<item key="284878DF-57B7-345A-0AE0-02291F7D2316" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -58,24 +58,25 @@
 <createdTime>2021-04-04 21:53:10 UTC</createdTime>
 <ownerDesignName>ER</ownerDesignName>
 <engineerTo>
-<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+<item key="284878DF-57B7-345A-0AE0-02291F7D2316" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="estado" id="AFE4FA5F-2975-AF01-3FFA-BB4A2A544296">
+<Attribute name="valido" id="AFE4FA5F-2975-AF01-3FFA-BB4A2A544296">
 <createdBy>Yhodarks</createdBy>
 <createdTime>2021-05-03 20:36:14 UTC</createdTime>
 <ownerDesignName>ER</ownerDesignName>
 <engineerTo>
-<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+<item key="284878DF-57B7-345A-0AE0-02291F7D2316" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT019</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1 BYTE</dataTypeSize>
+<ownDataTypeParameters>1 BYTE,,</ownDataTypeParameters>
 </Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
@@ -84,7 +85,7 @@
 <createdTime>2021-03-18 00:15:55 UTC</createdTime>
 <ownerDesignName>ER</ownerDesignName>
 <engineerTo>
-<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+<item key="284878DF-57B7-345A-0AE0-02291F7D2316" value="true"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>

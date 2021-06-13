@@ -1,4 +1,6 @@
-<h3 class="my-4 border-bottom pb-1">Cart ({{totalitems}})</h3>
+<main class="container my-4" id="cartList">
+	<!-- Featured Products -->
+	<h3 class="my-4 border-bottom pb-1">Carro({{totalitems}})</h3>
 	<table class="table table-bordered">
 		<thead>
 			<tr>
@@ -13,7 +15,7 @@
 			<tr>
 				<td>
 					<img src="{{item.imagen}}" width="50" />
-					<p><a href="/product/{{item.nombre|slugify}}/{{prodId}}">{{item.nombre}}</a></p>
+					<p><a href="/item/{{prodId}}">{{item.nombre}}</a></p>
 				</td>
 				<td>
 					<input type="number" class="cant{{prodId}}" value="{{item.cant}}" min="1" style="vertical-align: bottom;" />
@@ -34,9 +36,39 @@
 			{% if totalitems %}
 			<tr>
 				<td colspan="4" style="text-align: right">
-					<a href="#" class="btn btn-dark btn-sm">Pagar <i class="fa fa-long-arrow-alt-right"></i></a>
+					<button type="button" href="" class="btn btn-dark btn-sm" id="btnModal" data-bs-toggle="modal" data-bs-target="#myModal">Ir a Pagar</a>
 				</td>
 			</tr>
 			{% endif %}
 		</tfoot>
 	</table>
+</main>
+
+<!-- Modal para elegir boleta o factura -->
+<div id="myModal" class="modal" tabindex="-1">
+  <div class="modal-dialog">	
+	<div class="modal-content">
+		<div class="modal-header">
+		  <h5 class="modal-title">Seleccione Tipo de Documento</h5>
+		  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		</div>
+		<div class="modal-body" id="Formulario">
+		<form action="" method="POST">
+			{% csrf_token %}          
+			<!-- Radio Buttons para elegir Boleta o Factura -->
+			<div>
+				<div class="form-check form-check-inline">
+					<input class="form-check-input" type="radio" name="RadioDoc" id="radioBoleta" value="Boleta">
+					<label class="form-check-label" for="radioBoleta">Boleta</label>
+				</div>
+				<div class="form-check form-check-inline">
+					<input class="form-check-input" type="radio" name="RadioDoc" id="radioFactura" value="Factura">
+					<label class="form-check-label" for="radioFactura">Factura</label>
+				</div>
+			</div>
+			<input type="submit" name="Login" value="Generar Documento" class="login-submit" />
+		</form>
+		</div>
+	</div>
+  </div>
+</div>

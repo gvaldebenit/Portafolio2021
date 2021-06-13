@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="FamiliaProducto" directorySegmentName="seg_0" id="5CE928AE-129F-024E-CF82-A738125FD9B3">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-06-11 03:47:01 UTC</createdTime>
+<ownerDesignName>ER</ownerDesignName>
+<engineerTo>
+<item key="284878DF-57B7-345A-0AE0-02291F7D2316" value="true"/>
+</engineerTo>
+<sourcePk>9844751A-EC31-EDFB-C23D-304D55BB4211</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>8E679A35-5230-7548-F000-0C5889B1809D</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>F35F6F40-ABD2-7331-1564-799B8A433A76</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="CargoEmp" directorySegmentName="seg_0" id="A88C837E-B6CF-411A-112F-32AA69125D14">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-06-11 03:51:06 UTC</createdTime>
+<ownerDesignName>ER</ownerDesignName>
+<engineerTo>
+<item key="284878DF-57B7-345A-0AE0-02291F7D2316" value="true"/>
+</engineerTo>
+<sourcePk>FC1D3100-B0C9-623B-D778-9C8062B5B093</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>4CBBC951-499F-09E8-926D-42498EDEB303</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>33E77145-FA60-5D84-1203-8B1404B7FA9F</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

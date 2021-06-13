@@ -4,7 +4,7 @@
 <createdTime>2021-03-19 23:34:32 UTC</createdTime>
 <ownerDesignName>ER</ownerDesignName>
 <engineerTo>
-<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+<item key="284878DF-57B7-345A-0AE0-02291F7D2316" value="true"/>
 </engineerTo>
 <adequatelyNormalized>NO</adequatelyNormalized>
 <expectedVolumes>0</expectedVolumes>
@@ -15,65 +15,13 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="idOrdCompra" id="C4871064-F7CA-2D95-D69C-E71A35ECF272">
+<Attribute name="idOrdenCompra" id="C4871064-F7CA-2D95-D69C-E71A35ECF272">
 <createdBy>Yhodarks</createdBy>
 <createdTime>2021-03-20 05:33:00 UTC</createdTime>
 <ownerDesignName>ER</ownerDesignName>
 <engineerTo>
-<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+<item key="284878DF-57B7-345A-0AE0-02291F7D2316" value="true"/>
 </engineerTo>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT019</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="cantidad" id="39DA40ED-A6FB-9A35-C17D-27C809F3B2F2">
-<createdBy>Yhodarks</createdBy>
-<createdTime>2021-03-20 05:35:58 UTC</createdTime>
-<ownerDesignName>ER</ownerDesignName>
-<engineerTo>
-<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
-</engineerTo>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT019</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="total" id="1B290A20-568F-445C-A56F-2E6C4767680B">
-<createdBy>Yhodarks</createdBy>
-<createdTime>2021-05-03 20:19:38 UTC</createdTime>
-<ownerDesignName>ER</ownerDesignName>
-<engineerTo>
-<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
-</engineerTo>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT019</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="comentario" id="96EA2771-5C9A-8D70-51E4-8FC38D08E14B">
-<createdBy>Yhodarks</createdBy>
-<createdTime>2021-03-20 05:36:32 UTC</createdTime>
-<ownerDesignName>ER</ownerDesignName>
-<engineerTo>
-<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
-</engineerTo>
-<nullsAllowed>true</nullsAllowed>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>200 CHAR</dataTypeSize>
-<ownDataTypeParameters>200 CHAR,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="idEmpleado" id="2AB36E9B-ECB3-C048-4FAF-E2797015E26E">
-<createdBy>Yhodarks</createdBy>
-<createdTime>2021-03-20 05:38:12 UTC</createdTime>
-<generatorID>3D8A3017-BC57-390A-78ED-D818A6CAFD4B</generatorID>
-<ownerDesignName>ER</ownerDesignName>
-<engineerTo>
-<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
-</engineerTo>
-<referedAttribute>97304F6B-2D35-38FE-1478-E3DF7E24A44C</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
@@ -85,7 +33,7 @@
 <generatorID>0C1FC2D0-E90C-23D0-7835-65EF0F8973E4</generatorID>
 <ownerDesignName>ER</ownerDesignName>
 <engineerTo>
-<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+<item key="284878DF-57B7-345A-0AE0-02291F7D2316" value="true"/>
 </engineerTo>
 <referedAttribute>8532C1F5-5E9D-9A8E-7653-CF93AC129CA7</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
@@ -94,6 +42,109 @@
 <dataTypeSize>17 CHAR</dataTypeSize>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
+<Attribute name="cantidad" id="39DA40ED-A6FB-9A35-C17D-27C809F3B2F2">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-03-20 05:35:58 UTC</createdTime>
+<ownerDesignName>ER</ownerDesignName>
+<engineerTo>
+<item key="284878DF-57B7-345A-0AE0-02291F7D2316" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="total" id="1B290A20-568F-445C-A56F-2E6C4767680B">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-05-03 20:19:38 UTC</createdTime>
+<ownerDesignName>ER</ownerDesignName>
+<engineerTo>
+<item key="284878DF-57B7-345A-0AE0-02291F7D2316" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="comentario" id="96EA2771-5C9A-8D70-51E4-8FC38D08E14B">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-03-20 05:36:32 UTC</createdTime>
+<ownerDesignName>ER</ownerDesignName>
+<engineerTo>
+<item key="284878DF-57B7-345A-0AE0-02291F7D2316" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200 CHAR</dataTypeSize>
+<ownDataTypeParameters>200 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="fechaPedido" id="F15C037D-F599-523A-A4F0-D9159A6F0E41">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-06-11 03:54:29 UTC</createdTime>
+<ownerDesignName>ER</ownerDesignName>
+<engineerTo>
+<item key="284878DF-57B7-345A-0AE0-02291F7D2316" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="idEmpleado" id="2AB36E9B-ECB3-C048-4FAF-E2797015E26E">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-03-20 05:38:12 UTC</createdTime>
+<generatorID>3D8A3017-BC57-390A-78ED-D818A6CAFD4B</generatorID>
+<ownerDesignName>ER</ownerDesignName>
+<engineerTo>
+<item key="284878DF-57B7-345A-0AE0-02291F7D2316" value="true"/>
+</engineerTo>
+<referedAttribute>97304F6B-2D35-38FE-1478-E3DF7E24A44C</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="enviada" id="2DDDEC19-DC8B-4286-60DA-C336AB3D297E">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-06-11 03:54:46 UTC</createdTime>
+<ownerDesignName>ER</ownerDesignName>
+<engineerTo>
+<item key="284878DF-57B7-345A-0AE0-02291F7D2316" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1 BYTE</dataTypeSize>
+<ownDataTypeParameters>1 BYTE,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="recibido" id="38FA8873-5F26-97A1-BDCD-C77409E74225">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-06-11 03:54:50 UTC</createdTime>
+<ownerDesignName>ER</ownerDesignName>
+<engineerTo>
+<item key="284878DF-57B7-345A-0AE0-02291F7D2316" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1 CHAR</dataTypeSize>
+<ownDataTypeParameters>1 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="valido" id="D87D3282-CF4B-9F5D-C000-7658B9251838">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-06-11 03:54:57 UTC</createdTime>
+<ownerDesignName>ER</ownerDesignName>
+<engineerTo>
+<item key="284878DF-57B7-345A-0AE0-02291F7D2316" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1 BYTE</dataTypeSize>
+<ownDataTypeParameters>1 BYTE,,</ownDataTypeParameters>
+</Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
 <identifier id="F871BBD5-20D7-231E-8F41-49E3B0BA8542" name="OrdenCompra_PK">
@@ -101,7 +152,7 @@
 <createdTime>2021-03-20 05:33:11 UTC</createdTime>
 <ownerDesignName>ER</ownerDesignName>
 <engineerTo>
-<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+<item key="284878DF-57B7-345A-0AE0-02291F7D2316" value="true"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>

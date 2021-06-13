@@ -28,6 +28,9 @@ $(function(){
             success:function(res){
                 $(".cart-list").text(res.totalitems);
                 _vm.attr('disabled',false);
+                setTimeout(function(){// wait for 5 secs(2)
+                    location.reload(); // then reload the page.(3)
+               }, 500);
             } 
         });
     });
@@ -51,6 +54,9 @@ $(function(){
                 $(".cart-list").text(res.totalitems);
                 _vm.attr('disabled',false);
                 $("#cartList").html(res.data);
+                setTimeout(function(){// wait for 5 secs(2)
+                    location.reload(); // then reload the page.(3)
+               }, 500);
             } 
         });
     });
@@ -75,6 +81,9 @@ $(function(){
                 //$(".cart-list").text(res.totalitems);
                 _vm.attr('disabled',false);
                 $("#cartList").html(res.data);
+                setTimeout(function(){// wait for 5 secs(2)
+                    location.reload(); // then reload the page.(3)
+               }, 500);
             } 
         });
     });

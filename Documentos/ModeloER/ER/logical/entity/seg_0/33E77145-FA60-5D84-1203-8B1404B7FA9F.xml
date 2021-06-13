@@ -4,7 +4,7 @@
 <createdTime>2021-03-17 22:57:14 UTC</createdTime>
 <ownerDesignName>ER</ownerDesignName>
 <engineerTo>
-<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+<item key="284878DF-57B7-345A-0AE0-02291F7D2316" value="true"/>
 </engineerTo>
 <adequatelyNormalized>NO</adequatelyNormalized>
 <expectedVolumes>0</expectedVolumes>
@@ -20,7 +20,7 @@
 <createdTime>2021-03-17 22:57:28 UTC</createdTime>
 <ownerDesignName>ER</ownerDesignName>
 <engineerTo>
-<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+<item key="284878DF-57B7-345A-0AE0-02291F7D2316" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -32,7 +32,7 @@
 <createdTime>2021-03-17 22:57:14 UTC</createdTime>
 <ownerDesignName>ER</ownerDesignName>
 <engineerTo>
-<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+<item key="284878DF-57B7-345A-0AE0-02291F7D2316" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -45,7 +45,7 @@
 <createdTime>2021-03-17 22:57:14 UTC</createdTime>
 <ownerDesignName>ER</ownerDesignName>
 <engineerTo>
-<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+<item key="284878DF-57B7-345A-0AE0-02291F7D2316" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -58,7 +58,7 @@
 <createdTime>2021-03-17 22:57:14 UTC</createdTime>
 <ownerDesignName>ER</ownerDesignName>
 <engineerTo>
-<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+<item key="284878DF-57B7-345A-0AE0-02291F7D2316" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -71,7 +71,7 @@
 <createdTime>2021-03-17 22:57:14 UTC</createdTime>
 <ownerDesignName>ER</ownerDesignName>
 <engineerTo>
-<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+<item key="284878DF-57B7-345A-0AE0-02291F7D2316" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -84,7 +84,7 @@
 <createdTime>2021-03-17 22:57:14 UTC</createdTime>
 <ownerDesignName>ER</ownerDesignName>
 <engineerTo>
-<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+<item key="284878DF-57B7-345A-0AE0-02291F7D2316" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -97,7 +97,7 @@
 <createdTime>2021-05-03 20:24:00 UTC</createdTime>
 <ownerDesignName>ER</ownerDesignName>
 <engineerTo>
-<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+<item key="284878DF-57B7-345A-0AE0-02291F7D2316" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -105,44 +105,46 @@
 <dataTypeSize>40 CHAR</dataTypeSize>
 <ownDataTypeParameters>40 CHAR,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="cargo" id="2F21D864-B485-D6A7-7C8A-D7A3DF7D6C7E">
+<Attribute name="idCargo" id="FB8FB47F-322D-5B7A-464E-BE9F45B52282">
 <createdBy>Yhodarks</createdBy>
-<createdTime>2021-03-17 22:57:57 UTC</createdTime>
+<createdTime>2021-06-11 03:51:06 UTC</createdTime>
+<generatorID>A88C837E-B6CF-411A-112F-32AA69125D14</generatorID>
 <ownerDesignName>ER</ownerDesignName>
 <engineerTo>
-<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+<item key="284878DF-57B7-345A-0AE0-02291F7D2316" value="true"/>
 </engineerTo>
+<referedAttribute>C90C2297-40C1-E7E2-948C-CC88F471D763</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="idTipoU" id="4CC6BB3F-1860-123E-5ACF-08B05DF99A1B">
-<createdBy>Gibafenrir</createdBy>
-<createdTime>2021-04-16 00:23:06 UTC</createdTime>
-<generatorID>0451C6CF-AA5A-29E5-BEE8-0F38F57013C1</generatorID>
+<Attribute name="idComuna" id="8A4B3A22-B6D8-C9E3-1DA3-98C8D234181B">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-06-11 04:00:38 UTC</createdTime>
+<generatorID>92F12373-65AC-D11E-F9D7-425406069CE3</generatorID>
 <ownerDesignName>ER</ownerDesignName>
 <engineerTo>
-<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+<item key="284878DF-57B7-345A-0AE0-02291F7D2316" value="true"/>
 </engineerTo>
-<referedAttribute>188C4BC1-4EA8-28DF-A81B-2CC73AD2833C</referedAttribute>
+<referedAttribute>3CC60DF8-6A29-BCD4-21A2-8FA0193F700B</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="idCuenta" id="A3D1CE18-05F7-53E5-4B62-7A4C8F41CE8F">
-<createdBy>Gibafenrir</createdBy>
-<createdTime>2021-04-16 00:23:06 UTC</createdTime>
-<generatorID>A46B1D3F-CF98-CB23-7DBF-258A9C371442</generatorID>
+<Attribute name="idUsuario" id="394EBE37-2C43-74D9-0D5F-F9758E90660C">
+<createdBy>Yhodarks</createdBy>
+<createdTime>2021-06-11 04:05:13 UTC</createdTime>
+<generatorID>7A867614-EB9D-787C-722A-C2BD6F4F9EA0</generatorID>
 <ownerDesignName>ER</ownerDesignName>
 <engineerTo>
-<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+<item key="284878DF-57B7-345A-0AE0-02291F7D2316" value="true"/>
 </engineerTo>
-<referedAttribute>AAB5A941-A86B-D169-436F-30524BDDC8F1</referedAttribute>
+<referedAttribute>A9441D1B-A723-06B6-F256-DB204EB041D4</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
+<logicalDatatype>LOGDT019</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
 </attributes>
@@ -152,7 +154,7 @@
 <createdTime>2021-03-17 22:57:14 UTC</createdTime>
 <ownerDesignName>ER</ownerDesignName>
 <engineerTo>
-<item key="0E13A7B1-BC82-0E9A-8456-19BFA79E40BD" value="true"/>
+<item key="284878DF-57B7-345A-0AE0-02291F7D2316" value="true"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>

@@ -87,11 +87,11 @@
                     </div>               
                     <div class="col-3">
                         <h6>Fecha: {{object.fechaPedido}}</h6>
-                        {% if object.enviada == False %}
+                        {% if object.enviada == False and object.valido == True%}
                         <h6>Estado: Sin Enviar</h6>
-                        {% elif object.enviada == True and object.recibido == False %}
+                        {% elif object.enviada == True and object.recibido == False and object.valido == True %}
                         <h6>Estado: Enviada, Sin Recibir</h6>
-                        {% elif object.enviada == True and object.recibido == True %}
+                        {% elif object.enviada == True and object.recibido == True and object.valido == True %}
                         <h6>Estado: Recibida</h6>
                         {% elif object.valido == False %}
                         <h6>Estado: Anulada</h6>
@@ -109,19 +109,19 @@
     <div class="mx-3">
         <a href="{% url 'LISTORDENCOMPRA' %}" class="btn btn-primary m-2">Volver a Listado</a>
         <!-- Anular Orden, si esta vigente y aun no se recibe -->
-        {% if object.vigente == True and object.recibido == False%}
+        {% if object.valido == True and object.recibido == False%}
             <a href="{% url 'DELORDEN' object.idOrdenCompra %}" class="btn btn-danger m-2">Anular Documento</a>
         {% else %}
             <a href="" class="btn btn-danger disabled m-2">Anular Documento</a>
         {% endif %}
         <!-- Enviar orden, si no esta enviada -->
-        {% if object.vigente == True and object.recibido == False and object.enviada == False %}
+        {% if object.valido == True and object.recibido == False and object.enviada == False %}
             <a href="{% url 'ENVORDEN' object.idOrdenCompra %}" class="btn btn-primary m-2">Enviar Orden</a>
         {% else %}
             <a href="" class="btn btn-primary disabled m-2">Enviar Orden</a>
         {% endif %}
         <!-- Enviar orden, si no esta enviada -->
-        {% if object.vigente == True and object.recibido == False and object.enviada == True %}
+        {% if object.valido == True and object.recibido == False and object.enviada == True %}
             <a href="{% url 'RECIBORDEN' object.idOrdenCompra %}" class="btn btn-success m-2">Recibir Pedido</a>
         {% else %}
             <a href="" class="btn btn-success disabled m-2">Recibir Pedido</a>
@@ -143,7 +143,7 @@
         </div>
       </div>
       <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
           <a href="{% url 'LISTORDENCOMPRA' %}" class="btn btn-primary">Volver a Listado</a>
         </div>
     </div>
