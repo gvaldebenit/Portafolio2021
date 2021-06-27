@@ -53,5 +53,5 @@ urlpatterns = [
     path('del_orden/<idOrden>', borrarOrden, name="DELORDEN"),
     path('env_orden/<idOrden>', enviarOrden, name="ENVORDEN"),
     path('rec_orden/<idOrden>', recibirOrden, name="RECIBORDEN"),
-    
+    path('reportes/',include('reportes.urls')),
 ]

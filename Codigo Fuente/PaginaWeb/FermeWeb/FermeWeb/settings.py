@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'WebPage.apps.WebpageConfig',
     'api.apps.ApiConfig',
     'rest_framework',
-    
+    'reportes.apps.ReportesConfig'
 ]
 
 MIDDLEWARE = [
