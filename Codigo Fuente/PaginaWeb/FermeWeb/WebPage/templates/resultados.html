@@ -16,13 +16,20 @@
             <div>
                 <a href="/item/{{item.idProducto}}">
                     <div class="col-5" style="height: fit-content; width: fit-content;">
-                        <img src={{item.imagen.url}}  class="img-fluid"  width="250px" height="250px">
+                        {% if item.stock >0 %}
+                            <img src={{item.imagen.url}}  class="img-fluid"  width="250px" height="250px">
+                        {% else %}
+                            <img src={{item.imagen.url}}  class="img-fluid"  width="250px" height="250px">
+                            <div class="overlay">
+                                <img src="{% static 'images/soldout.png' %}" width="250px" height="250px">
+                            </div>
+                        {% endif %}    
                     </div>
                 </a>
                 <h2>{{item.nombre}}</h2>
                 <div>
                     <h6 >{{item.descripcion}}</h6>
-                </div>
+                </div>s
                 <h3 class="text-danger">${{item.precio}}</h3>
             </div>
         </div>

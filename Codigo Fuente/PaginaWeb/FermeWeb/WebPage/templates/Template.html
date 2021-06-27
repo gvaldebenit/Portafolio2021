@@ -33,7 +33,7 @@
             <ul class="nav navbar-nav d-flex">
                 <form class="d-flex" method="GET" action="{% url 'BUSCAR' %}">
                     <input class="form-control mx-2" name="q" type="search" placeholder="Buscar" aria-label="Buscar">
-                    <button class="btn btn-outline-success" type="submit">Buscar</button>
+                    <button class="btn btn-success" type="submit">Buscar</button>
                 </form>
 
                 <!-- Cambio Navbar si esta autenticado -->
@@ -47,12 +47,12 @@
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <!-- Items de Proveedor -->
                             {% if user.groups.all.0.name == "Proveedor" %}
-                                <li><a class="dropdown-item" href="{% url 'LISTORDENCOMPRA' %}">Ver Orden Compra</a></li>
+                                <li><a class="dropdown-item" id="a-nav" href="{% url 'LISTORDENCOMPRA' %}">Ver Orden Compra</a></li>
                             {% endif %}
                             <!-- Items de Vendedor -->
                             {% if user.groups.all.0.name == "Vendedor" %}
-                                <li><a class="dropdown-item" href="{% url 'REGP' %}">Registro Producto</a></li>
-                                <li><a class="dropdown-item" href="{% url 'REGPROV' %}">Registro Proveedor</a></li>
+                                <li><a class="dropdown-item" id="a-nav" href="{% url 'REGP' %}">Registro Producto</a></li>
+                                <li><a class="dropdown-item" id="a-nav" href="{% url 'REGPROV' %}">Registro Proveedor</a></li>
                                 <li><a class="dropdown-item" id="a-nav" href="{% url 'LISTABOLETA' %}">Ver Boletas</a></li>
                                 <li><a class="dropdown-item" id="a-nav" href="{% url 'LISTAFACTURA' %}">Ver Facturas</a></li>
                             {% endif %}
@@ -93,6 +93,7 @@
                 <li><a class="nav-item nav-link" id="a-nav" href="{%url 'HERRAMIENTAS'%}">Herramientas</a></li>
                 <li><a class="nav-item nav-link" id="a-nav" href="{%url 'PINTURAS'%}">Pinturas</a></li>
                 <li><a class="nav-item nav-link" id="a-nav" href="{%url 'MATERIALES'%}">Materiales Construccion</a></li>
+                <li><a class="nav-item nav-link" id="a-nav" href="{%url 'OTROS'%}">Otros Productos</a></li>
                 <li><a class="nav-item nav-link" id="a-nav" href="{%url 'MISIONYVISION'%}">Mision y Vision</a></li>
                 <li><a class="nav-item nav-link" id="a-nav" href="{%url 'CONTACTO'%}">Contacto</a></li>
                 <li><a class="nav-item nav-link" id="a-nav" href="{%url 'AYUDA'%}">¿Necesitas Ayuda?</a></li>

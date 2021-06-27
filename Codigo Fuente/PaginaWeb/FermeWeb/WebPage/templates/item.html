@@ -31,9 +31,17 @@
                     <input type="hidden" class="imagen" value="{{object.imagen.url}}" />
                     <input type="hidden" class="nomProd" value="{{object.nombre}}" />
                     <input type="hidden" class="precio" value="{{object.precio}}" />
-                    <input type="number" value="1" min="1" class="form-control" id="prodCant" style="width: min-content;" />
-                    <br>
-                    <button class="btn btn-danger" type="button" id="addToCartBtn">Agregar al Carrito</button>
+                    <input type="hidden" class="stock" value="{{object.stock}}" />
+                    <a class="text-secondary">Stock: {{object.stock}}</a>
+                    {% if object.stock > 0 %}
+                        <input type="number" value="1" min="1" max="{{object.stock}}" class="form-control" id="prodCant" style="width: min-content;" />
+                        <br>
+                        <button class="btn btn-danger" type="button" id="addToCartBtn">Agregar al Carrito</button>
+                    {% else %}
+                        <input type="number" value="1" min="1" max="{{object.stock}}" class="form-control" id="prodCant" style="width: min-content;" disabled/>
+                        <br>
+                        <button class="btn btn-danger" type="button" id="addToCartBtn" disabled>Agregar al Carrito</button>
+                    {% endif %}
                 </div>
         </div>
     </div>

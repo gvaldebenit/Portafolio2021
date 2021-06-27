@@ -2,7 +2,7 @@
 {% load static %}
 {% block estilos %}
     <link rel="stylesheet" href="{% static 'css/for_estilo.css' %}">
-
+    <script src="{% static 'js/validarRegistroOrden.js' %}"></script>
 {% endblock estilos %}
         
 {% block contenido %}
@@ -41,7 +41,7 @@
 
   <!-- Formulario -->
     <div class="container mr-auto" id="Formulario">
-      <form action="{% url 'ORDENCOMPRA' %}" method="POST">
+      <form action="{% url 'ORDENCOMPRA' %}" method="POST" onsubmit="return validarForRegistro()">
         {% csrf_token %}          
 
           <br>
@@ -51,7 +51,7 @@
             <div class="form-group me-2">
               <label for="txtproveedor">Proveedor</label>
               <br>
-              <select name="txtProveedor" class="input-100" id="selectorProveedor" onchange=changeSelector()>
+              <select name="txtProveedor" class="input-100" id="selectorProveedor" onchange=changeSelector() required>
               <option value ="" selected >Seleccionar</option>
               {% for prov in proveedor %}
                 <option value = "{{prov.idProveedor}}">{{prov.nombres}}</option>
@@ -63,7 +63,7 @@
             <div class="form-group me-2">
               <label for="txtproducto">Producto</label>
               <br>
-              <select name="txtProducto" class="input-100" id="selectorProducto">
+              <select name="txtProducto" class="input-100" id="selectorProducto" required>
               <option value ="" selected >Seleccionar</option>
               {% for prod in productos %}
                 <option value = "{{prod.idProducto}}" data-prov="{{prod.idProveedor_id}}">{{prod.nombre}}</option>

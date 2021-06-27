@@ -9,6 +9,7 @@ $(function(){
         var _imagen=$(".imagen").val();
         var _nomProd=$(".nomProd").val();
         var _precio=$(".precio").val();
+        var _stock=$(".stock").val();
     
         //console.log(_cant,_prodId,_nomProd,_precio,_vm);
 
@@ -19,7 +20,8 @@ $(function(){
                 'imagen':_imagen,
                 'cant':_cant,
                 'nomProd':_nomProd,
-                'precio':_precio
+                'precio':_precio,
+                'stock':_stock
             },
             dataType:'json',
             beforeSend:function(){
@@ -65,13 +67,15 @@ $(function(){
 	$(document).on('click','.update-item',function(){
         var _pId=$(this).attr('data-item');
         var _pCant=$(".cant"+_pId).val();
+        var _stock=$(".stock").val();
         var _vm=$(this);
         //Ajax
         $.ajax({
             url:'/update-cart',
             data:{
                 'prodId':_pId,
-                'cant':_pCant
+                'cant':_pCant,
+                'stock':_stock
             },
             dataType:'json',
             beforeSend:function(){

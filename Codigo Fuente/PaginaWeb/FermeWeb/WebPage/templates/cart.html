@@ -29,7 +29,8 @@
 					<p><a href="/item/{{prodId}}">{{item.nombre}}</a></p>
 				</td>
 				<td>
-					<input type="number" class="cant{{prodId}}" value="{{item.cant}}" min="1" style="vertical-align: bottom;" />
+					<input type="hidden" class="stock" value="{{item.stock}}" />
+					<input type="number" class="cant{{prodId}}" value="{{item.cant}}" min="1" max="{{item.stock}}" style="vertical-align: bottom;" />
 					<button class="btn btn-sm btn-primary update-item" data-item="{{prodId}}">Actualizar</button>
 					<button class="btn btn-sm btn-danger delete-item" data-item="{{prodId}}">Eliminar</i></button>
 				</td>

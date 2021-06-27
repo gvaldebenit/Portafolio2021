@@ -1,4 +1,4 @@
-/* Funciones de Validacion de Formulario de Cliente*/
+/* Funciones de Validacion de Formulario de Cliente y Proveedor */
 
 /* Validar Nombre Registro */
 function validarNombre(){
@@ -12,7 +12,7 @@ function validarNombre(){
         return false;
     }
 } 
-
+ 
 /* Validar Apellido Paterno */
 function validarApaterno(){
     var nom = document.getElementById("txtapaterno").value;
@@ -79,6 +79,65 @@ function validarRut(){
     }
 }
 
+// Validar Direccion
+function validarDireccion(){
+    var nom = document.getElementById("txtdireccion").value;
+    var largo = nom.replace(/ /g, "").length;
+    if(largo >= 5 && largo <= 40){
+        return true;
+    } 
+    else {
+        alert("La direccion debe tener entre 5 y 40 caracteres sin incluir espacios en blanco");
+        return false;
+    }
+}
+
+// Validar Telefono
+function validarTelefono(){
+    var nom = document.getElementById("txtnumero").value;
+    var largo = nom.replace(/ /g, "").length;
+    if(largo == 9){
+        return /^\d+$/.test(nom);
+    } 
+    else {
+        alert("El telefono debe ser numérico y de 9 digitos");
+        return false;
+    }
+}
+
+// Validar Representante
+function validarRepresentante(){
+    var rep = document.getElementById("txtrepresentante");
+    if(rep){ //Valida si existe o no, para usar en dos paginas
+        var nom = rep.value;
+        var largo = nom.replace(/ /g, "").length;
+        if(largo >= 5 && largo <= 50){
+            return true;
+        } 
+        else {
+            alert("El Representante debe tener entre 5 y 50 caracteres sin incluir espacios en blanco");
+            return false;
+        }
+    }
+    else{
+        return true;
+    }
+    
+}
+
+// Validar Email
+function validarMail(){
+    var nom = document.getElementById("txtcorreo").value;
+    var largo = nom.replace(/ /g, "").length;
+    if(largo >= 5 && largo <= 30){
+        return true;
+    } 
+    else {
+        alert("El Correo debe tener entre 5 y 30 caracteres sin incluir espacios en blanco");
+        return false;
+    }
+}
+
 /* Metodo que que llamara a los otra validaciones, si hay algo que tenga malo va a enviar un false*/
 function validarForRegistro(){ 
     var resp;
@@ -95,6 +154,25 @@ function validarForRegistro(){
         return false;
     }
     resp = validarAmaterno();
+    if (resp == false){
+        return false;
+    }
+    resp = validarDireccion();
+    if (resp == false){
+        return false;
+    }
+    resp = validarTelefono();
+    if (resp == false){
+        return false;
+    }
+    resp = validarRepresentante();
+    if (resp == false){
+        return false;
+    }
+    resp = validarMail();
+    if (resp == false){
+        return false;
+    }
     return true;
 }
 

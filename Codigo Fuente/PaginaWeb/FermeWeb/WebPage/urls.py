@@ -33,6 +33,7 @@ urlpatterns = [
     path('pinturas/', ListaPinturas.as_view(), name='PINTURAS'),
     path('herramientas/', ListaHerramienta.as_view(), name='HERRAMIENTAS'),
     path('materiales/', ListaMateriales.as_view(), name='MATERIALES'),
+    path('otros/', ListaOtros.as_view(), name='OTROS'),
     path('contacto', contacto, name = "CONTACTO"),
     path('orden_compra', encargarProducto, name = 'ORDENCOMPRA'),
     path('orden_compra/<str:id_prod>', encargarProducto, name = 'ORDENCOMPRA'),

@@ -145,6 +145,7 @@ def registroProducto(request):
             desc = request.POST.get("txtDescripcion")
             TipoProd = request.POST.get("TipoProducto")
             FamProd = request.POST.get("familiaProducto")
+            img = request.POST.get("txtImagen")
             obj_TipoProd = TipoProducto.objects.get(idTipoProducto=TipoProd)
             obj_TipoFam = FamiliaProducto.objects.get(idFamiliaProducto=FamProd)
             obj_Proveedor = Proveedor.objects.get(idProveedor=proveedor)
@@ -161,6 +162,7 @@ def registroProducto(request):
                 stock = stock,
                 stockCrit = stockCritico,
                 fVenc = fVenc,
+                imagen = img,
                 idTipoProducto = obj_TipoProd,
                 idFamProducto = obj_TipoFam,
                 idProveedor = obj_Proveedor,
@@ -229,6 +231,17 @@ class ListaMateriales(ListView):
 
     def get_queryset(self): # Busqueda
         lista = Producto.objects.filter(idFamProducto__exact=3)          
+        return lista
+
+# Pagina Otros
+class ListaOtros(ListView):
+    # Uso de Modelo
+    model = Producto
+    template_name = 'resultados.html'
+    context_object_name = 'productos'
+
+    def get_queryset(self): # Busqueda
+        lista = Producto.objects.exclude(idFamProducto__in=[1, 2, 3])          
         return lista
 
 # Mision y Vision
@@ -313,7 +326,6 @@ class ListaOrdenCompra(ListView):
         context = super(ListaOrdenCompra, self).get_context_data(*args, **kwargs)
         context['Productos_StockCrit'] = Producto.objects.filter(stock__lte = F('stockCrit')) #Query
         return context 
-
 
 # Detalle Orden Compra
 @method_decorator(login_required(login_url='login/'), name='dispatch')
@@ -403,6 +415,7 @@ def add_to_cart(request):
         'imagen':request.GET['imagen'],
         'cant':request.GET['cant'],
         'precio':request.GET['precio'],
+        'stock':request.GET['stock'],
     }
     if 'cartdata' in request.session: # Si existe un Cart 
         if str(request.GET['prodId']) in request.session['cartdata']: # Añadir un producto existente en Carro
@@ -451,13 +464,13 @@ def cart_list(request):
             boleta.total = venta.total
             boleta.idVenta = venta
             boleta.save()
-            # listaDetalle = Detalle.objects.filter(idVenta = venta) 
-            # for item in listaDetalle:      
-                # prod = item.idProducto_id
-                # cant = item.cantidad
-                # producto = Producto.objects.get(pk = prod)
-                # producto.stock -= cant
-                # producto.save() 
+            listaDetalle = Detalle.objects.filter(idVenta = venta) 
+            for item in listaDetalle:      
+                prod = item.idProducto_id
+                cant = item.cantidad
+                producto = Producto.objects.get(pk = prod)
+                producto.stock -= cant
+                producto.save() 
             del request.session['cartdata']
             return redirect(reverse('BOLETA', kwargs={'pk':boleta.nroBoleta}))
 
@@ -490,13 +503,13 @@ def cart_list(request):
             factura.iva = int(round(venta.total * 0.19))
             factura.neto = int(factura.total) - int(factura.iva)
             factura.save()
-            # listaDetalle = Detalle.objects.filter(idVenta = venta) 
-            # for item in listaDetalle:      
-                # prod = item.idProducto_id
-                # cant = item.cantidad
-                # producto = Producto.objects.get(pk = prod)
-                # producto.stock -= cant
-                # producto.save() 
+            listaDetalle = Detalle.objects.filter(idVenta = venta) 
+            for item in listaDetalle:      
+                prod = item.idProducto_id
+                cant = item.cantidad
+                producto = Producto.objects.get(pk = prod)
+                producto.stock -= cant
+                producto.save() 
             del request.session['cartdata']
             return redirect(reverse('FACTURA', kwargs={'pk':factura.nroFactura}))
         else:
@@ -527,10 +540,12 @@ def delete_cart_item(request):
 def update_cart_item(request):
     p_id=str(request.GET['prodId'])
     p_cant=request.GET['cant']
+    p_stock= request.GET['stock']
+    p_cant_min = min(p_cant, p_stock)
     if 'cartdata' in request.session:
         if p_id in request.session['cartdata']:
             cart_data=request.session['cartdata']
-            cart_data[str(request.GET['prodId'])]['cant']=p_cant
+            cart_data[str(request.GET['prodId'])]['cant']=p_cant_min
             request.session['cartdata']=cart_data
     total_amt=0
     for p_id,item in request.session['cartdata'].items():
@@ -595,6 +610,13 @@ def borrarBoleta(request, idBoleta):
         venta = Venta.objects.get(pk=nroVenta)
         venta.valido = False
         venta.save()
+        listaDetalle = Detalle.objects.filter(idVenta = venta) 
+        for item in listaDetalle:      
+            prod = item.idProducto_id
+            cant = item.cantidad
+            producto = Producto.objects.get(pk = prod)
+            producto.stock += cant
+            producto.save() 
         mensaje = 'Boleta Anulada Correctamente'
         return render(request, 'boleta.html', {'object':boleta, 'mensaje': mensaje})
     except:
@@ -614,6 +636,13 @@ def borrarFactura(request, idFactura):
         venta = Venta.objects.get(pk=nroVenta)
         venta.valido = False
         venta.save()
+        listaDetalle = Detalle.objects.filter(idVenta = venta) 
+        for item in listaDetalle:      
+            prod = item.idProducto_id
+            cant = item.cantidad
+            producto = Producto.objects.get(pk = prod)
+            producto.stock += cant
+            producto.save() 
         mensaje = 'Factura Anulada Correctamente'
         return render(request, 'factura.html', {'object':factura, 'mensaje': mensaje})
     except:
@@ -666,11 +695,11 @@ def recibirOrden(request, idOrden):
         orden.recibido = True
         orden.save()
         mensaje = 'Orden de Compra recibida correctamente'
-        # prod = orden.idProducto_id
-        # cant= orden.cantidad
-        # producto = Producto.objects.get(pk = prod)
-        # producto.stock += cant
-        # producto.save() 
+        prod = orden.idProducto_id
+        cant= orden.cantidad
+        producto = Producto.objects.get(pk = prod)
+        producto.stock += cant
+        producto.save() 
         return render(request, 'ordenDetail.html', {'object':orden, 'mensaje': mensaje})
     except:
         mensaje = 'Error al Recibir Orden'
