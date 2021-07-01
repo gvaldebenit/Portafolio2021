@@ -1,7 +1,7 @@
 
 // Lector de Funcion de Botones
 $(document).ready(function() { 
-    google.charts.load('current', {'packages':['corechart','controls']});
+    google.charts.load('current', {'packages':['corechart','controls',]});
     document.getElementById('btn-today').addEventListener("click", function() { //Boton Para ventas de hoy
       grafico(document.getElementById('btn-today'));
     });

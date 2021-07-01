@@ -19,7 +19,7 @@ from django.db.models import Q, F
 
 # Date and DateTime Handler
 from datetime import datetime
-
+from reportes.signals import visitaSignal
 # Create your views here.
 
 # Funcion para verificar si un usuario está en un grupo
@@ -34,6 +34,7 @@ def group_required(*group_names):
 
 # Index
 def index(request):
+    visitaSignal.send(request, request=request)
     return render(request, 'index.html')
 
 # Login

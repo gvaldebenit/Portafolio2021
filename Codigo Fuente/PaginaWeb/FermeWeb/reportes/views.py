@@ -314,3 +314,6 @@ def ventasDocYear(request):
     else:
         pass    
     return JsonResponse(data, safe=False)
+
+def visitasToday(request):
+    pass

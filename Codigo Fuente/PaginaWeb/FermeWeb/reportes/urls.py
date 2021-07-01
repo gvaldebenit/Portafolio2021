@@ -32,4 +32,5 @@ urlpatterns = [
     path('ajax/ventas/doc/week', ventasDocWeek),
     path('ajax/ventas/doc/month', ventasDocMonth),
     path('ajax/ventas/doc/year', ventasDocYear),
+    path('ajax/visitas/today', visitasToday),
 ]
