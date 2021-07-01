@@ -21,5 +21,15 @@ from .views import *
 
 urlpatterns = [
     path('', index, name="REPOINDEX"),
-    path('ajax/grafico', grafico),
+    path('venta', venta, name="REPOVENTA"),
+    path('visita', visita, name="REPOVISITA"),
+    path('ajax/producto/stock', StockProducto),
+    path('ajax/ventas/today', ventasToday),
+    path('ajax/ventas/week', ventasWeek),
+    path('ajax/ventas/moth', ventasMonth),
+    path('ajax/ventas/year', ventasYear),
+    path('ajax/ventas/doc/today', ventasDocToday),
+    path('ajax/ventas/doc/week', ventasDocWeek),
+    path('ajax/ventas/doc/month', ventasDocMonth),
+    path('ajax/ventas/doc/year', ventasDocYear),
 ]

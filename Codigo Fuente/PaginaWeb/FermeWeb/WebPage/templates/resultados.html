@@ -16,7 +16,7 @@
             <div>
                 <a href="/item/{{item.idProducto}}">
                     <div class="col-5" style="height: fit-content; width: fit-content;">
-                        {% if item.stock >0 %}
+                        {% if item.stock > 0 %}
                             <img src={{item.imagen.url}}  class="img-fluid"  width="250px" height="250px">
                         {% else %}
                             <img src={{item.imagen.url}}  class="img-fluid"  width="250px" height="250px">
@@ -29,7 +29,7 @@
                 <h2>{{item.nombre}}</h2>
                 <div>
                     <h6 >{{item.descripcion}}</h6>
-                </div>s
+                </div>
                 <h3 class="text-danger">${{item.precio}}</h3>
             </div>
         </div>

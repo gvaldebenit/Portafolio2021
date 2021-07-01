@@ -1,20 +1,25 @@
-{% extends "Template.html" %}
+{% extends "reportes/reporteTemplate.html" %}
 {% load static %}
 
 {% block estilos %}
     <link rel="stylesheet" href="{% static 'css/contacto.css' %}">
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    
     <script src="{% static 'js/reporte/producto.js' %}"></script>
 {% endblock estilos %}
 
 {% block contenido %}
       
 <div>
-  <button id="btn-donut" data-url="/reportes/ajax/grafico">Traer Listado Objetos</button>
-  <button id="btn-bar" data-url="/reportes/ajax/grafico">Traer Listado Objetos</button>
+  <button id="btn-stock" data-url="/reportes/ajax/producto/stock">Stock de Productos</button>
 </div>
 
-<div id = data-container>
+<div id = "data-container">
+  <div id= "data-control-cant"></div>
+  <div id= "data-control-fam"></div>
+  <div id= "data-control-cat"></div>
+  <div id= "data-pie"></div>
+  <div id= "data-chart"></div>
+</div>
 
 </div>
 

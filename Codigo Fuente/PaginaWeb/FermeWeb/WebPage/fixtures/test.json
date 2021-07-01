@@ -140,6 +140,26 @@
     }
   },
   {
+    "model": "auth.user",
+    "pk": 9,
+    "fields": {
+      "password": "pbkdf2_sha256$216000$HEEmDprZOtrJ$ZSFfqvri0V+tbyuM2QMphFsR4AndF+NWQaEv8YI3OWA=",
+      "last_login": "2021-06-02 22:33:14.944",
+      "is_superuser": false,
+      "username": "contacto@distribuidoradias.cl",
+      "first_name": " ",
+      "last_name": " ",
+      "email": "contacto@distribuidoradias.cl",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2021-06-01 23:51:07",
+      "groups": [
+        4
+      ],
+      "user_permissions": []
+    }
+  },
+  {
     "model": "WebPage.cliente",
     "pk": 1,
     "fields": {
@@ -202,6 +222,22 @@
     }
   },
   {
+    "model": "WebPage.proveedor",
+    "pk": 3,
+    "fields": {
+      "rut": "69838742-2",
+      "nombres": "Distribuidora Dias",
+      "apellidoPaterno": " ",
+      "apellidoMaterno": " ",
+      "telefono": "223565984",
+      "direccion": "Av. 1 Oeste 1250",
+      "idComuna": 6,
+      "idUsuario": 9,
+      "representante": "Javier Dias",
+      "idRubro": 5
+    }
+  },
+  {
     "model": "WebPage.empleado",
     "pk": 1,
     "fields": {
@@ -255,7 +291,7 @@
       "precio": 49990,
       "stock": 30,
       "stockCrit": 5,
-      "imagen": "not_found.jpg",
+      "imagen": "productos/Taladro_Bauker.jpg",
       "fVenc": "2021-06-01",
       "idFamProducto": 2,
       "idTipoProducto": 21,
@@ -271,7 +307,7 @@
       "precio": 120990,
       "stock": 4,
       "stockCrit": 10,
-      "imagen": "not_found.jpg",
+      "imagen": "productos/Percutor_Bauker.png",
       "fVenc": null,
       "idFamProducto": 2,
       "idTipoProducto": 21,
@@ -287,11 +323,107 @@
       "precio": 12990,
       "stock": 20,
       "stockCrit": 50,
-      "imagen": "not_found.jpg",
+      "imagen": "productos/Lamina_Prensada.jpg",
       "fVenc": "2024-06-05",
       "idFamProducto": 3,
       "idTipoProducto": 24,
       "idProveedor": 1
+    }
+  },
+  {
+    "model": "WebPage.producto",
+    "pk": "00300108072023001",
+    "fields": {
+      "nombre": "Pintura Al Oleo Ceresita",
+      "descripcion": "Pintura al Oleo para Madera Ceresita. Color Azul",
+      "precio": 8990,
+      "stock": 20,
+      "stockCrit": 10,
+      "imagen": "productos/Oleo_Madera_Azul.jpg",
+      "fVenc": "2023-07-08",
+      "idFamProducto": 1,
+      "idTipoProducto": 1,
+      "idProveedor": 3
+    }
+  },
+  {
+    "model": "WebPage.producto",
+    "pk": "00300109072023001",
+    "fields": {
+      "nombre": "Pintura Metales",
+      "descripcion": "Pintura Para superficies Metálicas. Marca Kolor",
+      "precio": 12990,
+      "stock": 15,
+      "stockCrit": 10,
+      "imagen": "productos/Pintura_Metales.jpg",
+      "fVenc": "2023-07-09",
+      "idFamProducto": 1,
+      "idTipoProducto": 1,
+      "idProveedor": 3
+    }
+  },
+  {
+    "model": "WebPage.producto",
+    "pk": "00300300000000027",
+    "fields": {
+      "nombre": "Volcanita 8mm",
+      "descripcion": "Volcanita 8mm. Ideal Para cielos",
+      "precio": 4990,
+      "stock": 40,
+      "stockCrit": 10,
+      "imagen": "productos/Volcanita_8mm.jpg",
+      "fVenc": null,
+      "idFamProducto": 3,
+      "idTipoProducto": 27,
+      "idProveedor": 3
+    }
+  },
+  {
+    "model": "WebPage.producto",
+    "pk": "00300412032022034",
+    "fields": {
+      "nombre": "Tierra Maceteros",
+      "descripcion": "Tierra para Maceteros. 10kg",
+      "precio": 2500,
+      "stock": 5,
+      "stockCrit": 5,
+      "imagen": "productos/Tierra_Maceteros.jpg",
+      "fVenc": "2022-03-12",
+      "idFamProducto": 4,
+      "idTipoProducto": 34,
+      "idProveedor": 3
+    }
+  },
+  {
+    "model": "WebPage.producto",
+    "pk": "00300500000000035",
+    "fields": {
+      "nombre": "Compresor Bauker",
+      "descripcion": "Compresor de Aire Portatil",
+      "precio": 89990,
+      "stock": 10,
+      "stockCrit": 5,
+      "imagen": "productos/Compresor_Bauker.jpg",
+      "fVenc": null,
+      "idFamProducto": 5,
+      "idTipoProducto": 35,
+      "idProveedor": 3
+    }
+  },
+  {
+    "model": "WebPage.producto",
+    "pk": "00300500000000038",
+    "fields": {
+      "nombre": "Motor Electrico Emaquip",
+      "descripcion": "Motor Electrico Emaquip. 1HP 250W",
+      "precio": 129990,
+      "stock": 2,
+      "stockCrit": 5,
+      "imagen": "productos/Motor_Electrico_Emaquip.jpg",
+      "fVenc": null,
+      "idFamProducto": 5,
+      "idTipoProducto": 38,
+      "idProveedor": 3
     }
   },
   {
