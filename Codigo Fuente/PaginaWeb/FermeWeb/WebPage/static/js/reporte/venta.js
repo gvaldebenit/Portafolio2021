@@ -38,10 +38,13 @@ $(document).ready(function() {
 });
 
 
+
 // Crear Dashboard
 function drawMainDashboard(list) {
   var dashboard = new google.visualization.Dashboard(
       document.getElementById('data-container'));
+  
+  $("#data-error").html("");
   // Control para la cantidad  
   var cantslider = new google.visualization.ControlWrapper({
     'controlType': 'NumberRangeFilter',
@@ -101,19 +104,35 @@ function drawMainDashboard(list) {
     'options': {
     }
   });
+
+  
   
   if(list.length > 1){
     try{
       var data = google.visualization.arrayToDataTable(list);
       dashboard.bind([cantslider, categoryPicker], [pie, pieTotal, table]);
       dashboard.draw(data);
+      document.getElementById('btn-export').style.display='block';
+      $('#csv').click(function () {
+        var csv = google.visualization.dataTableToCsv(data);
+        var encodedUri = 'data:application/csv;charset=utf-8,' + encodeURIComponent(csv);
+        this.href = encodedUri;
+        var link = document.createElement("a");
+        link.setAttribute("href", encodedUri);
+        link.setAttribute("download", "my_data.csv");
+        document.body.appendChild(link); // Required for FF
+
+        link.click(); // This will download the data file named "my_data.csv".
+      });
     } catch (e) {
-      $("#data-container").html("Error al procesar los datos. Intente Recargar la Página");
+      $("#data-error").html("Error al procesar los datos. Intente Recargar la Página");
     }
   } else{
-    $("#data-container").html("No hay Datos Para Mostrar");
+    $("#data-error").html("No hay Datos Para Mostrar");
   };
 };
+
+
 
 function grafico(d){
     var _url = d.getAttribute("data-url")
@@ -130,6 +149,7 @@ function grafico(d){
 function drawMainDashboardDocs(list) {
   var dashboard = new google.visualization.Dashboard(
       document.getElementById('data-container'));
+  $("#data-error").html("");
   // Control para tipo Doc
   var categoryPicker = new google.visualization.ControlWrapper({
     'controlType': 'CategoryFilter',
@@ -183,11 +203,23 @@ function drawMainDashboardDocs(list) {
       var data = google.visualization.arrayToDataTable(list);
       dashboard.bind([categoryPicker], [pie, pieTotal, table]);
       dashboard.draw(data);
+      document.getElementById('btn-export').style.display='block';
+      $('#csv').click(function () {
+        var csv = google.visualization.dataTableToCsv(data);
+        var encodedUri = 'data:application/csv;charset=utf-8,' + encodeURIComponent(csv);
+        this.href = encodedUri;
+        var link = document.createElement("a");
+        link.setAttribute("href", encodedUri);
+        link.setAttribute("download", "my_data.csv");
+        document.body.appendChild(link); // Required for FF
+
+        link.click(); // This will download the data file named "my_data.csv".
+      });
     } catch (e) {
-      $("#data-container").html("Error al procesar los datos. Intente Recargar la Página");
+      $("#data-error").html("Error al procesar los datos. Intente Recargar la Página");
     }
   } else{
-    $("#data-container").html("No hay Datos Para Mostrar");
+    $("#data-error").html("No hay Datos Para Mostrar");
   };
 };
 

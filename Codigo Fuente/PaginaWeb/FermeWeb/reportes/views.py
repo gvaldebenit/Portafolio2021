@@ -2,9 +2,11 @@ from django.http.response import JsonResponse
 from django.core import serializers
 from django.shortcuts import render, redirect
 from django.template.loader import render_to_string
-from django.db.models import Q, F, Sum
+from django.db.models import Q, F, Sum, Count
 from datetime import datetime, timedelta
+from django.db.models.functions import TruncHour, TruncDay
 from WebPage.models import *
+from reportes.models import *
 
 
 # Create your views here.
@@ -152,8 +154,8 @@ def ventasDocToday(request):
         # Boleta
         row = []
         row.append('Boleta')
-        row.append(0)
-        row.append(0)
+        row.append(query_boleta.count())
+        row.append(query_boleta.aggregate(Sum('total'))['total__sum'])
         data.append(row)
         # Factura
         row = []
@@ -202,8 +204,8 @@ def ventasDocWeek(request):
         # Boleta
         row = []
         row.append('Boleta')
-        row.append(0)
-        row.append(0)
+        row.append(query_boleta.count())
+        row.append(query_boleta.aggregate(Sum('total'))['total__sum'])
         data.append(row)
         # Factura
         row = []
@@ -252,8 +254,8 @@ def ventasDocMonth(request):
         # Boleta
         row = []
         row.append('Boleta')
-        row.append(0)
-        row.append(0)
+        row.append(query_boleta.count())
+        row.append(query_boleta.aggregate(Sum('total'))['total__sum'])
         data.append(row)
         # Factura
         row = []
@@ -302,8 +304,8 @@ def ventasDocYear(request):
         # Boleta
         row = []
         row.append('Boleta')
-        row.append(0)
-        row.append(0)
+        row.append(query_boleta.count())
+        row.append(query_boleta.aggregate(Sum('total'))['total__sum'])
         data.append(row)
         # Factura
         row = []
@@ -316,4 +318,70 @@ def ventasDocYear(request):
     return JsonResponse(data, safe=False)
 
 def visitasToday(request):
-    pass
+    now = datetime.now()
+    start = now.replace(hour=0, minute=0, second=0)
+    data = [['Hora', 'Usuarios Autenticados', 'Usuarios Anonimos']]
+    query = Visita.objects.filter(timestamp__range=(start, now)
+        ).annotate(
+            hour=TruncHour('timestamp')
+        ).values(
+            'hour'
+        ).annotate(
+            total_auth=Count('id', filter=Q(user__isnull=False)),
+            total_anon=Count('id', filter=Q(user__isnull=True))
+        ).values(
+            'hour', 'total_auth','total_anon'
+        )
+    for item in query:
+        row = []
+        row.append(item['hour'].strftime("%d/%m/%y %H:%M"))
+        row.append(item['total_auth'])
+        row.append(item['total_anon'])
+        data.append(row)
+    return JsonResponse(data, safe=False)
+
+def visitasWeek(request):
+    now = datetime.now()
+    start = (datetime.now() - timedelta(days=now.weekday())).replace(hour=0, minute=0, second=0)
+    data = [['Hora', 'Usuarios Autenticados', 'Usuarios Anonimos']]
+    query = Visita.objects.filter(timestamp__range=(start, now)
+        ).annotate(
+            hour=TruncHour('timestamp')
+        ).values(
+            'hour'
+        ).annotate(
+            total_auth=Count('id', filter=Q(user__isnull=False)),
+            total_anon=Count('id', filter=Q(user__isnull=True))
+        ).values(
+            'hour', 'total_auth','total_anon'
+        )
+    for item in query:
+        row = []
+        row.append(item['hour'].strftime("%d/%m/%y %H:%M"))
+        row.append(item['total_auth'])
+        row.append(item['total_anon'])
+        data.append(row)
+    return JsonResponse(data, safe=False)
+
+def visitasMonth(request):
+    now = datetime.now()
+    start = now.replace(day=1,hour=0, minute=0, second=0)
+    data = [['Hora', 'Usuarios Autenticados', 'Usuarios Anonimos']]
+    query = Visita.objects.filter(timestamp__range=(start, now)
+        ).annotate(
+            hour=TruncDay('timestamp')
+        ).values(
+            'hour'
+        ).annotate(
+            total_auth=Count('id', filter=Q(user__isnull=False)),
+            total_anon=Count('id', filter=Q(user__isnull=True))
+        ).values(
+            'hour', 'total_auth','total_anon'
+        )
+    for item in query:
+        row = []
+        row.append(item['hour'].strftime("%d/%m/%y %H:%M"))
+        row.append(item['total_auth'])
+        row.append(item['total_anon'])
+        data.append(row)
+    return JsonResponse(data, safe=False)

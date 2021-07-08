@@ -8,34 +8,99 @@
 {% endblock estilos %}
 
 {% block contenido %}
+<div class="card-body ">
+  <div class="d-flex justify-content-center">
+      <button id="btn-producto">Ventas por Producto</button>
+      &nbsp;
+      <button id="btn-doc">Ventas por Documento</button>
+  </div>
 
-<div>
-    <button id="btn-producto">Ventas por Producto</button>
-    <button id="btn-doc">Ventas por Documento</button>
+  <div class="d-flex justify-content-center">
+    <div class = "venta-doc" style="display:none">
+      <button id="btn-today-doc" data-url="/reportes/ajax/ventas/doc/today">Ventas Diarias</button>
+      <button id="btn-week-doc" data-url="/reportes/ajax/ventas/doc/week">Ventas Semanales</button>
+      <button id="btn-month-doc" data-url="/reportes/ajax/ventas/doc/month">Ventas Mensuales</button>
+      <button id="btn-year-doc" data-url="/reportes/ajax/ventas/doc/year">Ventas Anuales</button>
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-center">
+    <div class = "venta-producto" style="display:none">
+      <button id="btn-today" data-url="/reportes/ajax/ventas/today">Ventas Diarias</button>
+      <button id="btn-week" data-url="/reportes/ajax/ventas/week">Ventas Semanales</button>
+      <button id="btn-month" data-url="/reportes/ajax/ventas/moth">Ventas Mensuales</button>
+      <button id="btn-year" data-url="/reportes/ajax/ventas/year">Ventas Anuales</button>   
+    </div>
+  </div>
+  <div id="btn-export" style="display:none">
+    <div class="d-flex justify-content-center" >
+      <button class="btn btn-success m-2" href="#" id="csv">CSV</button>
+      <button class="btn btn-danger m-2" onclick=pdfdownload() data-url="/reportes/ajax/ventas/year">PDF</button>
+    </div>
+  </div>
+  <div class="container-fluid d-flex justify-content-center" >
+    <div id = "data-container">
+      <br>
+      <div class="col-12 row align-items-center m-auto">
+        <div class="col-3"></div>
+        <div class="col-5" id= "data-control-cant"></div>
+        <div class="col-4" id= "data-control-cat"></div>
+      </div>
+      <br>
+      <br>
+      <div class="col-12 row m-auto">
+        <div class="col-6" id= "data-pie"></div>
+        <div class="col-6" id= "data-pie-total"></div>
+      </div>
+      <br>
+      <div class="d-flex justify-content-center" id= "data-chart"></div>
+      <div id= "data-error"></div>
+      <br>
+      
+    </div>
+  </div>
 </div>
 
+<script>
+    window.jsPDF = window.jspdf.jsPDF
+    function pdfdownload(){
+      var doc = new jsPDF({
+        orientation: "l",
 
-<div class = "venta-doc" style="display:none">
-  <button id="btn-today-doc" data-url="/reportes/ajax/ventas/doc/today">Ventas Diarias</button>
-  <button id="btn-week-doc" data-url="/reportes/ajax/ventas/doc/week">Ventas Semanales</button>
-  <button id="btn-month-doc" data-url="/reportes/ajax/ventas/doc/month">Ventas Mensuales</button>
-  <button id="btn-year-doc" data-url="/reportes/ajax/ventas/doc/year">Ventas Anuales</button>
+      });
+    var width = doc.internal.pageSize.getWidth();
+    var height = doc.internal.pageSize.getHeight();
+    // html2canvas(document.getElementById('data-container'), {
+    //   dpi: 300, // Set to 300 DPI
+    //   scale: 3, // Adjusts your resolution
+    //   onrendered: function(canvas) {
+    //     var img = canvas.toDataURL("image/PNG", 1);
+    //     console.log("fin img")
 
-</div>
+    //     console.log("fin doc")
+    //     doc.addImage(img, 'PNG', 0, 0, w, h);
+    //     console.log("fin addImage")
+    //     doc.save('sample-file.pdf');
+    //     console.log("fin save")
+    //   }
+    // })
+    // console.log("Fin porqueria")
+    var source = document.getElementById('data-container');
+    html2canvas(source).then(canvas => {
+      var imageData = canvas.toDataURL("image/PNG");
+      var image = new Image();
+      image.src= imageData;
+      doc.addImage(imageData, 'PNG', -4, 0, width, height);
+      doc.save('test.pdf');
+    })
+    /*
+    doc.html(source, {
+      callback: function(doc){
+        doc.save("test.pdf")
 
-<div class = "venta-producto" style="display:none">
-  <button id="btn-today" data-url="/reportes/ajax/ventas/today">Ventas Diarias</button>
-  <button id="btn-week" data-url="/reportes/ajax/ventas/week">Ventas Semanales</button>
-  <button id="btn-month" data-url="/reportes/ajax/ventas/month">Ventas Mensuales</button>
-  <button id="btn-year" data-url="/reportes/ajax/ventas/year">Ventas Anuales</button>
-</div>
-
-<div id = "data-container">
-  <div id= "data-control-cant"></div>
-  <div id= "data-control-cat"></div>
-  <div id= "data-pie"></div>
-  <div id= "data-pie-total"></div>
-  <div id= "data-chart"></div>
-</div>
+    }});
+    */
+    };
+  </script>
 
 {% endblock contenido %} 
