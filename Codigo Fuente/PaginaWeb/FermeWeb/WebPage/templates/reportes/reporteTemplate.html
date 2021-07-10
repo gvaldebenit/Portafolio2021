@@ -28,21 +28,23 @@
 
 <body style="background:#f0f0f0;">
     <!-- Cabecera de la Página -->
-    <nav class="navbar m-0 navbar-expand-lg navbar-light" id="navbarPage">         
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse flex-lg-column" id="navbarSupportedContent">
-            <img class="position-absolute top-0 start-0" style=" margin-left:20px;  margin-top:10px; "  src="{% static 'images/logo2.png'%}" alt="" width="10%" height="75%">
-            <ul class="nav navbar-nav d-flex">
-                <li><h3 class="nav-item nav-link me-auto text-center" id="a-nav">Módulo de Reportes</h3></li>
-                <li class="position-absolute top-0 end-0"><a class="nav-item nav-link" id="a-nav" href="{%url 'INDEX'%}">Volver al Inicio</a></li>   
-            </ul>
-            <ul class="nav navbar-nav mr-auto d-flex align-items-center">
-                <li><a class="nav-item nav-link" id="a-nav" href="{% url 'REPOINDEX' %}">Productos</a></li>
-                <li><a class="nav-item nav-link" id="a-nav" href="{% url 'REPOVENTA' %}">Ventas</a></li>
-                <li><a class="nav-item nav-link" id="a-nav" href="{% url 'REPOVISITA' %}">Visitas</a></li>
-            </ul>
+    <nav class="navbar m-0 navbar-expand-lg navbar-light" id="navbarPage">
+        <div class="container-fluid">        
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <img class="navbar-brand img-fluid" style=" margin-left:20px;  margin-top:10px; "  src="{% static 'images/logo2.png'%}" alt="" width="7%">
+            <div class="collapse navbar-collapse flex-lg-column" id="navbarSupportedContent">  
+                <ul class="nav navbar-nav d-flex">
+                    <li><h3 class="nav-item nav-link me-auto text-center" id="a-nav">Módulo de Reportes</h3></li>
+                    <li class="position-absolute top-0 end-0"><a class="nav-item nav-link" id="a-nav" href="{%url 'INDEX'%}">Volver al Inicio</a></li>   
+                </ul>
+                <ul class="nav navbar-nav mr-auto d-flex align-items-center">
+                    <li><a class="nav-item nav-link" id="a-nav" href="{% url 'REPOINDEX' %}">Productos</a></li>
+                    <li><a class="nav-item nav-link" id="a-nav" href="{% url 'REPOVENTA' %}">Ventas</a></li>
+                    <li><a class="nav-item nav-link" id="a-nav" href="{% url 'REPOVISITA' %}">Visitas</a></li>
+                </ul>
+            </div>
         </div>
     </nav>
 
