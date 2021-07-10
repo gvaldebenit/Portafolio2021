@@ -1,0 +1,128 @@
+[
+  {
+    "model": "reportes.Visita",
+    "pk": 1,
+    "fields": {
+      "user": null,
+      "ip_address": "127.0.0.1",
+      "timestamp": "2021-06-28 00:18:00.017"
+    }
+  },
+  {
+    "model": "reportes.Visita",
+    "pk": 2,
+    "fields": {
+      "user": null,
+      "ip_address": "127.0.0.1",
+      "timestamp": "2021-06-28 01:15:00.017"
+    }
+  },
+  {
+    "model": "reportes.Visita",
+    "pk": 3,
+    "fields": {
+      "user": 2,
+      "ip_address": "127.0.0.1",
+      "timestamp": "2021-06-28 01:22:00.017"
+    }
+  },
+  {
+    "model": "reportes.Visita",
+    "pk": 4,
+    "fields": {
+      "user": 3,
+      "ip_address": "127.0.0.1",
+      "timestamp": "2021-06-28 01:34:00.017"
+    }
+  },
+  {
+    "model": "reportes.Visita",
+    "pk": 5,
+    "fields": {
+      "user": null,
+      "ip_address": "127.0.0.1",
+      "timestamp": "2021-06-28 01:59:00.017"
+    }
+  },
+  {
+    "model": "reportes.Visita",
+    "pk": 6,
+    "fields": {
+      "user": null,
+      "ip_address": "127.0.0.1",
+      "timestamp": "2021-06-30 13:18:00.017"
+    }
+  },
+  {
+    "model": "reportes.Visita",
+    "pk": 7,
+    "fields": {
+      "user": 3,
+      "ip_address": "127.0.0.1",
+      "timestamp": "2021-06-30 13:52:00.017"
+    }
+  },
+  {
+    "model": "reportes.Visita",
+    "pk": 8,
+    "fields": {
+      "user": null,
+      "ip_address": "127.0.0.1",
+      "timestamp": "2021-07-01 12:00:01.017"
+    }
+  },
+  {
+    "model": "reportes.Visita",
+    "pk": 9,
+    "fields": {
+      "user": null,
+      "ip_address": "127.0.0.1",
+      "timestamp": "2021-07-01 12:00:24.017"
+    }
+  },
+  {
+    "model": "reportes.Visita",
+    "pk": 10,
+    "fields": {
+      "user": 1,
+      "ip_address": "127.0.0.1",
+      "timestamp": "2021-07-01 12:02:00.017"
+    }
+  },
+  {
+    "model": "reportes.Visita",
+    "pk": 11,
+    "fields": {
+      "user": 2,
+      "ip_address": "127.0.0.1",
+      "timestamp": "2021-07-01 12:05:20.017"
+    }
+  },
+  {
+    "model": "reportes.Visita",
+    "pk": 12,
+    "fields": {
+      "user": 3,
+      "ip_address": "127.0.0.1",
+      "timestamp": "2021-07-01 12:05:21.017"
+    }
+  },
+  {
+    "model": "reportes.Visita",
+    "pk": 13,
+    "fields": {
+      "user": null,
+      "ip_address": "127.0.0.1",
+      "timestamp": "2021-07-01 12:32:00.017"
+    }
+  },
+  {
+    "model": "reportes.Visita",
+    "pk": 14,
+    "fields": {
+      "user": null,
+      "ip_address": "127.0.0.1",
+      "timestamp": "2021-07-02 11:15:00.017"
+    }
+  }
+]

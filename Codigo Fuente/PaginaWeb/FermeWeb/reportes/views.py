@@ -1,3 +1,4 @@
+import pytz
 from django.http.response import JsonResponse
 from django.core import serializers
 from django.shortcuts import render, redirect
@@ -35,16 +36,18 @@ def StockProducto(request):
 
 # Json para Ajax de ventas del dia
 def ventasToday(request):
+    now = datetime.utcnow()
+    start = (datetime.now() - timedelta(days = 1)).astimezone(pytz.utc)
     sql_query = '''SELECT d.idDetalle, p.nombre AS nombre, sum(d.cantidad) AS cantidad, sum(d.subtotal) AS total, f.descripcion AS familia
     FROM WebPage_detalle d 
     JOIN WebPage_producto p ON d.idProducto_id = p.idProducto
     JOIN WebPage_venta v ON d.idVenta_id = v.idVenta
     JOIN WebPage_familiaproducto f ON p.idFamProducto_id = f.idFamiliaProducto
     WHERE v.valido = True 
-    AND v.fechaVenta BETWEEN DATE('now', '-1 day') AND DATE('now')
+    AND v.fechaVenta BETWEEN %s AND %s
     GROUP BY d.idProducto_id'''
     data = [['Producto', 'Cantidad', 'Venta', 'Familia Producto']]
-    query = Detalle.objects.raw(sql_query)
+    query = Detalle.objects.raw(sql_query, [start, now])
     for item in query:
         row = []
         row.append(item.nombre)
@@ -56,16 +59,18 @@ def ventasToday(request):
 
 # JSON para Ajax de Ventas desde Inicio de la Semana
 def ventasWeek(request):
+    now = datetime.utcnow()
+    start = (datetime.now() - timedelta(days=now.weekday())).astimezone(pytz.utc)
     sql_query = '''SELECT d.idDetalle, p.nombre AS nombre, sum(d.cantidad) AS cantidad, sum(d.subtotal) AS total, f.descripcion AS familia
     FROM WebPage_detalle d 
     JOIN WebPage_producto p ON d.idProducto_id = p.idProducto
     JOIN WebPage_venta v ON d.idVenta_id = v.idVenta
     JOIN WebPage_familiaproducto f ON p.idFamProducto_id = f.idFamiliaProducto
     WHERE v.valido = True 
-    AND v.fechaVenta BETWEEN DATE('now', 'weekday 1', '-7 days') AND DATE('now')
+    AND v.fechaVenta BETWEEN %s AND %s
     GROUP BY d.idProducto_id'''
     data = [['Producto', 'Cantidad', 'Venta', 'Familia Producto']]
-    query = Detalle.objects.raw(sql_query)
+    query = Detalle.objects.raw(sql_query,[start, now])
     for item in query:
         row = []
         row.append(item.nombre)
@@ -77,16 +82,18 @@ def ventasWeek(request):
 
 # JSON para Ajax de Ventas desde Inicio de Mes
 def ventasMonth(request):
+    now = datetime.utcnow()
+    start = now.replace(day=1).astimezone(pytz.utc)
     sql_query = '''SELECT d.idDetalle, p.nombre AS nombre, sum(d.cantidad) AS cantidad, sum(d.subtotal) AS total, f.descripcion AS familia
     FROM WebPage_detalle d 
     JOIN WebPage_producto p ON d.idProducto_id = p.idProducto
     JOIN WebPage_venta v ON d.idVenta_id = v.idVenta
     JOIN WebPage_familiaproducto f ON p.idFamProducto_id = f.idFamiliaProducto
     WHERE v.valido = True 
-    AND v.fechaVenta BETWEEN DATE('now', 'start of month') AND DATE('now')
+    AND v.fechaVenta BETWEEN %s AND %s
     GROUP BY d.idProducto_id'''
     data = [['Producto', 'Cantidad', 'Venta', 'Familia Producto']]
-    query = Detalle.objects.raw(sql_query)
+    query = Detalle.objects.raw(sql_query, [start, now])
     for item in query:
         row = []
         row.append(item.nombre)
@@ -98,16 +105,18 @@ def ventasMonth(request):
 
 # JSON para Ajax de Ventas desde Inicio de Año
 def ventasYear(request):
+    now = datetime.utcnow()
+    start = now.replace(month=1, day=1).astimezone(pytz.utc)
     sql_query = '''SELECT d.idDetalle, p.nombre AS nombre, sum(d.cantidad) AS cantidad, sum(d.subtotal) AS total, f.descripcion AS familia
     FROM WebPage_detalle d 
     JOIN WebPage_producto p ON d.idProducto_id = p.idProducto
     JOIN WebPage_venta v ON d.idVenta_id = v.idVenta
     JOIN WebPage_familiaproducto f ON p.idFamProducto_id = f.idFamiliaProducto
     WHERE v.valido = True 
-    AND v.fechaVenta BETWEEN DATE('now', 'start of year') AND DATE('now')
+    AND v.fechaVenta BETWEEN %s AND %s
     GROUP BY d.idProducto_id'''
     data = [['Producto', 'Cantidad', 'Venta', 'Familia Producto']]
-    query = Detalle.objects.raw(sql_query)
+    query = Detalle.objects.raw(sql_query, [start, now])
     for item in query:
         row = []
         row.append(item.nombre)

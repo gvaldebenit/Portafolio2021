@@ -8,52 +8,55 @@
 {% endblock estilos %}
 
 {% block contenido %}
-        <div class="title" style="text-align: center;">
-            <h1 style="padding: 15px;">Preguntas Frecuentes</h1>
+    <div class="title" style="text-align: center;">
+    <h1 style="padding: 15px;">Preguntas Frecuentes</h1>
+    </div>
+
+    <div class="timeline">
+        <div class="container left">
+            <div class="content">
+                <h2>¿Cómo comprar? </h2>
+                <p>Para comprar en nuestra página web debes “Iniciar sesión” en el sitio, ingresando correo electrónico y contraseña. En caso de no estar 
+                    registrado y si desea hacerlo, puede hacer uso del ícono y menú que corresponda a esta opción.</p>
+                <img src="{% static 'images/ayuda/inicio-de-sesion'%}.jpg" alt="" width="50%" height="30%"  aling="align-self-center" > 
+            </div>
         </div>
-    
-            <div class="timeline">
-                    <div class="container left">
-                    <div class="content">
-                        <h2>¿Cómo comprar? </h2>
-                        <p>Para comprar en nuestra página web debes “Iniciar sesión” en el sitio, ingresando correo electrónico y contraseña. En caso de no estar 
-                            registrado y si desea hacerlo, puede hacer uso del ícono y menú que corresponda a esta opción.</p>
-                                <img src="{% static 'images/ayuda/inicio-de-sesion'%}.jpg" alt="" width="50%" height="30%"  aling="align-self-center" > 
-                                <div class="container left">
-                                    <div class="content">
-                                        <h2>¿Como agrego mi pedido?</h2>
-                                            <p>Selecciona el producto que buscas y agrégalo al "carro de compra". Una vez seleccionado todo lo que necesitas, ingresa al Carro de Compras y da clic en <strong>Finalizar compra.</strong></p>
-                                                <img src="{% static 'images/ayuda/finalizar-compra'%}.jpg" alt="" width="20%" height="10%"  >
-                                </div>
-                            </div>
-                        <div class="container left">
-                            <div class="content">
-                                <h2>¿Cuales son los medios de pago?</h2>
-                                <p>Los horarios de entrega de tu pedido se realizan de lunes a viernes, desde las 8:30 a las 18:00 horas, y sábado, desde las 8:30 a las 13:00 horas, sin contar feriados ni festivos.</p>
-                                <p>Los medios de pago que tenemos disponibles para ti son los siguientes:</p>
-                                    <img src="{% static 'images/ayuda/WebPay-plus'%}.png" alt="" width="30%" height="10%"  >
-                                    <p>Tarjeta de crédito bancarias Visa, Mastercard, Dinners Club International, American Express u otras habilitadas y válidamente emitidas en Chile.
-                                        Tarjetas de débito bancarias acogidas al sistema Redcompra o habilitadas para realizar pagos y transacciones a través del sistema WebPay, válidamente emitidas en Chile por bancos nacionales.
-                                        Transferencia Bancaria a la cuenta corriente de Ferretería Ferme., previamente confirmado a través del Sitio Web al momento de finalizar la compra.</p>
-                            </div>
-                        </div>
-                                <div class="container left">
-                                <div class="content">
-                                    <h2>¿Cómo puedo retirar en Tienda un producto que compré en la web?</h2>
-                                        <p>Posterior y luego de confirmar el pedido,
-                                            tienes 5 días hábiles para acercarte a nuestra sucursal designada para la entrega de tus productos. 
-                                            En caso posterior a los 5 días, no pudiste retirar, procederemos a anular tu pedido, haciendo devolución del pago realizado.</p>   
-                                            <img src="{% static 'images/ayuda/devolu'%}.jpg" alt="" width="30%" height="30%"  > 
-                                        </div>
-                                </div>
-                                <div class="container left">
-                                    <div class="content">
-                                        <h2>¿En qué días y en qué horario podría llegar mi pedido?</h2>
-                                        <p><p>Los horarios de entrega de tu pedido se realizan de lunes a viernes, desde las 8:30 a las 18:00 horas, y sábado, desde las 8:30 a las 13:00 horas, sin contar feriados ni festivos.</p>
-                                        <img src="{% static 'images/ayuda/reloj'%}.png" alt="" width="30%" height="10%"  >
-                                    </div>
-                                    </div>
-                            </div>
+        <div class="container left">
+            <div class="content">
+                <h2>¿Como agrego mi pedido?</h2>
+                    <p>Selecciona el producto que buscas y agrégalo al "carro de compra". Una vez seleccionado todo lo que necesitas, ingresa al Carro de Compras y da clic en <strong>Finalizar compra.</strong></p>
+                        <img src="{% static 'images/ayuda/finalizar-compra'%}.jpg" alt="" width="20%" height="10%"  >
+            </div>
+        </div>
+            
+        <div class="container left">
+            <div class="content">
+                <h2>¿Cuales son los medios de pago?</h2>
+                <p>Los horarios de entrega de tu pedido se realizan de lunes a viernes, desde las 8:30 a las 18:00 horas, y sábado, desde las 8:30 a las 13:00 horas, sin contar feriados ni festivos.</p>
+                <p>Los medios de pago que tenemos disponibles para ti son los siguientes:</p>
+                <img src="{% static 'images/ayuda/WebPay-plus'%}.png" alt="" width="30%" height="10%"  >
+                <p>Tarjeta de crédito bancarias Visa, Mastercard, Dinners Club International, American Express u otras habilitadas y válidamente emitidas en Chile.
+                    Tarjetas de débito bancarias acogidas al sistema Redcompra o habilitadas para realizar pagos y transacciones a través del sistema WebPay, válidamente emitidas en Chile por bancos nacionales.
+                    Transferencia Bancaria a la cuenta corriente de Ferretería Ferme., previamente confirmado a través del Sitio Web al momento de finalizar la compra.</p>
+            </div>
+        </div>
+        <div class="container left">
+            <div class="content">
+                <h2>¿Cómo puedo retirar en Tienda un producto que compré en la web?</h2>
+                <p>Posterior y luego de confirmar el pedido,
+                    tienes 5 días hábiles para acercarte a nuestra sucursal designada para la entrega de tus productos. 
+                    En caso posterior a los 5 días, no pudiste retirar, procederemos a anular tu pedido, haciendo devolución del pago realizado.</p>   
+                <img src="{% static 'images/ayuda/devolu'%}.jpg" alt="" width="30%" height="30%"  > 
+            </div>
+        </div>
+        <div class="container left">
+            <div class="content">
+                <h2>¿En qué días y en qué horario podría llegar mi pedido?</h2>
+                <p><p>Los horarios de entrega de tu pedido se realizan de lunes a viernes, desde las 8:30 a las 18:00 horas, y sábado, desde las 8:30 a las 13:00 horas, sin contar feriados ni festivos.</p>
+                <img src="{% static 'images/ayuda/reloj'%}.png" alt="" width="30%" height="10%"  >
+            </div>
+        </div>
+    </div>
                         
 
 {% endblock contenido %}  
